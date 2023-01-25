@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,15 +38,15 @@
               <h3>Sign-in to <strong>San Juan National High School - Information System</strong></h3>
               <p class="mb-4">Provide necessary information to start your session.</p>
             </div>
-            <form action="admin_login.php" method="post">
+            <form action="admin_login.php" method="POST">
               <div class="form-group first">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" name="username" id="username">
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" password="password" id="password">
                 
               </div>
               
