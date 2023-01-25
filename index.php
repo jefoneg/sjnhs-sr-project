@@ -35,7 +35,7 @@
               <h3>Sign-in to <strong>San Juan National High School - Information System</strong></h3>
               <p class="mb-4">Provide necessary information to start your session.</p>
             </div>
-            <form action="#" method="post">
+            <form action="admin_login.php" method="post">
               <div class="form-group first">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username">
