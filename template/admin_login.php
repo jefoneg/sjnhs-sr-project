@@ -1,8 +1,8 @@
 <?php     
     session_start(); 
     include('conn.php');
-    $administrators_username = $_POST['username'];
-    $administrator_password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
   
         $username = stripcslashes($username);  
         $password = stripcslashes($password);  
@@ -18,11 +18,11 @@
             $_SESSION['username'] = $username; 
             $_SESSION['password']= $password;
             $_SESSION['success']= 'You have successfully logged in!';
-            header('location: dashboard.php');
+            header('location:');
         }  
         else{  
             $_SESSION['warning'] = "Invalid email and password!";
-            header('location: sign-in.php'); 
-        }     
+            header('location:'); 
+        }
 
 ?>
