@@ -37,6 +37,12 @@
               <div class="mb-4">
               <h3>Sign-in to <strong>San Juan National High School - Information System</strong></h3>
               <p class="mb-4">Provide necessary information to start your session.</p>
+              <?php
+                if(isset($_SESSION['warning'])){
+                echo "<div class='alert alert-warning text-center'>".$_SESSION['warning']."</div>";
+                session_destroy();
+                } 
+                ?>
             </div>
             <form action="admin_login.php" method="POST">
               <div class="form-group first">
@@ -46,7 +52,7 @@
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" password="password" id="password">
+                <input type="password" class="form-control" name="password" id="password">
                 
               </div>
               

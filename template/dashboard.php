@@ -1,10 +1,4 @@
-<?php session_start();
-
-  if(!isset($_SESSION['email'])){
-    header('location:index.php');
-  }
-
- ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -171,6 +165,16 @@
                                 </tr>
                               </thead>
                                   <tbody>
+                                    <?php 
+                                      include('../template/conn.php');
+                                      $sql="SELECT * FROM user";
+                                      $runsql=mysqli_query($conn,$sql);
+                                      $row=mysqli_fetch_array($runsql);
+                                    ?>
+                                    <td style="text-align: center;"><?php echo ucwords($row['image']); ?></td>
+                                    <td style="text-align: center;"><?php echo ucwords($row['firstname']); ?></td>
+                                    <td style="text-align: center;"><?php echo ucwords($row['lastname']); ?></td>
+                                    <td style="text-align: center;"><?php echo ucwords($row['position']); ?></td>
                                   </tbody>
                                </table>
                             </div>
