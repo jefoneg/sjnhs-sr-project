@@ -1,22 +1,22 @@
 <?php     
     session_start(); 
-    include('connection.php');
-    $administrators_username = $_POST['administrators_username'];
-    $administrator_password = $_POST['administrators_password'];
+    include('conn.php');
+    $administrators_username = $_POST['username'];
+    $administrator_password = $_POST['password'];
   
-        $administrators_username = stripcslashes($administrators_username);  
-        $administrators_password = stripcslashes($administrators_password);  
-        $administrators_username = mysqli_real_escape_string($con, $administrators_username);  
-        $administrators_password = mysqli_real_escape_string($con, $administrators_password);  
+        $username = stripcslashes($username);  
+        $password = stripcslashes($password);  
+        $username = mysqli_real_escape_string($con, $username);  
+        $password = mysqli_real_escape_string($con, $password);  
       
-        $sql = " SELECT * FROM administrators_tbl WHERE administrators_username = '$administrators_username' AND administrators_password = '$administrators_password'";  
+        $sql = " SELECT * FROM users WHERE username = '$username' AND password = '$password'";  
         $result = mysqli_query($con, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);  
           
         if($count == 1){  
-            $_SESSION['administrators_username'] = $administrators_username; 
-            $_SESSION['administrators_password']= $administrators_password;
+            $_SESSION['username'] = $username; 
+            $_SESSION['password']= $password;
             $_SESSION['success']= 'You have successfully logged in!';
             header('location: dashboard.php');
         }  
