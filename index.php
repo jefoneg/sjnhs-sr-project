@@ -16,7 +16,9 @@
     <!-- Style -->
     <link rel="stylesheet" href="./template/index-sources/css/style.css">
 
-    <title>Login #8</title>
+    <link rel="icon" href="./template/images/sjnhs_logo.png">
+
+    <title>SJNHS - IS</title>
   </head>
   <body>
   
