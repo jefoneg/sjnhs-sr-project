@@ -19,11 +19,11 @@
             $_SESSION['username'] = $username; 
             $_SESSION['password']= $password;
             $_SESSION['success']= 'You have successfully logged in!';
-            header('location:index.html');
+            header('location: index.html');
         }  
         else{  
             $_SESSION['warning'] = "Invalid email and password!";
-            header('location:'); 
+            header('location: admin_login.php'); 
         }
 
 ?>
