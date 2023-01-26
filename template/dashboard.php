@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
+
+  if(!isset($_SESSION['admfname'])){
+    header('location:index.php');
+  }
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,8 +64,9 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+                <p class="mb-1 mt-3 font-weight-semibold">
+                </p>
+                <p class="fw-light text-muted mb-0"><?php echo ucwords($_SESSION['admfname'].' '.$_SESSION['admlname']); ?></p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-calendar-check-outline text-primary me-2"></i> Activity</a>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>

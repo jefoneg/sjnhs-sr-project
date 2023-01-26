@@ -24,10 +24,11 @@
         $countadmin = mysqli_num_rows($resultadmin);
         $countteacher = mysqli_num_rows($resultteacher);  
         $countstaff = mysqli_num_rows($resultstaff);    
+
           
         if($countadmin == 1){  
-            $_SESSION['username'] = $username; 
-            $_SESSION['password']= $password;
+            $_SESSION['admfname'] = $rowadmin['firstname']; 
+            $_SESSION['admlname']= $rowadmin['lastname'];
             $_SESSION['success']= 'You have successfully logged in!';
             header('location:template/dashboard.php');
         }
@@ -35,13 +36,13 @@
             $_SESSION['username'] = $username; 
             $_SESSION['password']= $password;
             $_SESSION['success']= 'You have successfully logged in!';
-            header('location:template/pages.html');
+            header('location:template/dashboard.php');
         } 
         else if($countstaff == 1){  
             $_SESSION['username'] = $username; 
             $_SESSION['password']= $password;
             $_SESSION['success']= 'You have successfully logged in!';
-            header('location:index.html');
+            header('location:template/dashboard.php');
         }
         else{  
             $_SESSION['warning'] = "Invalid username and password!";
