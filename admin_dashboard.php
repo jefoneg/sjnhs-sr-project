@@ -142,6 +142,7 @@
 									<th style="text-align: center;">First Name</th>
 									<th style="text-align: center;">Last Name</th>
 									<th style="text-align: center;">Status</th>
+									<th style="text-align: center;">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -155,6 +156,7 @@
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
+									<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
 								</tr>
 								<?php } ?>
 							</tbody>
