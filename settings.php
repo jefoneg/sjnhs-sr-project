@@ -139,66 +139,50 @@
 							        </div><!--//col-->
 						        </div><!--//row-->
 						    </div><!--//app-card-header-->
+                            <?php
+                                include('conn.php');
+                                $editprofile = mysqli_query($conn,"select * from user where firstname='".$_SESSION['admfname']."'");
+                                $editprofilerow = mysqli_fetch_array($editprofile);
+                            ?>
 						    <div class="app-card-body px-4 w-100">
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label mb-2"><strong>Photo</strong></div>
-										    <div class="item-data"><img class="profile-image" src="assets/images/user.png" alt=""></div>
+										    <div class="item-data"><img class="profile-image" src="<?php echo $editprofilerow['image']; ?>" alt=""></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Name</strong></div>
-									        <div class="item-data">James Doe</div>
+										    <div class="item-label"><strong>First Name</strong></div>
+									        <div class="item-data"><?php echo ucwords($editprofilerow['firstname']); ?></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Email</strong></div>
-									        <div class="item-data">james.doe@website.com</div>
+										    <div class="item-label"><strong>Last Name</strong></div>
+									        <div class="item-data"><?php echo ucwords($editprofilerow['lastname']); ?></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
-							    <div class="item border-bottom py-3">
+                                <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Website</strong></div>
-									        <div class="item-data">
-										        https://johndoewebsite.com
-									        </div>
+										    <div class="item-label"><strong>Status</strong></div>
+									        <div class="item-data"><?php echo ucwords($editprofilerow['position']); ?></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
-							    </div><!--//item-->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><strong>Location</strong></div>
-									        <div class="item-data">
-										        New York
-									        </div>
-									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
-								    </div><!--//row-->
-							    </div><!--//item-->
+							    </div>
+							    <!--//item-->
+							    <!--//item-->
 						    </div><!--//app-card-body-->
 						    <div class="app-card-footer p-4 mt-auto">
 							   <a class="btn app-btn-secondary" href="#">Manage Profile</a>
@@ -229,33 +213,27 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Language </strong></div>
-									        <div class="item-data">English</div>
+									        <div class="item-data">English PH</div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Time Zone</strong></div>
-									        <div class="item-data">Central Standard Time (UTC-6)</div>
+									        <div class="item-data">Philippine Standard Time (UTC+8)</div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Currency</strong></div>
-									        <div class="item-data">$(US Dollars)</div>
+									        <div class="item-data">₱(Philippine Peso)</div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
@@ -264,20 +242,16 @@
 										    <div class="item-label"><strong>Email Subscription</strong></div>
 									        <div class="item-data">Off</div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 							    <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>SMS Notifications</strong></div>
-									        <div class="item-data">On</div>
+									        <div class="item-data">Off</div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
 						    </div><!--//app-card-body-->
@@ -311,77 +285,25 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Password</strong></div>
-									        <div class="item-data">••••••••</div>
+									        <div class="item-data"><?php echo ($editprofilerow['password']); ?></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Change</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
 							    </div><!--//item-->
-							    <div class="item border-bottom py-3">
+                                <div class="item border-bottom py-3">
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
-										    <div class="item-label"><strong>Two-Factor Authentication</strong></div>
-									        <div class="item-data">You haven't set up two-factor authentication. </div>
+										    <div class="item-label"><strong>Username</strong></div>
+									        <div class="item-data"><?php echo ($editprofilerow['username']); ?></div>
 									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Set up</a>
-									    </div><!--//col-->
+									    <!--//col-->
 								    </div><!--//row-->
-							    </div><!--//item-->
+							    </div>
+							    <!--//item-->
 						    </div><!--//app-card-body-->
 						    
 						    <div class="app-card-footer p-4 mt-auto">
 							   <a class="btn app-btn-secondary" href="#">Manage Security</a>
-						    </div><!--//app-card-footer-->
-						   
-						</div><!--//app-card-->
-	                </div>
-	                <div class="col-12 col-lg-6">
-		                <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
-						    <div class="app-card-header p-3 border-bottom-0">
-						        <div class="row align-items-center gx-3">
-							        <div class="col-auto">
-								        <div class="app-icon-holder">
-										    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
-  <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
-</svg>
-									    </div><!--//icon-holder-->
-						                
-							        </div><!--//col-->
-							        <div class="col-auto">
-								        <h4 class="app-card-title">Payment methods</h4>
-							        </div><!--//col-->
-						        </div><!--//row-->
-						    </div><!--//app-card-header-->
-						    <div class="app-card-body px-4 w-100">
-							    
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><i class="fab fa-cc-visa me-2"></i><strong>Credit/Debit Card </strong></div>
-									        <div class="item-data">1234*******5678</div>
-									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Edit</a>
-									    </div><!--//col-->
-								    </div><!--//row-->
-							    </div><!--//item-->
-							    <div class="item border-bottom py-3">
-								    <div class="row justify-content-between align-items-center">
-									    <div class="col-auto">
-										    <div class="item-label"><i class="fab fa-paypal me-2"></i><strong>PayPal</strong></div>
-									        <div class="item-data">Not connected</div>
-									    </div><!--//col-->
-									    <div class="col text-end">
-										    <a class="btn-sm app-btn-secondary" href="#">Connect</a>
-									    </div><!--//col-->
-								    </div><!--//row-->
-							    </div><!--//item-->
-						    </div><!--//app-card-body-->
-						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="#">Manage Payment</a>
 						    </div><!--//app-card-footer-->
 						   
 						</div><!--//app-card-->
@@ -394,7 +316,7 @@
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+            <small class="copyright">Bachelor of Science and Information Technology - Interns A.Y. 2022-2023 | Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</small>
 		       
 		    </div>
 	    </footer><!--//app-footer-->
