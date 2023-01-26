@@ -132,11 +132,29 @@
                           </div>
                           <div>
                             <p class="statistics-title">Faculty and Staff</p>
-                            <h3 class="rate-percentage">7,682</h3>
+                            <h3 class="rate-percentage">
+                              <?php 
+                                require 'conn.php';
+                                $countfaculty = "SELECT user_id FROM user ORDER BY user_id";
+                                $countfacultyres = mysqli_query($conn, $countfaculty);
+                                $facultyrow = mysqli_num_rows($countfacultyres);
+
+                                echo "$facultyrow";
+                              ?>
+                            </h3>
                           </div>
                           <div>
                             <p class="statistics-title">Admin</p>
-                            <h3 class="rate-percentage">68.8</h3>
+                            <h3 class="rate-percentage">
+                            <?php 
+                                require 'conn.php';
+                                $countadmin = "SELECT * FROM user WHERE position = 'admin' ORDER BY position;";
+                                $countadminres = mysqli_query($conn, $countadmin);
+                                $adminrow = mysqli_num_rows($countadminres);
+
+                                echo "$adminrow";
+                              ?>
+                            </h3>
                           </div>
                           <div class="d-none d-md-block">
                             <p class="statistics-title">Date Time</p>
