@@ -1,6 +1,6 @@
 <?php     
     session_start(); 
-    include('template/conn.php');
+    include('conn.php');
     $username = $_POST['username'];
     $password = $_POST['password'];
     $positionadmin = "admin";
@@ -30,7 +30,7 @@
             $_SESSION['admfname'] = $rowadmin['firstname']; 
             $_SESSION['admlname']= $rowadmin['lastname'];
             $_SESSION['success']= 'You have successfully logged in!';
-            header('location:template/dashboard.php');
+            header('location:admin_dashboard.php');
         }
         else if($countteacher == 1){  
             $_SESSION['username'] = $username; 

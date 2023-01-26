@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./template/index-sources/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="./assets/index-sources/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="./template/index-sources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/index-sources/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./template/index-sources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/index-sources/css/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="./template/index-sources/css/style.css">
+    <link rel="stylesheet" href="./assets/index-sources/css/style.css">
 
-    <link rel="icon" href="./template/images/sjnhs_logo.png">
+    <link rel="icon" href="assets/images/sjnhs_logo.png">
 
     <title>SJNHS - IS</title>
   </head>
@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 order-md-2">
-          <img src="./template/index-sources/images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+          <img src="./assets/index-sources/images/High-School.svg" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6 contents">
           <div class="row justify-content-center">
@@ -73,9 +73,9 @@
   </div>
 
   
-    <script src="./template/index-sources/js/jquery-3.3.1.min.js"></script>
-    <script src="./template/index-sources/js/popper.min.js"></script>
-    <script src="./template/index-sources/js/bootstrap.min.js"></script>
-    <script src="./template/index-sources/js/main.js"></script>
+    <script src="./assets/index-sources/js/jquery-3.3.1.min.js"></script>
+    <script src="./assets/index-sources/js/popper.min.js"></script>
+    <script src="./assets/index-sources/js/bootstrap.min.js"></script>
+    <script src="./assets/index-sources/js/main.js"></script>
   </body>
 </html>
