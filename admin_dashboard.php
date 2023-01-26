@@ -145,12 +145,18 @@
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									include('conn.php');
+									$fetchdata = mysqli_query($conn,"select * from user");
+									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+								?>
   								<tr>
-									<td style="text-align: center;">Null</td>
-									<td style="text-align: center;">Null</td>
-									<td style="text-align: center;">Null</td>
-									<td style="text-align: center;">Null</td>
+									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
+									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
+									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
+									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
 								</tr>
+								<?php } ?>
 							</tbody>
 						</table>
 				    </div><!--//app-card-body-->
