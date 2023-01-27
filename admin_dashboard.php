@@ -3,7 +3,6 @@
   if(!isset($_SESSION['admfname'])){
     header('location:index.php');
   }
-
  ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -14,6 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="300;url=logout.php" />
       
     <link rel="icon" type="image/png" sizes="48x48" href="assets/images/sjnhs_logo.png">
     
@@ -25,6 +25,7 @@
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 	<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
 
 </head> 
 
@@ -40,9 +41,7 @@
 						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
 					    </a>
 				    </div><!--//col-->
-		            <div class="search-mobile-trigger d-sm-none col">
-			            <i class="search-mobile-trigger-icon fas fa-search"></i>
-			        </div><!--//col-->
+		            <!--//col-->
 		            
 		            <div class="app-utilities col-auto">
 			            <!--//app-utility-item-->
@@ -136,32 +135,35 @@
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
-					    <table id="example" class="table table-sm">
-							<thead>
-								<tr>
-									<th style="text-align: center;">Image</th>
-									<th style="text-align: center;">First Name</th>
-									<th style="text-align: center;">Last Name</th>
-									<th style="text-align: center;">Status</th>
-									<th style="text-align: center;">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-									include('conn.php');
-									$fetchdata = mysqli_query($conn,"select * from user");
-									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
-								?>
-  								<tr>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
-									<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-								</tr>
-								<?php } ?>
-							</tbody>
-						</table>
+						<div class="table-responsive">
+							<table id="example" class="table table-sm table-hover dt-responsive display nowrap">
+								<thead>
+									<tr>
+										<th style="text-align: center;">Image</th>
+										<th style="text-align: center;">First Name</th>
+										<th style="text-align: center;">Last Name</th>
+										<th style="text-align: center;">Status</th>
+										<th style="text-align: center;">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+										include('conn.php');
+										$fetchdata = mysqli_query($conn,"select * from user");
+										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+									?>
+									<tr>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
+										<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+									</tr>
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+					    
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
@@ -173,7 +175,7 @@
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Bachelor of Science and Information Technology - Interns A.Y. 2022-2023 | Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</small>
+            <small class="copyright">Bachelor of Science in Information Technology - Interns A.Y. 2022-2023 | Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</small>
 		       
 		    </div>
 	    </footer><!--//app-footer-->
@@ -214,10 +216,18 @@ Swal.fire(
 	<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 	<script>
-		$(document).ready(function () {
-    $('#example').DataTable();
+$(document).ready(function () {
+    $('#example').DataTable({
+        scrollX: false,
+    });
 });
 	</script>
+	<style>
+		div.dataTables_wrapper {
+        width: auto;
+        margin: 0 auto;
+    }
+	</style>
 </body>
 </html> 
 
