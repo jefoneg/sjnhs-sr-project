@@ -143,7 +143,7 @@
 										<th style="text-align: center;">First Name</th>
 										<th style="text-align: center;">Last Name</th>
 										<th style="text-align: center;">Section</th>
-                                        <th style="text-align: center;">Teacher in-charge</th>
+                                        <th style="text-align: center;">Adviser</th>
 										<th style="text-align: center;">Action</th>
 									</tr>
 								</thead>
