@@ -19,7 +19,7 @@
 
     <link rel="icon" href="assets/images/sjnhs_logo.png">
 
-    <title>SJNHS - IS</title>
+    <title>SJNHS - IS | Reset Password</title>
   </head>
   <body>
   
@@ -29,40 +29,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 order-md-2">
-          <img src="./assets/index-sources/images/High-School.svg" alt="Image" class="img-fluid">
+          <img src="./assets/images/Forget-Password.svg" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Sign-in to <strong>San Juan National High School - Information System</strong></h3>
-              <p class="mb-4">Provide necessary information to start your session.</p>
-              <?php
-                if(isset($_SESSION['warning'])){
-                echo "<div class='alert alert-warning text-center'>".$_SESSION['warning']."</div>";
-                session_destroy();
-                } 
-                ?>
+              <h3>Reset your password to <strong>San Juan National High School - Information System</strong></h3>
+              <p class="mb-4">Contact your school administrator to reset your password.</p>
             </div>
-            <form action="admin_login.php" method="POST">
-              <div class="form-group first">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username">
-
-              </div>
-              <div class="form-group last mb-4">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
-                
-              </div>
               
-              <div class="d-flex mb-5 align-items-center">
-                <span class="ml-auto"><a href="reset-password.php" class="forgot-pass">Forgot Password</a></span> 
-              </div>
-
-              <input type="submit" value="Log In" class="btn text-white btn-block btn-primary">
+			<div class="auth-option text-center pt-5">Already have an account? <a class="text-link" href="index.php" >Log in</a></div>
               
-            </form>
             </div>
           </div>
           

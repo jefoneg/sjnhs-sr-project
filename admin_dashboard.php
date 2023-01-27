@@ -1,9 +1,8 @@
 <?php session_start();
 
-  if(!isset($_SESSION['admfname'])){
+  if(!isset($_SESSION['admusername'])){
     header('location:index.php');
   }
-
  ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -14,6 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="300;url=logout.php" />
       
     <link rel="icon" type="image/png" sizes="48x48" href="assets/images/sjnhs_logo.png">
     
@@ -25,6 +25,7 @@
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 	<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
 
 </head> 
 
@@ -40,9 +41,7 @@
 						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
 					    </a>
 				    </div><!--//col-->
-		            <div class="search-mobile-trigger d-sm-none col">
-			            <i class="search-mobile-trigger-icon fas fa-search"></i>
-			        </div><!--//col-->
+		            <!--//col-->
 		            
 		            <div class="app-utilities col-auto">
 			            <!--//app-utility-item-->
@@ -59,7 +58,7 @@
 			            <div class="app-utility-item app-user-dropdown dropdown">
 				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-								<li><a class="dropdown-item" href="account.html">Account</a></li>
+								<li><a class="dropdown-item" href="settings.php">Account</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 							</ul>
@@ -91,7 +90,19 @@
 						         </span>
 		                         <span class="nav-link-text">Overview</span>
 					        </a><!--//nav-link-->
-					    </li><!--//nav-item-->				    
+					    </li><!--//nav-item-->	
+						<li class="nav-item">
+					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+					        <a class="nav-link" href="teacher_dashboard_admin.php">
+						        <span class="nav-icon">
+						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
+  <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
+</svg>
+						         </span>
+		                         <span class="nav-link-text">Teacher's Dashboard</span>
+					        </a><!--//nav-link-->
+					    </li>			    
 				    </ul><!--//app-menu-->
 			    </nav><!--//app-nav-->
 			    <div class="app-sidepanel-footer">
@@ -161,26 +172,18 @@
 								<?php
 									include('conn.php');
 									$fetchdata = mysqli_query($conn,"select * from user");
-									while($rowfetchdata = mysqli_fetch_array($fetchdata)){		
+									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
 								?>
   								<tr>
-								 <?php include('adminfunction.php'); ?>
-								 <?php include('add_faculty_modal.php'); ?>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
-									<td style="text-align: center;">
-                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $erowfetchdata['id']; ?>">Edit</i></button>
-                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $erowfetchdata['id']; ?>">Delete</i></button>
-									 <?php } ?>
-                                	  </td>
-
+									<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
 								</tr>
-								
+								<?php } ?>
 							</tbody>
 						</table>
-						
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
@@ -193,7 +196,7 @@
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Bachelor of Science and Information Technology - Interns A.Y. 2022-2023 | Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</small>
+            <small class="copyright">Bachelor of Science in Information Technology - Interns A.Y. 2022-2023 | Copyright © <script>document.write(new Date().getFullYear())</script>. All rights reserved.</small>
 		       
 		    </div>
 	    </footer><!--//app-footer-->
@@ -234,9 +237,24 @@ Swal.fire(
 	<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 	<script>
-		$(document).ready(function () {
-    $('#example').DataTable();
+$(document).ready(function () {
+    $('#example').DataTable({
+        scrollX: false,
+    });
 });
+	</script>
+	<style>
+		div.dataTables_wrapper {
+        width: auto;
+        margin: 0 auto;
+    }
+	</style>
+	<script>
+	window.onbeforeunload = popup;
+
+	function popup() {
+	return 'I see you are leaving the site';
+	}
 	</script>
 </body>
 </html> 
