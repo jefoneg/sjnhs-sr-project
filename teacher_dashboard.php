@@ -230,6 +230,13 @@ $(document).ready(function () {
         margin: 0 auto;
     }
 	</style>
+	<script>
+	window.onbeforeunload = popup;
+
+	function popup() {
+	return 'I see you are leaving the site';
+	}
+	</script>
 </body>
 </html> 
 
