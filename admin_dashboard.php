@@ -123,7 +123,18 @@
 		    <div class="container-xl">
 			    
 			    <h1 class="app-page-title">Overview</h1>
-			    
+				<div class="row">
+                      <div class="col-lg-12 d-flex flex-column">
+                        <div class="row flex-grow">
+                          <div class="col-12 grid-margin stretch-card">
+                            <div class="card card-rounded">
+                              <div class="card-body">
+                              <div style="text-align: right;">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewfaculty">
+                                  Add Faculty
+                                </button>
+
+                              </div>
 			    <!--//app-card-->
 			    <div class="app-card app-card-notification shadow-sm mb-4">
 				    <div class="app-card-header px-4 py-3">
@@ -150,24 +161,33 @@
 								<?php
 									include('conn.php');
 									$fetchdata = mysqli_query($conn,"select * from user");
-									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+									while($rowfetchdata = mysqli_fetch_array($fetchdata)){		
 								?>
   								<tr>
+								 <?php include('adminfunction.php'); ?>
+								 <?php include('add_faculty_modal.php'); ?>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
-									<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+									<td style="text-align: center;">
+                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $erowfetchdata['id']; ?>">Edit</i></button>
+                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $erowfetchdata['id']; ?>">Delete</i></button>
+									 <?php } ?>
+                                	  </td>
+
 								</tr>
-								<?php } ?>
+								
 							</tbody>
 						</table>
+						
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
 			    <!--//row-->
-			    
+				
 		    </div><!--//container-fluid-->
+			
 	    </div><!--//app-content-->
 	    
 	    <footer class="app-footer">
