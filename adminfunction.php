@@ -63,7 +63,8 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Profile Image</label>
-                        <input class="form-control" type="file" name="image" value="<?php echo $erowfetchdata['image']; ?>">
+                        <div class="item-data"><?php echo '<img src="assets/images/users/'.$erowfetchdata['image'].'" class="profile-image img-profile rounded-circle" alt="image" width="100px" height="100px">' ?></div>
+                        <input class="form-control" type="file"name="userfile" accept=".png, .jpg, .jpeg"value="<?php echo $erowfetchdata['image']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
