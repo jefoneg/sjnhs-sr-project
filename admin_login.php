@@ -3,7 +3,7 @@
     include('conn.php');
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $positionadmin = "admin";
+    $positionadmin = "administrator";
     $positionteacher = "teacher";
     $positionstaff = "staff";
   
@@ -37,6 +37,7 @@
             $_SESSION['admusername'] = $rowadmin['username'];
             $_SESSION['admfname'] = $rowadmin['firstname']; 
             $_SESSION['admlname']= $rowadmin['lastname'];
+            $_SESSION['admprofile']= $rowadmin['image'];
             $_SESSION['prompt'] = "Welcome!";
             $_SESSION['success'] = "You have successfully logged in, " . ucwords($_SESSION['admusername']) . "!";
             header('location:admin_dashboard.php');

@@ -56,7 +56,7 @@
 					    </div><!--//app-utility-item-->
 			            
 			            <div class="app-utility-item app-user-dropdown dropdown">
-				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
+				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img class="img-profile rounded-circle" src="assets/images/users/<?php echo $_SESSION['admprofile'];?>" alt="user profile" width="70px" height="70px"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
 								<li><a class="dropdown-item" href="settings.php">Account</a></li>
 								<li><hr class="dropdown-divider"></li>
@@ -168,7 +168,7 @@
 									?>
 									<tr>
 									<?php include('adminfunction.php');?>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
+										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>

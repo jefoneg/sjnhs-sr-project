@@ -59,6 +59,7 @@
                         <input class="form-control" type="file" name="image" id="formFile" value="<?php echo $erowfetchdata['image']; ?>">
                       </div>
                     </div>
+                    <div style="height:10px;"></div>
                     <h5 class="modal-title">Adviser</h5>    
                     <div class="row">
                     <div class="col-sm-6">

@@ -63,13 +63,14 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Profile Image</label>
-                        <input class="form-control" type="file" name="image" id="formFile" value="<?php echo $erowfetchdata['image']; ?>">
+                        <input class="form-control" type="file" name="image" value="<?php echo $erowfetchdata['image']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Position</label>
                       <select class="form-control form-select form-select-sm" style="text-transform: capitalize;" aria-label=".form-select-sm example" name="position">
                       <option value=""><?php echo $erowfetchdata['position']; ?></option>
+                      <option value="Administrator">Administrator</option>
                       <option value="Staff">Staff</option>
                       <option value="Teacher">Teacher</option>
                       </select>

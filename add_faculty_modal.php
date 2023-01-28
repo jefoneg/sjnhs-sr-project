@@ -6,7 +6,7 @@
                 </div>
                 <div class="modal-body">
 				<div class="container-fluid">
-				<form method="POST" action="addfaculty.php">
+				<form enctype="multipart/form-data" action="addfaculty.php" method="POST">
 					<div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -37,15 +37,17 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                         <label>Profile Image</label>
-                        <input class="form-control" type="file" name="image" id="formFile">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg">
                       </div>
                     </div>
                       <div class="col-sm-6">
                       <label>Position</label>
                       <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="position">
-						<option value="">Select Option</option>
-                        <option value="Staff">Staff</option>
-						<option value="Teacher">Teacher</option>
+                      <option value="">Select Option</option>
+                      <option value="Administrator">Administrator</option>
+                      <option value="Staff">Staff</option>
+                      <option value="Teacher">Teacher</option>
 						</select>
                       </div>
                     </div>
