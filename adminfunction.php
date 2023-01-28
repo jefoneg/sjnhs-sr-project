@@ -1,4 +1,4 @@
-<div class="modal fade" id="deletefaculty<?php echo $rowfetchdata['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deletefaculty<?php echo $rowfetchdata['user_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 	  <?php include('conn.php');
-			$fetchdata = mysqli_query($conn,"select * from user where id='".$rowfetchdata['id']."'");
+			$fetchdata = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
 			$delrowfetchdata= mysqli_fetch_array($fetchdata);
 		?>
       <div class="modal-body">
@@ -16,12 +16,12 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="delete.php?id=<?php echo $delrowfetchdata['id']; ?>" class="btn btn-danger">Delete</a>
+        <a href="delete.php?id=<?php echo $delrowfetchdata['user_id']; ?>" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="updatefaculty<?php echo $rowfetchdata['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatefaculty<?php echo $rowfetchdata['user_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -30,10 +30,10 @@
       </div>
       <div class="modal-body">
 		<?php 
-			$fetchdata = mysqli_query($conn,"select * from user where id='".$rowfetchdata['id']."'");
+			$fetchdata = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
 			$erowfetchdata = mysqli_fetch_array($fetchdata);
 		?> 
-      <form role="form" action="update.php?id=<?php echo $erowfetchdata['id']; ?>" method="POST" enctype="multipart/form-data">
+      <form role="form" action="update.php?user_id=<?php echo $erowfetchdata['user_id']; ?>" method="POST" enctype="multipart/form-data">
                      <div class="form-group">
 									  <label for="exampleInputFirstname">Image</label>
 									  <input type="text" class="form-control" name="image" value="<?php echo $erowfetchdata['image']; ?>">

@@ -175,20 +175,23 @@
 									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
 								?>
   								<tr>
+									<?php include('adminfunction.php');?>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
-									<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
-								</tr>
-								<?php } ?>
+									<td style="text-align: center;">
+                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $erowfetchdata['user_id']; ?>">Edit</i></button>
+                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $erowfetchdata['user_id']; ?>">Delete</i></button>
+                                	  </td>
+									  <?php } ?>
 							</tbody>
 						</table>
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
 			    <!--//row-->
-				
+				<?php include('add_faculty_modal.php');?>
 		    </div><!--//container-fluid-->
 			
 	    </div><!--//app-content-->
