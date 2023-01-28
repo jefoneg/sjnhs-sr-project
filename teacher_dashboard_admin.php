@@ -143,6 +143,9 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
+								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent">
+                                  Add Student
+                                </button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
@@ -166,12 +169,16 @@
 										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
 									?>
 									<tr>
+										<?php include('studentfunction.php'); ?>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
                                         <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname']); ?></td>
-										<td style="text-align: center;"><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td>
+										<td style="text-align: center;">
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['student_id']; ?>">Edit</i></button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['student_id']; ?>">Delete</i></button>
+										</td>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -182,7 +189,7 @@
 				    <!--//app-card-footer-->
 				</div><!--//row-->
 			    <!--//row-->
-			    
+			    <?php include('add_student_modal.php'); ?>
 		    </div><!--//container-fluid-->
 	    </div><!--//app-content-->
 	    

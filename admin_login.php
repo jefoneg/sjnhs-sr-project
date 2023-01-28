@@ -3,7 +3,7 @@
     include('conn.php');
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $positionadmin = "administrator";
+    $positionadmin = "admin";
     $positionteacher = "teacher";
     $positionstaff = "staff";
   
