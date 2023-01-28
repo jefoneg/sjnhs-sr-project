@@ -142,7 +142,7 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Faculty and Staff</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewfaculty">
+								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewfaculty"><i class="fas fa-user-plus"></i>
                                   Add Faculty
                                 </button>
 					        </div><!--//col-->
@@ -173,8 +173,8 @@
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
 										<td style="text-align: center;">
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>">Edit</i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>">Delete</i></button>
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-edit"></i></button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-trash-alt"></i></button>
 										</td>
 									</tr>
 										<?php } ?>
