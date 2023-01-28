@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('conn.php');
+$id=$_GET['id'];
+
 
 $image = $_POST['image'];
 $firstname = $_POST['firstname'];
@@ -8,11 +11,9 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $position = $_POST['position'];
 
-
-$query = "INSERT INTO user (firstname,lastname,username,password,position,image) VALUES ('$firstname','$lastname','$username','$password','$position','$image')";
-mysqli_query($conn,$query);
+$qry = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password', position = '$position', image = '$image' WHERE user_id = '$id'";
+mysqli_query($conn,$qry);
 $_SESSION['prompt'] = "Alert!";
-$_SESSION['success'] = "Sucessfully added!";
-
+$_SESSION['success'] = "Faculty Updated!";
 header('location: admin_dashboard.php');
 ?>

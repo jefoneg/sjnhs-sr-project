@@ -47,12 +47,12 @@
             <form action="admin_login.php" method="POST">
               <div class="form-group first">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username">
+                <input type="text" class="form-control" name="username" id="username" required>
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
+                <input type="password" class="form-control" name="password" id="password" required>
                 
               </div>
               

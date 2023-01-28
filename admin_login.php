@@ -3,7 +3,7 @@
     include('conn.php');
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $positionadmin = "admin";
+    $positionadmin = "administrator";
     $positionteacher = "teacher";
     $positionstaff = "staff";
   
@@ -14,6 +14,9 @@
         stripcslashes($positionadmin);
         stripcslashes($positionteacher);
         stripcslashes($positionstaff);  
+        mysqli_real_escape_string($conn, $positionadmin);  
+        mysqli_real_escape_string($conn, $positionteacher);  
+        mysqli_real_escape_string($conn, $positionstaff);  
         
       
         $sqladmin = " SELECT * FROM user WHERE username = '$username' AND password = '$password' AND position = '$positionadmin'";
@@ -34,6 +37,7 @@
             $_SESSION['admusername'] = $rowadmin['username'];
             $_SESSION['admfname'] = $rowadmin['firstname']; 
             $_SESSION['admlname']= $rowadmin['lastname'];
+            $_SESSION['prompt'] = "Welcome!";
             $_SESSION['success'] = "You have successfully logged in, " . ucwords($_SESSION['admusername']) . "!";
             header('location:admin_dashboard.php');
         }
@@ -41,12 +45,14 @@
             $_SESSION['teacherusername'] = $rowteacher['username']; 
             $_SESSION['teacherfname'] = $rowteacher['firstname']; 
             $_SESSION['teacherlname']= $rowteacher['lastname'];
+            $_SESSION['prompt'] = "Welcome!";
             $_SESSION['success'] = "You have successfully logged in, " . ucwords($_SESSION['teacherusername']) . "!";
             header('location:teacher_dashboard.php');
         } 
         else if($countstaff == 1){  
             $_SESSION['username'] = $username; 
             $_SESSION['password']= $password;
+            $_SESSION['prompt'] = "Welcome!";
             $_SESSION['success']= 'You have successfully logged in!';
             header('location:template/dashboard.php');
         }

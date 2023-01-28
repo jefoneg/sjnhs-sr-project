@@ -134,18 +134,6 @@
 		    <div class="container-xl">
 			    
 			    <h1 class="app-page-title">Overview</h1>
-				<div class="row">
-                      <div class="col-lg-12 d-flex flex-column">
-                        <div class="row flex-grow">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                              <div style="text-align: right;">
-                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnewfaculty">
-                                  Add Faculty
-                                </button>
-
-                              </div>
 			    <!--//app-card-->
 			    <div class="app-card app-card-notification shadow-sm mb-4">
 				    <div class="app-card-header px-4 py-3">
@@ -154,39 +142,45 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Faculty and Staff</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
+								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewfaculty">
+                                  Add Faculty
+                                </button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
-					    <table id="example" class="table table-sm">
-							<thead>
-								<tr>
-									<th style="text-align: center;">Image</th>
-									<th style="text-align: center;">First Name</th>
-									<th style="text-align: center;">Last Name</th>
-									<th style="text-align: center;">Status</th>
-									<th style="text-align: center;">Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php
-									include('conn.php');
-									$fetchdata = mysqli_query($conn,"select * from user");
-									while($rowfetchdata = mysqli_fetch_array($fetchdata)){
-								?>
-  								<tr>
+						<div class="table-responsive">
+							<table id="example" class="table table-sm">
+								<thead>
+									<tr>
+										<th style="text-align: center;">Image</th>
+										<th style="text-align: center;">First Name</th>
+										<th style="text-align: center;">Last Name</th>
+										<th style="text-align: center;">Status</th>
+										<th style="text-align: center;">Action</th>
+									</tr>
+								</thead>
+								<tbody>										
+									<?php
+										include('conn.php');
+										$fetchdata = mysqli_query($conn,"select * from user");
+										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+									?>
+									<tr>
 									<?php include('adminfunction.php');?>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-									<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
-									<td style="text-align: center;">
-                                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $erowfetchdata['user_id']; ?>">Edit</i></button>
-                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $erowfetchdata['user_id']; ?>">Delete</i></button>
-                                	  </td>
-									  <?php } ?>
-							</tbody>
-						</table>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
+										<td style="text-align: center;">
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>">Edit</i></button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>">Delete</i></button>
+										</td>
+									</tr>
+										<?php } ?>
+								</tbody>
+							</table>
+						</div>
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
@@ -224,7 +218,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
     {
         ?>
 Swal.fire(
-  'Welcome! ',
+  '<?php echo $_SESSION['prompt']; ?>',
   '<?php echo $_SESSION['success']; ?>',
   'success'
 )
@@ -252,13 +246,6 @@ $(document).ready(function () {
         margin: 0 auto;
     }
 	</style>
-	<script>
-	window.onbeforeunload = popup;
-
-	function popup() {
-	return 'I see you are leaving the site';
-	}
-	</script>
 </body>
 </html> 
 

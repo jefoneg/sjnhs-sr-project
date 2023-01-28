@@ -6,8 +6,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 	  <?php include('conn.php');
-			$fetchdata = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
-			$delrowfetchdata= mysqli_fetch_array($fetchdata);
+			$delrow = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
+			$delrowfetchdata= mysqli_fetch_array($delrow);
 		?>
       <div class="modal-body">
 		<div>
@@ -16,43 +16,76 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="delete.php?id=<?php echo $delrowfetchdata['user_id']; ?>" class="btn btn-danger">Delete</a>
+        <a href="admin_delete.php?id=<?php echo $delrowfetchdata['user_id']; ?>" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="updatefaculty<?php echo $rowfetchdata['user_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatefaculty<?php echo $rowfetchdata['user_id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Faculty</h1>
       </div>
-      <div class="modal-body">
-		<?php 
-			$fetchdata = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
-			$erowfetchdata = mysqli_fetch_array($fetchdata);
-		?> 
-      <form role="form" action="update.php?user_id=<?php echo $erowfetchdata['user_id']; ?>" method="POST" enctype="multipart/form-data">
-                     <div class="form-group">
-									  <label for="exampleInputFirstname">Image</label>
-									  <input type="text" class="form-control" name="image" value="<?php echo $erowfetchdata['image']; ?>">
-									</div>
-									<div class="form-group">
-									  <label for="exampleInputFirstname">First Name</label>
-									  <input type="text" class="form-control" name="firstname" value="<?php echo $erowfetchdata['firstname']; ?>">
-									</div>
-									<div class="form-group">
-									  <label for="exampleInputLastname">Last Name</label>
-									  <input type="text" class="form-control" name="lastname" value="<?php echo $erowfetchdata['lastname']; ?>">
-									</div>
-                  <div class="form-group">
-									  <label for="exampleInputMI">Status</label>
-									  <input type="text" class="form-control" name="position" value="<?php echo $erowfetchdata['position']; ?>">
-									</div>
-									<button type="submit" name="submit" class="btn btn-primary me-2">Submit</button>
-								  </form>
-      </div>
+        <div class="modal-body">
+      <?php 
+        $editrow = mysqli_query($conn,"select * from user where user_id='".$rowfetchdata['user_id']."'");
+        $erowfetchdata = mysqli_fetch_array($editrow);
+      ?> 
+        <form role="form" action="admin_edit.php?id=<?php echo $erowfetchdata['user_id']; ?>" method="POST" enctype="multipart/form-data">
+              <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" value="<?php echo $erowfetchdata['firstname']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Last Name</label>
+                        <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="lastname" value="<?php echo $erowfetchdata['lastname']; ?>">
+                      </div>
+                  </div>
+                  <div style="height:10px;"></div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="username" value="<?php echo $erowfetchdata['username']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Password</label>
+                        <input type="password" id="serialnum" class="form-control" name="password" value="<?php echo $erowfetchdata['password']; ?>">
+                      </div>
+                  </div>
+                  <div style="height:10px;"></div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Profile Image</label>
+                        <input class="form-control" type="file" name="image" id="formFile" value="<?php echo $erowfetchdata['image']; ?>">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label>Position</label>
+                      <select class="form-control form-select form-select-sm" style="text-transform: capitalize;" aria-label=".form-select-sm example" name="position">
+                      <option value=""><?php echo $erowfetchdata['position']; ?></option>
+                      <option value="Staff">Staff</option>
+                      <option value="Teacher">Teacher</option>
+                      </select>
+                      </div>
+                  </div>
+					<div style="height:10px;"></div>
+          <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
+                                            <i class="fas fa-backspace"></i>
+                                        </span>Cancel</button>
+                    <button type="submit" class="btn btn-success"><span class="icon text-white-100">
+                                            <i class="fas fa-check"></i>
+                                        </span> Save</a>
+                </div>
+          </form>
+        </div>
     </div>
   </div>
 </div>
