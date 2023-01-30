@@ -17,14 +17,20 @@ $fetchgetuser = mysqli_fetch_array($rungetuser);
 $userfile = $_FILES['userfile']['name'];
 $olduserfiledir = "assets/images/users/".$fetchgetuser['image'];
 
-
+$uploaddir = 'assets/images/users/';
+$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
+    $qryimg = "UPDATE user SET image = '$userfile' WHERE user_id = '$id'";
+    mysqli_query($conn,$qryimg);
     unlink($olduserfiledir);
-}
-    $qry = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password', position = '$position', image = '$userfile' WHERE user_id = '$id'";
-    mysqli_query($conn,$qry);
     $_SESSION['prompt'] = "Alert!";
     $_SESSION['success'] = "Faculty Updated!";
     header('location: admin_dashboard.php');
+}
+$qry = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password', position = '$position' WHERE user_id = '$id'";
+mysqli_query($conn,$qry);
+$_SESSION['prompt'] = "Alert!";
+$_SESSION['success'] = "Faculty Updated!";
+header('location: admin_dashboard.php');
 
 ?>

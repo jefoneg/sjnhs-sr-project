@@ -64,16 +64,15 @@
                       <div class="form-group">
                         <label>Profile Image</label>
                         <div class="item-data"><?php echo '<img src="assets/images/users/'.$erowfetchdata['image'].'" class="profile-image img-profile rounded-circle" alt="image" width="100px" height="100px">' ?></div>
-                        <input class="form-control" type="file"name="userfile" accept=".png, .jpg, .jpeg"value="<?php echo $erowfetchdata['image']; ?>">
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg" value="<?php echo $erowfetchdata['image']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Position</label>
                       <select class="form-control form-select form-select-sm" style="text-transform: capitalize;" aria-label=".form-select-sm example" name="position">
-                      <option value=""><?php echo $erowfetchdata['position']; ?></option>
-                      <option value="Administrator">Administrator</option>
-                      <option value="Staff">Staff</option>
-                      <option value="Teacher">Teacher</option>
+                      <option value="Administrator" <?php if($erowfetchdata['position'] == "Administrator") echo "selected"; ?>>Administrator</option>
+                      <option value="Staff" <?php if($erowfetchdata['position'] == "Staff") echo "selected"; ?>>Staff</option>
+                      <option value="Teacher" <?php if($erowfetchdata['position'] == "Teacher") echo "selected"; ?>>Teacher</option>
                       </select>
                       </div>
                   </div>
