@@ -17,8 +17,7 @@ $fetchgetuser = mysqli_fetch_array($rungetuser);
 $userfile = $_FILES['userfile']['name'];
 $olduserfiledir = "assets/images/users/".$fetchgetuser['image'];
 
-$uploaddir = 'assets/images/users/';
-$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+
 if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
     unlink($olduserfiledir);
 }
