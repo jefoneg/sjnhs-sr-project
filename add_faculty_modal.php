@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label>Profile Image</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
-                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg">
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg" required>
                       </div>
                     </div>
                       <div class="col-sm-6">
