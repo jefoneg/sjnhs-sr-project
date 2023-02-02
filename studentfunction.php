@@ -11,7 +11,7 @@
 		?>
       <div class="modal-body">
 		<div>
-			<label>Are you sure to delete <strong><?php echo $delrowfetchdata['firstname']; ?></strong>?</label>
+			<label>Are you sure to delete <strong><?php echo ucwords($delrowfetchdata['firstname'].' '.$delrowfetchdata['lastname'].' '.$delrowfetchdata['section']); ?></strong>?</label>
 		</div>
       </div>
       <div class="modal-footer">
@@ -55,8 +55,9 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label>Profile Image</label>
-                        <input class="form-control" type="file" name="image" id="formFile" value="<?php echo $erowfetchdata['image']; ?>">
+                      <label>Profile Image</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg">
                       </div>
                     </div>
                     <div style="height:10px;"></div>

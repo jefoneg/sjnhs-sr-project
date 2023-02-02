@@ -3,7 +3,6 @@ session_start();
 include('conn.php');
 $id=$_GET['id'];
 
-
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $username = $_POST['username'];

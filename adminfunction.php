@@ -11,7 +11,7 @@
 		?>
       <div class="modal-body">
 		<div>
-			<label>Are you sure to delete <strong><?php echo $delrowfetchdata['firstname']; ?></strong>?</label>
+			<label>Are you sure to delete <strong><?php echo ucwords($delrowfetchdata['firstname'].' '.$delrowfetchdata['lastname']); ?></strong>?</label>
 		</div>
       </div>
       <div class="modal-footer">

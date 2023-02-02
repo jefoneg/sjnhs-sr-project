@@ -6,7 +6,7 @@
                 </div>
                 <div class="modal-body">
 				<div class="container-fluid">
-				<form method="POST" action="addstudent.php">
+				<form enctype="multipart/form-data" method="POST" action="addstudent.php">
 					<div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -28,8 +28,9 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
-                        <label>Profile Image</label>
-                        <input class="form-control" type="file" name="image" id="formFile">
+                    <label>Profile Image</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg">
                       </div>
                     </div>
                 <div style="height:10px;"></div>
@@ -38,12 +39,12 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                       <label>First Name</label>
-                        <input type="text" class="form-control" name="teacher_fname" placeholder="First name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First name">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" name="teacher_lname" placeholder="Last name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last name">
                       </div>
                     </div>
 					<div style="height:10px;"></div>

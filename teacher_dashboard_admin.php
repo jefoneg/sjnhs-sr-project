@@ -170,7 +170,7 @@
 									?>
 									<tr>
 										<?php include('studentfunction.php'); ?>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['image']); ?></td>
+										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
