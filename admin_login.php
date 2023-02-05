@@ -46,6 +46,8 @@
             $_SESSION['teacherusername'] = $rowteacher['username']; 
             $_SESSION['teacherfname'] = $rowteacher['firstname']; 
             $_SESSION['teacherlname']= $rowteacher['lastname'];
+            $_SESSION['teacherprofile']= $rowteacher['image'];
+            $_SESSION['tea']= $rowteacher['section'];
             $_SESSION['prompt'] = "Welcome!";
             $_SESSION['success'] = "You have successfully logged in, " . ucwords($_SESSION['teacherusername']) . "!";
             header('location:teacher_dashboard.php');

@@ -53,7 +53,7 @@
 					    </div><!--//app-utility-item-->
 			            
 			            <div class="app-utility-item app-user-dropdown dropdown">
-				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="assets/images/user.png" alt="user profile"></a>
+						<a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img class="img-profile rounded-circle" src="assets/images/users/<?php echo $_SESSION['teacherprofile'];?>" alt="user profile" width="70px" height="70px"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
 								<li><a class="dropdown-item" href="teacher_settings.php">Account</a></li>
 								<li><hr class="dropdown-divider"></li>
@@ -139,7 +139,7 @@
 						    </div><!--//app-card-header-->
                             <?php
                                 include('conn.php');
-                                $editprofile = mysqli_query($conn,"select * from user where firstname='".$_SESSION['teacherusername']."'");
+                                $editprofile = mysqli_query($conn,"select * from user where username='".$_SESSION['teacherusername']."'");
                                 $editprofilerow = mysqli_fetch_array($editprofile);
                             ?>
 						    <div class="app-card-body px-4 w-100">
@@ -147,7 +147,7 @@
 								    <div class="row justify-content-between align-items-center">
 									    <div class="col-auto">
 										    <div class="item-label mb-2"><strong>Photo</strong></div>
-										    <div class="item-data"><img class="profile-image" src="<?php echo $editprofilerow['image']; ?>" alt=""></div>
+											<div class="item-data"><?php echo '<img src="assets/images/users/'.$editprofilerow['image'].'" class="profile-image img-profile rounded-circle" alt="image" width="80px" height="80px">' ?></div>
 									    </div><!--//col-->
 									    <!--//col-->
 								    </div><!--//row-->

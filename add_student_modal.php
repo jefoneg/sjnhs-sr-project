@@ -24,7 +24,9 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Section</label>
-                        <input type="text" class="form-control" name="section" placeholder="Section">
+                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
+                          <option placeholder="" selected>Null</option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -39,12 +41,12 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                       <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First Name">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last Name">
                       </div>
                     </div>
 					<div style="height:10px;"></div>

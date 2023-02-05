@@ -156,6 +156,7 @@
 										<th style="text-align: center;">Image</th>
 										<th style="text-align: center;">First Name</th>
 										<th style="text-align: center;">Last Name</th>
+										<th style="text-align: center;">Section</th>
 										<th style="text-align: center;">Status</th>
 										<th style="text-align: center;">Action</th>
 									</tr>
@@ -171,6 +172,7 @@
 										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
 										<td style="text-align: center;">
 										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-edit"></i></button>

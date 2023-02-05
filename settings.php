@@ -151,7 +151,7 @@
 						    </div><!--//app-card-header-->
                             <?php
                                 include('conn.php');
-                                $editprofile = mysqli_query($conn,"select * from user where firstname='".$_SESSION['admusername']."'");
+                                $editprofile = mysqli_query($conn,"select * from user where username='".$_SESSION['admusername']."'");
                                 $editprofilerow = mysqli_fetch_array($editprofile);
                             ?>
 						    <div class="app-card-body px-4 w-100">

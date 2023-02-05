@@ -8,6 +8,7 @@ $lastname = $_POST['lastname'];
 $username = $_POST['username'];
 $password = $_POST['password'];
 $position = $_POST['position'];
+$section = $_POST['section'];
 
 $getuserindb = "select * from user where user_id = '$id'";
 $rungetuser = mysqli_query($conn,$getuserindb);
@@ -26,7 +27,7 @@ if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
     $_SESSION['success'] = "Faculty Updated!";
     header('location: admin_dashboard.php');
 }
-$qry = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password', position = '$position' WHERE user_id = '$id'";
+$qry = "UPDATE user SET firstname = '$firstname', lastname = '$lastname', username = '$username', password = '$password', position = '$position', section = '$section' WHERE user_id = '$id'";
 mysqli_query($conn,$qry);
 $_SESSION['prompt'] = "Alert!";
 $_SESSION['success'] = "Faculty Updated!";
