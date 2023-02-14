@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-unset($_SESSION['admfname']);
+$_SESSION['prompt'] = "Logout";
+$_SESSION['success'] = "Logging-out Successful!";
 session_destroy();
 header('location: index.php')
 

@@ -16,6 +16,7 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="./assets/index-sources/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
 
     <link rel="icon" href="assets/images/sjnhs_logo.png">
 
@@ -77,5 +78,24 @@
     <script src="./assets/index-sources/js/popper.min.js"></script>
     <script src="./assets/index-sources/js/bootstrap.min.js"></script>
     <script src="./assets/index-sources/js/main.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
+"></script>
+    <script>
+    <?php 
+    
+    if(isset($_SESSION['success']))
+    {
+        ?>
+Swal.fire(
+  'Welcome! ',
+  '<?php echo $_SESSION['success']; ?>',
+  'success'
+)
+        <?php 
+        unset($_SESSION['success']);
+    }
+
+?>  
   </body>
 </html>

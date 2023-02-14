@@ -5,8 +5,11 @@
 				<h5 class="modal-title">Add Student</h5>
                 </div>
                 <div class="modal-body">
+                  <?php 
+                      include('conn.php');
+                  ?>
 				<div class="container-fluid">
-				<form enctype="multipart/form-data" method="POST" action="addstudent.php">
+				<form enctype="multipart/form-data" method="POST" action="addstudentfortd.php">
 					<div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -25,14 +28,11 @@
                       <div class="form-group">
                         <label>Section</label>
                         <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
-                          <option placeholder="0" selected>Select Section</option>
                           <?php 
-                            include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM section");
-                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                            $fetchteacherinfo = mysqli_query($conn,"SELECT * FROM user WHERE lastname = '".$_SESSION['teacherlname']."' AND firstname = '".$_SESSION['teacherfname']."'");    
+                            $teacherinfo = mysqli_fetch_array($fetchteacherinfo);
                           ?>
-                          <option value="<?php echo $fetchsectioninfo['list_section']; ?>"><?php echo $fetchsectioninfo['list_section']; ?></option>
-                          <?php } ?>                         
+                          <option placeholder="<?php echo $teacherinfo['section'] ?>" selected ><?php echo $teacherinfo['section'] ?></option>
                         </select>
                       </div>
                     </div>
@@ -48,12 +48,12 @@
                     <div class="col-sm-6">
                     <div class="form-group">
                       <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First Name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" value="<?php echo $teacherinfo['firstname']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last Name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" value="<?php echo $teacherinfo['lastname']; ?>">
                       </div>
                     </div>
 					<div style="height:10px;"></div>
