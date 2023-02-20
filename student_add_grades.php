@@ -141,51 +141,32 @@
 				        <div class="row g-3 align-items-center">
 					        <!--//col-->
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
-						        <h4 class="notification-title mb-1">Students</h4>
-								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
-                                  Add Student
-                                </button>
+						        <h4 class="notification-title mb-1"> Student Grades</h4>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
-						<div class="table-responsive">
-							<table id="example" class="table table-sm table-hover dt-responsive display nowrap">
-								<thead>
-									<tr>
-										<th style="text-align: center;">Image</th>
-										<th style="text-align: center;">First Name</th>
-										<th style="text-align: center;">Last Name</th>
-										<th style="text-align: center;">Section</th>
-                                        <th style="text-align: center;">Adviser</th>
-										<th style="text-align: center;">Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-										include('conn.php');
-										$fetchdata = mysqli_query($conn,"SELECT * FROM student_tbl");
-										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
-									?>
-									<tr>
-										<?php include('studentfunction.php'); ?>
-										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
-                                        <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname']); ?></td>
-										<td style="text-align: center;">
-										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?id=<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-school"></i></a>
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-trash-alt"></i></button>
-										</td>
-									</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
-					    
+					    <?php 
+                            include 'conn.php';
+                            $id = $_GET['id'];
+                            $gradeqry = mysqli_query($conn,"SELECT * FROM student_tbl WHERE student_id='$id'");
+                            $gradeqryfetch = mysqli_fetch_array($gradeqry);
+                        ?>
+                        <form role="form">
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE</strong> 21st Century Literature from the Philippines and the World</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="First Semester" value="<?php echo $gradeqryfetch['century_literature']; ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="First Semester" value="<?php echo $gradeqryfetch['century_literature']; ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="General Average" value="<?php echo $gradeqryfetch['century_literature']; ?>">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" type="submit">Submit form</button>
+                            </form>
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->

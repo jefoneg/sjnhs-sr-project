@@ -30,19 +30,19 @@
         <div class="modal-body">
       <?php 
         $editrow = mysqli_query($conn,"select * from student_tbl where student_id='".$rowfetchdata['student_id']."'");
-        $erowfetchdata = mysqli_fetch_array($editrow);
+        $erowgradedata = mysqli_fetch_array($editrow);
       ?> 
-        <form role="form" action="student_edit.php?id=<?php echo $erowfetchdata['student_id']; ?>" method="POST" enctype="multipart/form-data">
+        <form role="form" action="student_edit.php?id=<?php echo $erowgradedata['student_id']; ?>" method="POST" enctype="multipart/form-data">
               <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" value="<?php echo $erowfetchdata['firstname']; ?>">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" value="<?php echo $erowgradedata['firstname']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" value="<?php echo $erowfetchdata['lastname']; ?>">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" value="<?php echo $erowgradedata['lastname']; ?>">
                       </div>
                   </div>
                   <div style="height:10px;"></div>
@@ -50,7 +50,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Section</label>
-                        <input type="text" class="form-control" name="section" value="<?php echo $erowfetchdata['section']; ?>">
+                        <input type="text" class="form-control" name="section" value="<?php echo $erowgradedata['section']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -66,12 +66,12 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" value="<?php echo $erowfetchdata['teacher_fname']; ?>">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" value="<?php echo $erowgradedata['teacher_fname']; ?>">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" value="<?php echo $erowfetchdata['teacher_lname']; ?>">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" value="<?php echo $erowgradedata['teacher_lname']; ?>">
                       </div>
                   </div>
 					<div style="height:10px;"></div>
