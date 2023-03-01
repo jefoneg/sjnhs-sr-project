@@ -160,73 +160,73 @@
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_mid_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_mid_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
                                 </div>
                             </div>
 							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Connumber</label>
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_final_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_final_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_final_ave">
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="kpwkp_mid_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="kpwkp_mid_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="kpwkp_mid_ave">
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="kpwkp_final_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="kpwkp_final_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="kpwkp_final_ave">
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="genmath_mid_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="genmath_mid_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="genmath_mid_ave">
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="genmath_final_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="genmath_final_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="genmath_final_ave">
                                 </div>
                             </div>
 							<div class="row">
