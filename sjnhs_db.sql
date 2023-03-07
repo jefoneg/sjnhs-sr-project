@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 22, 2023 at 02:58 AM
+-- Generation Time: Mar 07, 2023 at 05:48 AM
 -- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- PHP Version: 8.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,44 +54,62 @@ CREATE TABLE `student_tbl` (
   `section` varchar(20) NOT NULL,
   `teacher_fname` varchar(50) NOT NULL,
   `teacher_lname` varchar(50) NOT NULL,
-  `century_literature` varchar(20) NOT NULL,
-  `oral_communication` varchar(20) NOT NULL,
-  `wika_kulturang_pilipino` varchar(20) NOT NULL,
-  `earth_life_science` varchar(20) NOT NULL,
-  `genmath` varchar(20) NOT NULL,
-  `personal_development` varchar(20) NOT NULL,
-  `pe` varchar(20) NOT NULL,
-  `empowerment` varchar(20) NOT NULL,
-  `css1` varchar(20) NOT NULL,
-  `contemporary` varchar(20) NOT NULL,
-  `pe2` varchar(20) NOT NULL,
-  `reading_writing` varchar(20) NOT NULL,
-  `statistics` varchar(20) NOT NULL,
-  `pananaliksik` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `entrep` varchar(20) NOT NULL,
-  `practical_research1` varchar(20) NOT NULL,
-  `css2` varchar(20) NOT NULL,
-  `philosophy` varchar(20) NOT NULL,
-  `ucsp` varchar(20) NOT NULL,
-  `pe_health` varchar(20) NOT NULL,
-  `filipino` varchar(20) NOT NULL,
-  `practical_research2` varchar(20) NOT NULL,
-  `english_app` varchar(20) NOT NULL,
-  `css3` varchar(20) NOT NULL,
-  `physical_science` varchar(20) NOT NULL,
-  `mil` varchar(20) NOT NULL,
-  `pe_health2` varchar(20) NOT NULL,
-  `immersion` varchar(20) NOT NULL,
-  `css4` varchar(20) NOT NULL,
-  `work_immersion` varchar(20) NOT NULL
+  `oral_communication_mid_1` varchar(30) NOT NULL,
+  `oral_communication_mid_2` varchar(30) NOT NULL,
+  `oral_communication_mid_ave` varchar(30) NOT NULL,
+  `oral_communication_final_1` varchar(30) NOT NULL,
+  `oral_communication_final_2` varchar(30) NOT NULL,
+  `oral_communication_final_ave` varchar(30) NOT NULL,
+  `kpwkp_mid_1` varchar(30) NOT NULL,
+  `kpwkp_mid_2` varchar(30) NOT NULL,
+  `kpwkp_mid_ave` varchar(30) NOT NULL,
+  `kpwkp_final_1` varchar(30) NOT NULL,
+  `kpwkp_final_2` varchar(30) NOT NULL,
+  `kpwkp_final_ave` varchar(30) NOT NULL,
+  `genmath_mid_1` varchar(30) NOT NULL,
+  `genmath_mid_2` varchar(30) NOT NULL,
+  `genmath_mid_ave` varchar(30) NOT NULL,
+  `genmath_final_1` varchar(30) NOT NULL,
+  `genmath_final_2` varchar(30) NOT NULL,
+  `genmath_final_ave` varchar(30) NOT NULL,
+  `personal_mid_development_1` varchar(30) NOT NULL,
+  `personal_mid_development_2` varchar(30) NOT NULL,
+  `personal_mid_development_ave` varchar(30) NOT NULL,
+  `personal_final_development_1` varchar(30) NOT NULL,
+  `personal_final_development_2` varchar(30) NOT NULL,
+  `personal_final_development_ave` varchar(30) NOT NULL,
+  `els_mid_1` varchar(30) NOT NULL,
+  `els_mid_2` varchar(30) NOT NULL,
+  `els_mid_ave` varchar(30) NOT NULL,
+  `els_final_1` varchar(30) NOT NULL,
+  `els_final_2` varchar(30) NOT NULL,
+  `els_final_ave` varchar(30) NOT NULL,
+  `peh_mid_1` varchar(30) NOT NULL,
+  `peh_mid_2` varchar(30) NOT NULL,
+  `peh_mid_ave` varchar(30) NOT NULL,
+  `peh_final_1` varchar(30) NOT NULL,
+  `peh_final_2` varchar(30) NOT NULL,
+  `peh_final_ave` varchar(30) NOT NULL,
+  `empowerment_tech_mid_1` varchar(30) NOT NULL,
+  `empowerment_tech_mid_2` varchar(30) NOT NULL,
+  `empowerment_tech_mid_ave` varchar(30) NOT NULL,
+  `empowerment_tech_final_1` varchar(30) NOT NULL,
+  `empowerment_tech_final_2` varchar(30) NOT NULL,
+  `empowerment_tech_final_ave` varchar(30) NOT NULL,
+  `css_mid_1` varchar(30) NOT NULL,
+  `css_mid_2` varchar(30) NOT NULL,
+  `css_mid_ave` varchar(30) NOT NULL,
+  `css_final_1` varchar(30) NOT NULL,
+  `css_final_2` varchar(30) NOT NULL,
+  `css_final_ave` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_tbl`
 --
 
-INSERT INTO `student_tbl` (`student_id`, `image`, `firstname`, `lastname`, `section`, `teacher_fname`, `teacher_lname`, `century_literature`, `oral_communication`, `wika_kulturang_pilipino`, `earth_life_science`, `genmath`, `personal_development`, `pe`, `empowerment`, `css1`, `contemporary`, `pe2`, `reading_writing`, `statistics`, `pananaliksik`, `entrep`, `practical_research1`, `css2`, `philosophy`, `ucsp`, `pe_health`, `filipino`, `practical_research2`, `english_app`, `css3`, `physical_science`, `mil`, `pe_health2`, `immersion`, `css4`, `work_immersion`) VALUES
-(19, '316567622_2995022027309713_467648993522226444_n.jpg', 'alsen', 'abrenilla', 'ICT-11-A', 'ligaya', 'merquita', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `student_tbl` (`student_id`, `image`, `firstname`, `lastname`, `section`, `teacher_fname`, `teacher_lname`, `oral_communication_mid_1`, `oral_communication_mid_2`, `oral_communication_mid_ave`, `oral_communication_final_1`, `oral_communication_final_2`, `oral_communication_final_ave`, `kpwkp_mid_1`, `kpwkp_mid_2`, `kpwkp_mid_ave`, `kpwkp_final_1`, `kpwkp_final_2`, `kpwkp_final_ave`, `genmath_mid_1`, `genmath_mid_2`, `genmath_mid_ave`, `genmath_final_1`, `genmath_final_2`, `genmath_final_ave`, `personal_mid_development_1`, `personal_mid_development_2`, `personal_mid_development_ave`, `personal_final_development_1`, `personal_final_development_2`, `personal_final_development_ave`, `els_mid_1`, `els_mid_2`, `els_mid_ave`, `els_final_1`, `els_final_2`, `els_final_ave`, `peh_mid_1`, `peh_mid_2`, `peh_mid_ave`, `peh_final_1`, `peh_final_2`, `peh_final_ave`, `empowerment_tech_mid_1`, `empowerment_tech_mid_2`, `empowerment_tech_mid_ave`, `empowerment_tech_final_1`, `empowerment_tech_final_2`, `empowerment_tech_final_ave`, `css_mid_1`, `css_mid_2`, `css_mid_ave`, `css_final_1`, `css_final_2`, `css_final_ave`) VALUES
+(19, '316567622_2995022027309713_467648993522226444_n.jpg', 'alsen', 'abrenilla', 'ICT-11-A', 'ligaya', 'merquita', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
