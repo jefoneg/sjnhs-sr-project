@@ -239,6 +239,22 @@
 									    <!--//col-->
 								    </div><!--//row-->
 							    </div>
+								<div class="item border-bottom py-3">
+								    <div class="row justify-content-between align-items-center">
+									    <div class="col-auto">
+										    <div class="item-label"><strong>Semestral Status</strong></div>
+									        <div class="item-data">
+												<?php 
+													$semqry = mysqli_query($conn,"SELECT * FROM semester_session");
+													$fetchsemqry = mysqli_fetch_array($semqry);
+
+													echo $fetchsemqry['semester_status'];
+												?>
+											</div>
+									    </div><!--//col-->
+									    <!--//col-->
+								    </div><!--//row-->
+							    </div>
 							    <!--//item-->
 						    </div><!--//app-card-body-->
 						    

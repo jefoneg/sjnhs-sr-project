@@ -153,7 +153,7 @@
                             $gradeqry = mysqli_query($conn,"SELECT * FROM student_tbl WHERE student_id='$id'");
                             $gradeqryfetch = mysqli_fetch_array($gradeqry);
                         ?>
-                        <form role="form" id="add_grades" method="POST" action="add_grades.php" enctype="multipart/form-data">
+                        <form role="form" id="add_grades" method="POST" action="add_grades.php?id=<?php echo $id ?>" enctype="multipart/form-data">
 							<div>
 								<h5>First Semester</h5>
 							</div>
@@ -166,7 +166,7 @@
                                 <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
+                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
                                 </div>
                             </div>
 							<div class="row">
@@ -178,7 +178,7 @@
                                 <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_final_ave">
+                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave">
                                 </div>
                             </div>
 							<div class="row">

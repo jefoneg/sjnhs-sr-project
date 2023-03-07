@@ -36,7 +36,7 @@
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Sign-in to <strong>San Juan National High School - Information System</strong></h3>
+              <h3>Sign-in to <strong>San Juan National High School - Information System</strong> for Senior High School</h3>
               <p class="mb-4">Provide necessary information to start your session.</p>
               <?php
                 if(isset($_SESSION['warning'])){
