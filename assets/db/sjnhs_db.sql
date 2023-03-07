@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2023 at 12:41 AM
+-- Generation Time: Mar 07, 2023 at 05:55 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.3
 
@@ -71,15 +71,45 @@ CREATE TABLE `student_tbl` (
   `genmath_mid_ave` varchar(30) NOT NULL,
   `genmath_final_1` varchar(30) NOT NULL,
   `genmath_final_2` varchar(30) NOT NULL,
-  `genmath_final_ave` varchar(30) NOT NULL
+  `genmath_final_ave` varchar(30) NOT NULL,
+  `personal_mid_development_1` varchar(30) NOT NULL,
+  `personal_mid_development_2` varchar(30) NOT NULL,
+  `personal_mid_development_ave` varchar(30) NOT NULL,
+  `personal_final_development_1` varchar(30) NOT NULL,
+  `personal_final_development_2` varchar(30) NOT NULL,
+  `personal_final_development_ave` varchar(30) NOT NULL,
+  `els_mid_1` varchar(30) NOT NULL,
+  `els_mid_2` varchar(30) NOT NULL,
+  `els_mid_ave` varchar(30) NOT NULL,
+  `els_final_1` varchar(30) NOT NULL,
+  `els_final_2` varchar(30) NOT NULL,
+  `els_final_ave` varchar(30) NOT NULL,
+  `peh_mid_1` varchar(30) NOT NULL,
+  `peh_mid_2` varchar(30) NOT NULL,
+  `peh_mid_ave` varchar(30) NOT NULL,
+  `peh_final_1` varchar(30) NOT NULL,
+  `peh_final_2` varchar(30) NOT NULL,
+  `peh_final_ave` varchar(30) NOT NULL,
+  `empowerment_tech_mid_1` varchar(30) NOT NULL,
+  `empowerment_tech_mid_2` varchar(30) NOT NULL,
+  `empowerment_tech_mid_ave` varchar(30) NOT NULL,
+  `empowerment_tech_final_1` varchar(30) NOT NULL,
+  `empowerment_tech_final_2` varchar(30) NOT NULL,
+  `empowerment_tech_final_ave` varchar(30) NOT NULL,
+  `css_mid_1` varchar(30) NOT NULL,
+  `css_mid_2` varchar(30) NOT NULL,
+  `css_mid_ave` varchar(30) NOT NULL,
+  `css_final_1` varchar(30) NOT NULL,
+  `css_final_2` varchar(30) NOT NULL,
+  `css_final_ave` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_tbl`
 --
 
-INSERT INTO `student_tbl` (`student_id`, `image`, `firstname`, `lastname`, `section`, `teacher_fname`, `teacher_lname`, `oral_communication_mid_1`, `oral_communication_mid_2`, `oral_communication_mid_ave`, `oral_communication_final_1`, `oral_communication_final_2`, `oral_communication_final_ave`, `kpwkp_mid_1`, `kpwkp_mid_2`, `kpwkp_mid_ave`, `kpwkp_final_1`, `kpwkp_final_2`, `kpwkp_final_ave`, `genmath_mid_1`, `genmath_mid_2`, `genmath_mid_ave`, `genmath_final_1`, `genmath_final_2`, `genmath_final_ave`) VALUES
-(19, '316567622_2995022027309713_467648993522226444_n.jpg', 'alsen', 'abrenilla', 'ICT-11-A', 'ligaya', 'merquita', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `student_tbl` (`student_id`, `image`, `firstname`, `lastname`, `section`, `teacher_fname`, `teacher_lname`, `oral_communication_mid_1`, `oral_communication_mid_2`, `oral_communication_mid_ave`, `oral_communication_final_1`, `oral_communication_final_2`, `oral_communication_final_ave`, `kpwkp_mid_1`, `kpwkp_mid_2`, `kpwkp_mid_ave`, `kpwkp_final_1`, `kpwkp_final_2`, `kpwkp_final_ave`, `genmath_mid_1`, `genmath_mid_2`, `genmath_mid_ave`, `genmath_final_1`, `genmath_final_2`, `genmath_final_ave`, `personal_mid_development_1`, `personal_mid_development_2`, `personal_mid_development_ave`, `personal_final_development_1`, `personal_final_development_2`, `personal_final_development_ave`, `els_mid_1`, `els_mid_2`, `els_mid_ave`, `els_final_1`, `els_final_2`, `els_final_ave`, `peh_mid_1`, `peh_mid_2`, `peh_mid_ave`, `peh_final_1`, `peh_final_2`, `peh_final_ave`, `empowerment_tech_mid_1`, `empowerment_tech_mid_2`, `empowerment_tech_mid_ave`, `empowerment_tech_final_1`, `empowerment_tech_final_2`, `empowerment_tech_final_ave`, `css_mid_1`, `css_mid_2`, `css_mid_ave`, `css_final_1`, `css_final_2`, `css_final_ave`) VALUES
+(19, '316567622_2995022027309713_467648993522226444_n.jpg', 'alsen', 'abrenilla', 'ICT-11-A', 'ligaya', 'merquita', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
