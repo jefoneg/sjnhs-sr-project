@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('conn.php');
 
 $firstname = $_POST['firstname'];
@@ -8,6 +9,8 @@ $password = $_POST['password'];
 $position = $_POST['position'];
 $section = $_POST['section'];
 $userfile = $_FILES['userfile']['name'];
+
+mysqli_query($conn,"INSERT INTO section (list_section) VALUES ('$section')");
 
 $uploaddir = 'assets/images/users/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);

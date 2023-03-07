@@ -55,17 +55,8 @@
           <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                      <label>Section</label>
-                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
-                          <option value="0" selected>Select Option</option>
-                          <?php
-                            include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM section");
-                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
-                          ?>
-                          <option value="<?php echo $fetchsectioninfo['list_section']; ?>"><?php echo $fetchsectioninfo['list_section']; ?></option>
-                          <?php } ?>
-                        </select>
+                      <label>Section</label><p> (STRAND-LEVEL-SECTION)</p>
+                      <input type="text" class="form-control" name="section" placeholder="Section">
                       </div>
                     </div>
                     </div>

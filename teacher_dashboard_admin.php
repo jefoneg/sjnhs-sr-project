@@ -146,6 +146,15 @@
 								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
                                   Add Student
                                 </button>
+								<div class="btn-group">
+									<button type="button" class="btn btn-outline-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+										Select Semester
+									</button>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">First Semester</a></li>
+										<li><a class="dropdown-item" href="#">Second Semester</a></li>
+									</ul>
+									</div>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
