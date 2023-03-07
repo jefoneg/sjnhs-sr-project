@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `section` (
   `section_id` int NOT NULL,
   `list_section` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `section`
