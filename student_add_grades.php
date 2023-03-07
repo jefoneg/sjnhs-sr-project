@@ -160,25 +160,25 @@
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_mid_1">
+                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_mid_2">
+                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
+                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_final_1">
+                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_final_2">
+                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_final_ave">
+                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" >
                                 </div>
                             </div>
 							<div class="row">
@@ -415,6 +415,21 @@ $(document).ready(function () {
         margin: 0 auto;
     }
 	</style>
+   
+         <script>
+function total(){
+    var oralcom_mid1 = document.getElementById('oral_communication_mid_1').value;
+    var oralcom_mid2 = document.getElementById('oral_communication_mid_2').value;
+    oralcom_mid_average = parseInt(oralcom_mid1) + parseInt(oralcom_mid2);
+    document.getElementById('oral_communication_mid_ave').value = oralcom_mid_average / 2;
+    var oralcom_final1 = document.getElementById('oral_communication_final_1').value;
+    var oralcom_final2 = document.getElementById('oral_communication_final_2').value;
+    oralcom_final_average = parseInt(oralcom_final1) + parseInt(oralcom_final2);
+    document.getElementById('oral_communication_final_ave').value = oralcom_final_average / 2;
+ 
+}
+   
+    </script>
 </body>
 </html> 
 
