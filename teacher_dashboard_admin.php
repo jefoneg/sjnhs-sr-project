@@ -141,16 +141,7 @@
 				        <div class="row g-3 align-items-center">
 					        <!--//col-->
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
-						        <h4 class="notification-title mb-1">Students - 
-									<?php 
-									include('conn.php');
-										$semqry = mysqli_query($conn,"SELECT * FROM semester_session");
-										$fetchsemqry = mysqli_fetch_array($semqry);
-
-										echo $fetchsemqry['semester_status'];
-										$_SESSION['semester_status'] = $fetchsemqry['semester_status'];
-									?>
-								</h4>
+						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
 								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
                                   Add Student
@@ -173,6 +164,7 @@
 								</thead>
 								<tbody>
 									<?php
+									include('conn.php');
 										$fetchdata = mysqli_query($conn,"SELECT * FROM student_tbl");
 										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
 									?>
