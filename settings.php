@@ -259,7 +259,9 @@
 						    </div><!--//app-card-body-->
 						    
 						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="#">Manage Security</a>
+							   <button type="button" class="btn app-btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								Manage Security
+								</button>
 						    </div><!--//app-card-footer-->
 						   
 						</div><!--//app-card-->
@@ -267,6 +269,45 @@
                 </div><!--//row-->
 			    
 		    </div><!--//container-fluid-->
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Update Faculty</h1>
+				</div>
+					<div class="modal-body">
+				<?php 
+					$rowsem = mysqli_query($conn,"select * from semester_session");
+					$rowsemfetch = mysqli_fetch_array($rowsem);
+				?> 
+					<form role="form" action="settings_edit.php" method="POST" enctype="multipart/form-data">
+						<div class="row">
+								<div class="col-sm-6">
+								<div class="form-group">
+									<label>Semester Status</label>
+									<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="semester">
+									<option value="First Semester" <?php if($rowsemfetch['semester_status'] == 'First Semester'){echo 'selected';} ?>>First Semester</option>
+									<option value="Second Semester" <?php if($rowsemfetch['semester_status'] == 'Second Semester'){echo 'selected';} ?>>Second Semester</option>
+									</select>
+								</div>
+								</div>
+							</div>
+							<div style="height:10px;"></div>
+					<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
+														<i class="fas fa-backspace"></i>
+													</span>Cancel</button>
+								<button type="submit" class="btn btn-success"><span class="icon text-white-100">
+														<i class="fas fa-check"></i>
+													</span> Save changes</a>
+							</div>
+					</form>
+					</div>
+				</div>
+			</div>
+			</div>
+<!-- Modal -->
 	    </div><!--//app-content-->
 	    
 	    <footer class="app-footer">
