@@ -1,7 +1,7 @@
 <?php
 session_start();
 include ('conn.php');
-$id=$_GET['student_id'];
+$id=$_GET['id'];
 
 $oralcom_mid1 = $_POST['oral_communication_mid_1'];
 $oralcom_mid2 = $_POST['oral_communication_mid_2'];

@@ -147,13 +147,12 @@
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
 					    <?php 
-						error_reporting(0);
                             include 'conn.php';
                             $id = $_GET['id'];
                             $gradeqry = mysqli_query($conn,"SELECT * FROM student_tbl WHERE student_id='$id'");
                             $gradeqryfetch = mysqli_fetch_array($gradeqry);
                         ?>
-                        <form role="form" id="add_grades" method="POST" action="add_grades.php?id=<?php echo $gradeqryfetch['id']; ?>" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
 							<div>
 								<h5>First Semester</h5>
 							</div>
