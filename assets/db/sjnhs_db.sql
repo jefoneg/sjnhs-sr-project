@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 08, 2023 at 02:51 AM
+-- Generation Time: Mar 08, 2023 at 02:58 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.3
 
@@ -24,10 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grades_tbl`
+-- Table structure for table `section`
 --
 
-CREATE TABLE `grades_tbl` (
+CREATE TABLE `section` (
+  `section_id` int NOT NULL,
+  `list_section` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`section_id`, `list_section`) VALUES
+(1, 'ICT-11-A'),
+(2, 'ICT-11-B'),
+(5, 'STEM-11-A'),
+(6, 'STEAM-11-B');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `semester_session`
+--
+
+CREATE TABLE `semester_session` (
+  `sem_id` int NOT NULL,
+  `semester_status` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `semester_session`
+--
+
+INSERT INTO `semester_session` (`sem_id`, `semester_status`) VALUES
+(1, 'First Semester');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_tbl`
+--
+
+CREATE TABLE `student_tbl` (
   `grades_id` int NOT NULL,
   `image` varchar(255) NOT NULL,
   `firstname` varchar(20) NOT NULL,
@@ -118,69 +157,6 @@ CREATE TABLE `grades_tbl` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `section`
---
-
-CREATE TABLE `section` (
-  `section_id` int NOT NULL,
-  `list_section` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `section`
---
-
-INSERT INTO `section` (`section_id`, `list_section`) VALUES
-(1, 'ICT-11-A'),
-(2, 'ICT-11-B'),
-(5, 'STEM-11-A'),
-(6, 'STEAM-11-B');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `semester_session`
---
-
-CREATE TABLE `semester_session` (
-  `sem_id` int NOT NULL,
-  `semester_status` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `semester_session`
---
-
-INSERT INTO `semester_session` (`sem_id`, `semester_status`) VALUES
-(1, 'First Semester');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student_tbl`
---
-
-CREATE TABLE `student_tbl` (
-  `student_id` int NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `firstname` varchar(20) NOT NULL,
-  `lastname` varchar(20) NOT NULL,
-  `section` varchar(20) NOT NULL,
-  `teacher_fname` varchar(50) NOT NULL,
-  `teacher_lname` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student_tbl`
---
-
-INSERT INTO `student_tbl` (`student_id`, `image`, `firstname`, `lastname`, `section`, `teacher_fname`, `teacher_lname`) VALUES
-(19, 'OHS POLICIES JANE MARIEL TAN-11 ICT A.jpg', 'alsen', 'abrenilla', 'ICT-11-A', 'ligaya', 'merquita'),
-(25, 'OHS POLICIES JANE MARIEL TAN-11 ICT A.jpg', 'charlie', 'uwagan', 'ICT-11-A', 'gladys', 'pulan');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -211,12 +187,6 @@ INSERT INTO `user` (`user_id`, `firstname`, `lastname`, `username`, `password`, 
 --
 
 --
--- Indexes for table `grades_tbl`
---
-ALTER TABLE `grades_tbl`
-  ADD PRIMARY KEY (`grades_id`);
-
---
 -- Indexes for table `section`
 --
 ALTER TABLE `section`
@@ -232,7 +202,7 @@ ALTER TABLE `semester_session`
 -- Indexes for table `student_tbl`
 --
 ALTER TABLE `student_tbl`
-  ADD PRIMARY KEY (`student_id`);
+  ADD PRIMARY KEY (`grades_id`);
 
 --
 -- Indexes for table `user`
@@ -243,12 +213,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `grades_tbl`
---
-ALTER TABLE `grades_tbl`
-  MODIFY `grades_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `section`
@@ -266,7 +230,7 @@ ALTER TABLE `semester_session`
 -- AUTO_INCREMENT for table `student_tbl`
 --
 ALTER TABLE `student_tbl`
-  MODIFY `student_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `grades_id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
