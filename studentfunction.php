@@ -1,4 +1,4 @@
-<div class="modal fade" id="deletestudent<?php echo $rowfetchdata['student_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deletestudent<?php echo $rowfetchdata['grades_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 	  <?php include('conn.php');
-			$delrow = mysqli_query($conn,"select * from student_tbl where student_id='".$rowfetchdata['student_id']."'");
+			$delrow = mysqli_query($conn,"select * from student_tbl where grades_id='".$rowfetchdata['grades_id']."'");
 			$delrowfetchdata= mysqli_fetch_array($delrow);
 		?>
       <div class="modal-body">
@@ -16,12 +16,12 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="student_delete.php?id=<?php echo $delrowfetchdata['student_id']; ?>" class="btn btn-danger">Delete</a>
+        <a href="student_delete.php?id=<?php echo $delrowfetchdata['grades_id']; ?>" class="btn btn-danger">Delete</a>
       </div>
     </div>
   </div>
 </div>
-<div class="modal fade" id="updatestudent<?php echo $rowfetchdata['student_id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="updatestudent<?php echo $rowfetchdata['grades_id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -29,10 +29,10 @@
       </div>
         <div class="modal-body">
       <?php 
-        $editrow = mysqli_query($conn,"select * from student_tbl where student_id='".$rowfetchdata['student_id']."'");
+        $editrow = mysqli_query($conn,"select * from student_tbl where grades_id='".$rowfetchdata['grades_id']."'");
         $erowgradedata = mysqli_fetch_array($editrow);
       ?> 
-        <form role="form" action="student_edit.php?id=<?php echo $erowgradedata['student_id']; ?>" method="POST" enctype="multipart/form-data">
+        <form role="form" action="student_edit.php?id=<?php echo $erowgradedata['grades_id']; ?>" method="POST" enctype="multipart/form-data">
               <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">

@@ -97,5 +97,6 @@ Swal.fire(
     }
 
 ?>  
+</script>
   </body>
 </html>

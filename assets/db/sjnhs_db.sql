@@ -705,7 +705,7 @@ CREATE TABLE `ict_11_second` (
 CREATE TABLE `section` (
   `section_id` int NOT NULL,
   `list_section` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `section`
@@ -725,8 +725,8 @@ INSERT INTO `section` (`section_id`, `list_section`) VALUES
 
 CREATE TABLE `semester_session` (
   `sem_id` int NOT NULL,
-  `semester_status` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `semester_status` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `semester_session`

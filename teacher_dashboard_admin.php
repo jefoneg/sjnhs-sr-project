@@ -176,9 +176,9 @@
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
                                         <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname']); ?></td>
 										<td style="text-align: center;">
-										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?id=<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-school"></i></a>
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-trash-alt"></i></button>
+										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?id=<?php echo $rowfetchdata['grades_id']; ?>"><i class="fas fa-school"></i></a>
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['grades_id']; ?>"><i class="fas fa-edit"></i></button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['grades_id']; ?>"><i class="fas fa-trash-alt"></i></button>
 										</td>
 									</tr>
 									<?php } ?>
