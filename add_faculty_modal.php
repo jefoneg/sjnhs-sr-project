@@ -15,9 +15,19 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="middlename" placeholder="Middle Name">
+                      </div>
+                    <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
                       </div>
+                      <div class="col-sm-6">
+                      <div class="form-group">
+                      <label>Section</label>
+                      <input type="text" class="form-control" name="section" placeholder="STRAND-LEVEL-SECTION" style="text-transform:uppercase">
+                      </div>
+                    </div>
                     </div>
 					<div style="height:10px;"></div>
 					<div class="row">
@@ -50,15 +60,6 @@
                         <option value="Teacher">Teacher</option>
                       </select>
                       </div>
-                    </div>
-					<div style="height:10px;"></div>
-          <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                      <label>Section</label><p> (STRAND-LEVEL-SECTION)</p>
-                      <input type="text" class="form-control" name="section" placeholder="Section">
-                      </div>
-                    </div>
                     </div>
 					<div style="height:10px;"></div>
                 <div class="modal-footer">

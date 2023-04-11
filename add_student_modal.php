@@ -15,13 +15,14 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="middlename" placeholder="Middle Name">
+                      </div>
+                    <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
                       </div>
-                    </div>
-					<div style="height:10px;"></div>
-					<div class="row">
-                    <div class="col-sm-6">
+                      <div class="col-sm-6">
                       <div class="form-group">
                         <label>Section</label>
                         <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
@@ -36,6 +37,9 @@
                         </select>
                       </div>
                     </div>
+                    </div>
+					<div style="height:10px;"></div>
+					<div class="row">
                     <div class="col-sm-6">
                     <label>Profile Image</label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
@@ -51,6 +55,10 @@
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First Name">
                       </div>
                     </div>
+                    <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_mname" placeholder="Middle Name">
+                      </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last Name">

@@ -41,9 +41,28 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="middlename" value="<?php echo $erowfetchdata['middlename']; ?>">
+                      </div>
+                    <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="lastname" value="<?php echo $erowfetchdata['lastname']; ?>">
                       </div>
+                      <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Section</label>
+                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
+                          <option placeholder="0" selected>Select Section</option>
+                          <?php 
+                            include('conn.php');
+                            $fetchsection = mysqli_query($conn,"SELECT * FROM section");
+                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                          ?>
+                          <option value="<?php echo $fetchsectioninfo['list_section']; ?>"><?php echo $fetchsectioninfo['list_section']; ?></option>
+                          <?php } ?>                         
+                        </select>
+                      </div>
+                    </div>
                   </div>
                   <div style="height:10px;"></div>
                   <div class="row">
@@ -77,23 +96,6 @@
                       </div>
                   </div>
 					<div style="height:10px;"></div>
-          <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label>Section</label>
-                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
-                          <option placeholder="0" selected>Select Section</option>
-                          <?php 
-                            include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM section");
-                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
-                          ?>
-                          <option value="<?php echo $fetchsectioninfo['list_section']; ?>"><?php echo $fetchsectioninfo['list_section']; ?></option>
-                          <?php } ?>                         
-                        </select>
-                      </div>
-                    </div>
-                  </div>
           <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
                                             <i class="fas fa-backspace"></i>

@@ -18,6 +18,10 @@
                       </div>
                     </div>
                     <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="middlename" placeholder="Middle Name">
+                      </div>
+                    <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
                       </div>
@@ -51,6 +55,10 @@
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" value="<?php echo $teacherinfo['firstname']; ?>">
                       </div>
                     </div>
+                    <div class="col-sm-6">
+                      <label>Middle Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" value="<?php echo $teacherinfo['middlename']; ?>">
+                      </div>
                     <div class="col-sm-6">
                       <label>Last Name</label>
                         <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" value="<?php echo $teacherinfo['lastname']; ?>">
