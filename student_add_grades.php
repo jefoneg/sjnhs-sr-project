@@ -150,11 +150,17 @@
                             include 'conn.php';
                             $id = $_GET['id'];
                             $gradeqry = mysqli_query($conn,"SELECT * FROM student_tbl WHERE student_id='$id'");
+                            $get_semester = mysqli_query($conn,"SELECT * FROM semester_session");
+                            $fetch_semester = mysqli_fetch_assoc($get_semester);
                             $gradeqryfetch = mysqli_fetch_array($gradeqry);
                         ?>
-                        <form role="form" method="POST" action="add_grades.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
+                        	<?php 
+                        		if($fetch_semester['semester_status'] === "First Semester"){
+                        			echo '
+                        <form role="form" method="POST" action="add_grades_gr11_1.php?id=' .$gradeqryfetch['student_id'].'" enctype="multipart/form-data">
 							<div>
-								<h5>First Semester</h5>
+								<h1>Information Communication Technology</h1>
+								<h5>' .$fetch_semester['semester_status']. '</h5>
 							</div>
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
@@ -348,8 +354,20 @@
                                 <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_final_ave" readonly>
                                 </div>
                             </div>
-                            <div>
-								<h5>Second Semester</h5>
+							<div class="bg-light clearfix">  
+								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+							</div>
+                            </form>
+                        			';
+                        		}
+                        	?>
+                            <?php
+                            	if($fetch_semester['semester_status'] === "Second Semester"){
+                            		echo '
+                            <form role="form" method="POST" action="add_grades_gr11_2.php?id='.$gradeqryfetch['student_id'].'" enctype="multipart/form-data">
+                           	<div>
+                            	<h1>Information Communication Technology</h1>
+								<h5>' .$fetch_semester['semester_status']. '</h5>
 							</div>
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
@@ -543,12 +561,13 @@
                                 <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_final_ave" readonly>
                                 </div>
                             </div>
-
-
-							<div class="bg-light clearfix">  
+                            <div class="bg-light clearfix">  
 								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
 							</div>
                             </form>
+                            		';
+                            	}
+                             ?>
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
