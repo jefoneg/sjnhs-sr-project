@@ -154,13 +154,11 @@
                             $fetch_semester = mysqli_fetch_assoc($get_semester);
                             $gradeqryfetch = mysqli_fetch_array($gradeqry);
                         ?>
-                        	<?php 
-                        		if($fetch_semester['semester_status'] === "First Semester"){
-                        			echo '
-                        <form role="form" method="POST" action="add_grades_gr11_1.php?id=' .$gradeqryfetch['student_id'].'" enctype="multipart/form-data">
+                        <!-- ICT FORM -->
+                        <form role="form" method="POST" action="add_grades_gr11_1.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
 							<div>
 								<h1>Information Communication Technology</h1>
-								<h5>' .$fetch_semester['semester_status']. '</h5>
+								<h5><?php echo $fetch_semester['semester_status']; ?></h5>
 							</div>
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
@@ -333,41 +331,35 @@
 							<div class="row">
                             <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Computer System Servicing (NC II)</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_mid_1">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css1_mid_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_mid_2">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css1_mid_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_mid_ave" readonly>
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css1_mid_ave" readonly>
                                 </div>
                             </div>
 							<div class="row">
                             <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Computer System Servicing (NC II)</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_final_1">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css1_final_1">
                                 </div>
 								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_final_2">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css1_final_2">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_final_ave" readonly>
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css1_final_ave" readonly>
                                 </div>
                             </div>
 							<div class="bg-light clearfix">  
 								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
 							</div>
                             </form>
-                        			';
-                        		}
-                        	?>
-                            <?php
-                            	if($fetch_semester['semester_status'] === "Second Semester"){
-                            		echo '
-                            <form role="form" method="POST" action="add_grades_gr11_2.php?id='.$gradeqryfetch['student_id'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_gr11_2.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
                            	<div>
                             	<h1>Information Communication Technology</h1>
-								<h5>' .$fetch_semester['semester_status']. '</h5>
+								<h5><?php echo $fetch_semester['semester_status']; ?></h5>
 							</div>
                             <div class="row">
                             <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
@@ -565,9 +557,412 @@
 								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
 							</div>
                             </form>
-                            		';
-                            	}
-                             ?>
+                            <!-- ICT FORM END -->
+
+                            <!-- IA FORM -->
+                            <form role="form" method="POST" action="add_grades_gr11_1.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
+							<div>
+								<h1>Industrial Arts</h1>
+								<h5><?php echo $fetch_semester['semester_status']; ?></h5>
+							</div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave" readonly="true">
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" readonly="true">
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="kpwkp_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="kpwkp_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="kpwkp_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="kpwkp_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="kpwkp_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="kpwkp_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="genmath_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="genmath_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="genmath_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="genmath_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="genmath_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="genmath_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
+                            <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="personal_mid_development_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="personal_mid_development_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="personal_mid_development_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="personal_final_development_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="personal_final_development_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="personal_final_development_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="els_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="els_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="els_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="els_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="els_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="els_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="peh_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="peh_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="peh_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="peh_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="peh_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="peh_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="empowerment_tech_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="empowerment_tech_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="empowerment_tech_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="empowerment_tech_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="empowerment_tech_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="empowerment_tech_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Electrical Installation and Maintenance</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Electrical Installation and Maintenance</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="eim1_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="eim1_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="eim1_final_ave" readonly>
+                                </div>
+                            </div>
+							<div class="bg-light clearfix">  
+								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+							</div>
+                            </form>
+                            <form role="form" method="POST" action="add_grades_gr11_2.php?id=<?php echo $gradeqryfetch['student_id']; ?>" enctype="multipart/form-data">
+                           	<div>
+                            	<h1>Industrial Arts</h1>
+								<h5><?php echo $fetch_semester['semester_status']; ?></h5>
+							</div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="reading_writing_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="reading_writing_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="reading_writing_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="reading_writing_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="reading_writing_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="reading_writing_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="pptp_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="pptp_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="pptp_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="pptp_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="pptp_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="pptp_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines and the World</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="clpw_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="clpw_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="clpw_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines and the World</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="clpw_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="clpw_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="clpw_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="stat_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="stat_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="stat_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="stat_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="stat_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="stat_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="physci_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="physci_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="physci_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="physci_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="physci_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="physci_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="oral_communication_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="oral_communication_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="oral_communication_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Computer System Servicing (NCII)</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_mid_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_mid_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_mid_ave" readonly>
+                                </div>
+                            </div>
+							<div class="row">
+                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Computer System Servicing (NCII)</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="First Quarter" name="css_final_1">
+                                </div>
+								<div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Second Quarter" name="css_final_2">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="validationDefault01" placeholder="Average" name="css_final_ave" readonly>
+                                </div>
+                            </div>
+                            <div class="bg-light clearfix">  
+								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+							</div>
+                            </form>
+                            <!-- IA FORM END -->
 				    </div><!--//app-card-body-->
 				    <!--//app-card-footer-->
 				</div><!--//row-->
