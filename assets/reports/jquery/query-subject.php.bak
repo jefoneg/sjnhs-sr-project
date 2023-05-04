@@ -1,0 +1,5 @@
+<?php
+	include '../database-connection.php;'
+	$subject_list = MYSQL_QUERY("SELECT * FROM tbl_subjects order by fld_subjetc") or die(MYSQL_ERROR());
+	$subject_total = mysql_num_rows($subject_list);
+?>
