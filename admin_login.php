@@ -45,6 +45,7 @@
         else if($countteacher == 1){ 
             $_SESSION['teacherusername'] = $rowteacher['username']; 
             $_SESSION['teacherfname'] = $rowteacher['firstname']; 
+            $_SESSION['teachermname']= $rowteacher['middlename'];
             $_SESSION['teacherlname']= $rowteacher['lastname'];
             $_SESSION['teacherprofile']= $rowteacher['image'];
             $_SESSION['tea']= $rowteacher['section'];

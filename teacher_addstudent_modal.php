@@ -31,9 +31,9 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Section</label>
-                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
                           <?php 
-                            $fetchteacherinfo = mysqli_query($conn,"SELECT * FROM user WHERE lastname = '".$_SESSION['teacherlname']."' AND firstname = '".$_SESSION['teacherfname']."'");    
+                            $fetchteacherinfo = mysqli_query($conn,"SELECT * FROM user WHERE lastname = '".$_SESSION['teacherlname']."'  AND middlename = '".$_SESSION['teachermname']."' AND firstname = '".$_SESSION['teacherfname']."'");    
                             $teacherinfo = mysqli_fetch_array($fetchteacherinfo);
                           ?>
                           <option placeholder="<?php echo $teacherinfo['section'] ?>" selected ><?php echo $teacherinfo['section'] ?></option>

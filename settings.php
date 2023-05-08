@@ -23,7 +23,7 @@
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 	<link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
 </head> 
 
 <body class="app">   	
@@ -244,12 +244,12 @@
 									    <div class="col-auto">
 										    <div class="item-label"><strong>Semestral Status</strong></div>
 									        <div class="item-data">
-												<?php 
-													$semqry = mysqli_query($conn,"SELECT * FROM semester_session");
-													$fetchsemqry = mysqli_fetch_array($semqry);
-
-													echo $fetchsemqry['semester_status'];
-												?>
+											<?php 
+											include 'conn.php';
+					$rowsem = mysqli_query($conn,"select * from student_tbl");
+					$rowsemfetch = mysqli_fetch_array($rowsem);
+					echo $rowsemfetch['semester'];
+				?> 
 											</div>
 									    </div><!--//col-->
 									    <!--//col-->
@@ -274,11 +274,12 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Update Faculty</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Update Semester</h1>
 				</div>
 					<div class="modal-body">
 				<?php 
-					$rowsem = mysqli_query($conn,"select * from semester_session");
+				    include 'conn.php';
+					$rowsem = mysqli_query($conn,"select * from student_tbl");
 					$rowsemfetch = mysqli_fetch_array($rowsem);
 				?> 
 					<form role="form" action="settings_edit.php" method="POST" enctype="multipart/form-data">
@@ -287,8 +288,9 @@
 								<div class="form-group">
 									<label>Semester Status</label>
 									<select class="form-select form-select-sm" aria-label=".form-select-sm example" name="semester">
-									<option value="First Semester" <?php if($rowsemfetch['semester_status'] == 'First Semester'){echo 'selected';} ?>>First Semester</option>
-									<option value="Second Semester" <?php if($rowsemfetch['semester_status'] == 'Second Semester'){echo 'selected';} ?>>Second Semester</option>
+									<option value="Closed" <?php if($rowsemfetch['semester'] == 'Closed'){echo 'selected';} ?>>Closed</option>
+									<option value="First Semester" <?php if($rowsemfetch['semester'] == 'First Semester'){echo 'selected';} ?>>First Semester</option>
+									<option value="Second Semester" <?php if($rowsemfetch['semester'] == 'Second Semester'){echo 'selected';} ?>>Second Semester</option>
 									</select>
 								</div>
 								</div>
@@ -334,17 +336,30 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 	<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+	<script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
+"></script>
+<script>
+    <?php 
+    
+    if(isset($_SESSION['success']))
+    {
+        ?>
+Swal.fire(
+'<?php echo $_SESSION['prompt']; ?>',
+  '<?php echo $_SESSION['success']; ?>',
+  'success'
+)
+        <?php 
+        unset($_SESSION['success']);
+    }
+
+?>  
+</script>
 	<script>
 		$(document).ready(function () {
     $('#example').DataTable();
 });
-	</script>
-	<script>
-	window.onbeforeunload = popup;
-
-	function popup() {
-	return 'I see you are leaving the site';
-	}
 	</script>
 </body>
 </html> 

@@ -156,8 +156,8 @@
 										<th style="text-align: center;">First Name</th>
 										<th style="text-align: center;">Middle Name</th>
 										<th style="text-align: center;">Last Name</th>
-										<th style="text-align: center;">Section</th>
 										<th style="text-align: center;">Status</th>
+										<th style="text-align: center;">Year & Section</th>
 										<th style="text-align: center;">Action</th>
 									</tr>
 								</thead>
@@ -173,8 +173,8 @@
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['middlename']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
+										<td style="text-align: center;text-transform: uppercase;"><?php echo ucwords($rowfetchdata['strand'].'-'.$rowfetchdata['year'].'-'.$rowfetchdata['section']); ?></td>
 										<td style="text-align: center;">
 										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-edit"></i></button>
 										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-trash-alt"></i></button>
@@ -185,6 +185,7 @@
 							</table>
 						</div>
 				    </div><!--//app-card-body-->
+					
 				    <!--//app-card-footer-->
 				</div><!--//row-->
 			    <!--//row-->

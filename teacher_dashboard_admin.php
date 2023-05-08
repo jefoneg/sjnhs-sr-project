@@ -142,9 +142,7 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
-                                  Add Student
-                                </button>
+					  <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>Add Student</button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
@@ -153,11 +151,13 @@
 							<table id="example" class="table table-sm table-hover dt-responsive display nowrap">
 								<thead>
 									<tr>
+										<th style="text-align: center;">LRN No.</th>
 										<th style="text-align: center;">Image</th>
 										<th style="text-align: center;">First Name</th>
 										<th style="text-align: center;">Middle Name</th>
 										<th style="text-align: center;">Last Name</th>
-										<th style="text-align: center;">Section</th>
+										<th style="text-align: center;">Year & Section</th>
+										<th style="text-align: center;">Semester</th>
                                         <th style="text-align: center;">Adviser</th>
 										<th style="text-align: center;">Action</th>
 									</tr>
@@ -165,36 +165,39 @@
 								<tbody>
 									<?php
 									include('conn.php');
-										$fetchdata = mysqli_query($conn,"SELECT * FROM student_tbl");
-										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
-									?>
+
+  											$fetchdata = mysqli_query($conn, "SELECT * FROM student_tbl");
+											while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+									
+										?>
 									<tr>
-										<?php //include('studentfunction.php'); ?>
+										<?php include 'studentfunction.php'; ?>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lrn']); ?></td>
 										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['middlename']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
-                                        <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname'].', '.$rowfetchdata['teacher_mname']); ?></td>
+										<td style="text-align: center; text-transform: uppercase;"><?php echo ucwords($rowfetchdata['strand'].'-'.$rowfetchdata['year'].'-'.$rowfetchdata['section']); ?></td>
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['semester']); ?></td>
+                                        <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_fname'].' '.$rowfetchdata['teacher_mname'].' '.$rowfetchdata['teacher_lname']); ?></td>
 										<td style="text-align: center;">
-										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?id=<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-school"></i></a>
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['student_id']; ?>"><i class="fas fa-trash-alt"></i></button>
-										</td>
+										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i>EDIT</button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i>DELETE</button><br>
+										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10</a>
+										</td>	
+										<?php
+											}
+								 ?>
 									</tr>
-									<?php } ?>
 								</tbody>
 							</table>
 						</div>
-					    
-				    </div><!--//app-card-body-->
-				    <!--//app-card-footer-->
-				</div><!--//row-->
-			    <!--//row-->
-			    <?php include('add_student_modal.php'); ?>
-		    </div><!--//container-fluid-->
-	    </div><!--//app-content-->
-	    
+						
+						<?php include('add_student_modal.php'); ?>
+				    </div>
+				</div>
+		
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
@@ -223,7 +226,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
     {
         ?>
 Swal.fire(
-  'Welcome! ',
+	'<?php echo $_SESSION['prompt']; ?>',
   '<?php echo $_SESSION['success']; ?>',
   'success'
 )

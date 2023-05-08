@@ -23,9 +23,41 @@
                         <input type="text" id="serialnum" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
                       </div>
                       <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Profile Image</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg" required>
+                      </div>
+                    </div>
+                    </div>
+                      <div class="row">
+                      <div style="max-width: 110px;">
                       <div class="form-group">
-                      <label>Section</label>
-                      <input type="text" class="form-control" name="section" placeholder="STRAND-LEVEL-SECTION" style="text-transform:uppercase">
+                      <label>Strand</label>
+                      <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" required>
+                          <option value="">Strand</option> 
+                          <option value="ICT">ICT</option> 
+                          <option value="IA">IA</option>  
+                          <option value="HE">HE</option>    
+                          <option value="STEM">STEM</option>
+                          <option value="HUMSS">HUMSS</option>      
+                          <option value="ABM">ABM</option>                      
+                        </select>
+                      </div>
+                      </div>
+                        <div style="max-width: 100px;">
+                      <div class="form-group">
+                        <label>Year</label>
+                      <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year">
+                          <option value="11">11</option> 
+                          <option value="12">12</option>                        
+                        </select>
+                      </div>
+                      </div>
+                      <div style="max-width: 110px;">
+                      <div class="form-group">
+                        <label>Section</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="section" placeholder="Section" required>
                       </div>
                     </div>
                     </div>
@@ -34,7 +66,7 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" name="username" placeholder="Username">
+                        <input type="text" class="form-control" name="username" placeholder="Username" style="text-transform: capitalize;">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -44,13 +76,6 @@
                     </div>
 					<div style="height:10px;"></div>
 					<div class="row">
-                    <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Profile Image</label>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
-                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg" required>
-                      </div>
-                    </div>
                       <div class="col-sm-6">
                       <label>Position</label>
                       <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="position">
@@ -75,3 +100,4 @@
             </div>
         </div>
     </div>
+</div>

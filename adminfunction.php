@@ -50,20 +50,20 @@
                       </div>
                       <div class="col-sm-6">
                       <div class="form-group">
-                        <label>Section</label>
-                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
-                          <option placeholder="0" selected>Select Section</option>
-                          <?php 
-                            include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM section");
-                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
-                          ?>
-                          <option value="<?php echo $fetchsectioninfo['list_section']; ?>"><?php echo $fetchsectioninfo['list_section']; ?></option>
-                          <?php } ?>                         
+                        <label>Strand</label>
+                        <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand">
+                         <option value="">Strand</option>
+                          <option value="ICT">ICT</option> 
+                          <option value="IA">IA</option>  
+                          <option value="HE">HE</option>
+                          <option value="STEM">STEM</option>
+                          <option value="HUMSS">HUMSS</option>        
+                          <option value="ABM">ABM</option>                  
                         </select>
                       </div>
                     </div>
                   </div>
+                  
                   <div style="height:10px;"></div>
                   <div class="row">
                     <div class="col-sm-6">

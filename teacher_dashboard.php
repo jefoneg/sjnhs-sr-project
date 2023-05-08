@@ -88,7 +88,7 @@
 		  <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
 		</svg>
 						         </span>
-		                         <span class="nav-link-text">Overview</span>
+		                         <span class="nav-link-text">Student`s Dashboard</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->				    
 				    </ul><!--//app-menu-->
@@ -142,6 +142,7 @@
 							<table id="example" class="table table-sm table-hover dt-responsive display nowrap">
 								<thead>
 									<tr>
+										<th style="text-align: center;">LRN No.</th>
 										<th style="text-align: center;">Image</th>
 										<th style="text-align: center;">First Name</th>
 										<th style="text-align: center;">Last Name</th>
@@ -153,22 +154,38 @@
 								<tbody>
 									<?php
 										include('conn.php');
-										$fetchdata = mysqli_query($conn,"SELECT * FROM student_tbl WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_fname = '".$_SESSION['teacherfname']."'");
-										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
+										$fetchdata = "SELECT * FROM ict_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										$fetchdata .= "SELECT * FROM he_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										$fetchdata .= "SELECT * FROM ia_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										$fetchdata .= "SELECT * FROM stem_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										$fetchdata .= "SELECT * FROM humms_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										$fetchdata .= "SELECT * FROM abm_table WHERE teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+										if(mysqli_multi_query($conn,$fetchdata)){
+											do{
+												if($result = mysqli_store_result($conn)){
+													while($rowfetchdata = mysqli_fetch_array($result)){
+											
+										
 									?>
 									<tr>
-										<?php include('teacher_student_function.php'); ?>
+										
+										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lrn']); ?></td>
 										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['section']); ?></td>
+										<td style="text-align: center; text-transform: capitalize;"><?php echo ucwords($rowfetchdata['strand'].'-'.$rowfetchdata['year'].'-'.$rowfetchdata['section']); ?></td>
                                         <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname']); ?></td>
 										<td style="text-align: center;">
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['grades_id']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['grades_id']; ?>"><i class="fas fa-trash-alt"></i></button>
+										<a type="button" class="btn btn-outline-success" href="student_add_grades_teacher.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
+										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i></button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i></button>
 										</td>
 									</tr>
-									<?php } ?>
+									<?php
+									}
+									mysqli_free_result($result);
+								}
+							}while(mysqli_next_result($conn)); } ?>
 								</tbody>
 							</table>
 						</div>
