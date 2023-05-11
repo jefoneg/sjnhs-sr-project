@@ -37,5 +37,5 @@ $sql = "UPDATE abm_table SET oral_communication_mid_1 = '$oral_communication_mid
 mysqli_query($conn,$sql); 
 
 $_SESSION['success'] = "Successfully Added";
-header('location: student_add_grades_teacher.php?lrn='. $lrn);
+header('location: student_add_grades.php?lrn='. $lrn);
 ?>

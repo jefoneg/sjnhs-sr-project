@@ -3163,7 +3163,7 @@ function total(){
     century_literature_mid_ave = parseInt(century_literature_mid_1) + parseInt(century_literature_mid_2);
     document.getElementById('century_literature_mid_ave').value = century_literature_mid_ave / 2;
 
-    final_average = parseInt(oral_communication_mid_ave) + parseInt(kpwkp_mid_ave) + parseInt(genmath_mid_ave) + parseInt(personal_mid_development_ave) + parseInt(els_mid_ave) + parseInt(peh_mid_ave) + parseInt(empowerment_tech_mid_ave) + parseInt(css1_mid_ave) + parseInt(century_literature_mid_ave);
+    final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_mid_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css1_mid_ave)) / 2 + parseInt((century_literature_mid_ave)) / 2;
     document.getElementById('final_average').value = final_average / 9;
 
    

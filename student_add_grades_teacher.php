@@ -5246,11 +5246,13 @@ function total(){
     var century_literature_mid_1 = document.getElementById('century_literature_mid_1').value;
     var century_literature_mid_2 = document.getElementById('century_literature_mid_2').value;
     century_literature_mid_ave = parseInt(century_literature_mid_1) + parseInt(century_literature_mid_2);
+
     document.getElementById('century_literature_mid_ave').value = century_literature_mid_ave / 2;
     var century_literature_final_1 = document.getElementById('century_literature_final_1').value;
     var century_literature_final_2 = document.getElementById('century_literature_final_2').value;
     century_literature_final_ave = parseInt(century_literature_final_1) + parseInt(century_literature_final_2);
     document.getElementById('century_literature_final_ave').value = century_literature_final_ave / 2;
+    
 
     
 

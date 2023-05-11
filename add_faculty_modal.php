@@ -34,7 +34,7 @@
                       <div style="max-width: 110px;">
                       <div class="form-group">
                       <label>Strand</label>
-                      <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" required>
+                      <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand">
                           <option value="">Strand</option> 
                           <option value="ICT">ICT</option> 
                           <option value="IA">IA</option>  
@@ -49,6 +49,7 @@
                       <div class="form-group">
                         <label>Year</label>
                       <select class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year">
+                          <option value=""></option> 
                           <option value="11">11</option> 
                           <option value="12">12</option>                        
                         </select>
@@ -57,7 +58,7 @@
                       <div style="max-width: 110px;">
                       <div class="form-group">
                         <label>Section</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="section" placeholder="Section" required>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="section" placeholder="Section">
                       </div>
                     </div>
                     </div>

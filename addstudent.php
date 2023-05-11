@@ -17,6 +17,15 @@ $teacher_lname = $_POST['teacher_lname'];
 $teacher_mname = $_POST['teacher_mname'];
 $userfile = $_FILES['userfile']['name'];
 
+$sql = mysqli_query($conn, "SELECT * FROM student_tbl where lrn = $lrn");
+$get = mysqli_num_rows($sql);
+$row = mysqli_fetch_array($sql);
+    if($row['lrn'] == 1){
+        
+       echo $_SESSION['warning'] = "Wrong!";
+
+    }
+
 $uploaddir = 'assets/images/users/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {

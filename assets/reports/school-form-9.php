@@ -15,8 +15,8 @@
 	<script src="jquery/jquery.js"></script>
 	<title>SJNHS IS | Print SF-9</title>
 </head>
+
 <?php
-error_reporting(0);
 include 'styles/style.php';
 ?>
 <style>
@@ -116,17 +116,34 @@ include 'styles/style.php';
 		font-weight: bold;
 		text-align: left;
 	}
-</style>
-
+</style>								
 <body>
-	<div class='container-fluid'>
-		<div class='row ' style='padding:15px 25px;'>
-			<div class='bandpaper col-sm-6' style='padding:20px 25px;'>
+<?php 
+                                $conn=mysqli_connect("localhost", "root", "", "sjnhs_db");
+								if(mysqli_connect_errno()){
+									echo "Connection Fail".mysqli_connect_error();
+								}
+                              $lrn = $_GET['lrn'];
+                              $gradeqry = "SELECT * FROM ict_table WHERE lrn = '$lrn' AND strand = 'ICT';";
+                              $gradeqry .= "SELECT * FROM he_table WHERE lrn = '$lrn' AND strand = 'HE';";
+                              $gradeqry .= "SELECT * FROM stem_table WHERE lrn = '$lrn' AND strand = 'STEM';";
+                              $gradeqry .= "SELECT * FROM humms_table WHERE lrn = '$lrn' AND strand = 'HUMMS';";
+                              $gradeqry .= "SELECT * FROM ia_table WHERE lrn = '$lrn' AND strand = 'IA';";
+                              $gradeqry .= "SELECT * FROM abm_table WHERE lrn = '$lrn' AND strand = 'ABM';";
+                              if(mysqli_multi_query($conn,$gradeqry)){
+                                  do{
+                                      if($result = mysqli_store_result($conn)){
+                              while($gradeqryfetch = mysqli_fetch_array($result)){
+								if ($gradeqryfetch['strand'] == 'ABM'){
+									echo '    
+	<div class="container-fluid">
+		<div class="row " style="padding:15px 25px;">
+			<div class="bandpaper col-sm-6" style="padding:20px 25px;">
 				<br />
-				<h5 style='text-indent:250px;' style='font-size:16px;'><strong>REPORT ON ATTENDANCE</strong></h5>
-				<div class='row'>
-					<div class='col-sm-12'>
-						<table class='table4'>
+				<h5 style="text-indent:250px;" style="font-size:16px;"><strong>REPORT ON ATTENDANCE</strong></h5>
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table4">
 							<tr>
 								<th style="font-weight:normal;">Month</th>
 								<th style="font-weight:normal;">Sep.</th>
@@ -194,44 +211,44 @@ include 'styles/style.php';
 				<br />
 				<br />
 				<br />
-				<div class='row'>
-					<div class='col-sm-10 col-sm-offset-1'>
-						<h5 style="text-indent:150px;"><strong>PARENT/ GAURDIAN'S SIGNATURE</strong></h5>
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<h5 style="text-indent:150px;"><strong>PARENT/ GAURDIAN"S SIGNATURE</strong></h5>
 						<table>
 							<tr>
-								<td style='width:150px;padding:15px 5px; padding-bottom:0px;'>FIRST QUARTER</td>
-								<td><input type='text' class='input-line' style='width:250px;border-bottom:2px solid black;' /></td>
+								<td style="width:150px;padding:15px 5px; padding-bottom:0px;">FIRST QUARTER</td>
+								<td><input type="text" class="input-line" style="width:250px;border-bottom:2px solid black;" /></td>
 							</tr>
 							<tr>
-								<td style='width:150px;padding:15px 5px; padding-bottom:0px;'>SECOND QUARTER</td>
-								<td><input type='text' class='input-line' style='width:250px;border-bottom:2px solid black;' /></td>
+								<td style="width:150px;padding:15px 5px; padding-bottom:0px;">SECOND QUARTER</td>
+								<td><input type="text" class="input-line" style="width:250px;border-bottom:2px solid black;" /></td>
 							</tr>
 							<tr>
-								<td style='width:150px;padding:15px 5px; padding-bottom:0px;'>THIRD QUARTER</td>
-								<td><input type='text' class='input-line' style='width:250px;border-bottom:2px solid black;' /></td>
+								<td style="width:150px;padding:15px 5px; padding-bottom:0px;">THIRD QUARTER</td>
+								<td><input type="text" class="input-line" style="width:250px;border-bottom:2px solid black;" /></td>
 							</tr>
 							<tr>
-								<td style='width:150px;padding:15px 5px; padding-bottom:0px;'>FOURTH QUARTER</td>
-								<td><input type='text' class='input-line' style='width:250px;border-bottom:2px solid black;' /></td>
+								<td style="width:150px;padding:15px 5px; padding-bottom:0px;">FOURTH QUARTER</td>
+								<td><input type="text" class="input-line" style="width:250px;border-bottom:2px solid black;" /></td>
 							</tr>
 						</table>
 					</div>
 				</div>
 			</div>
-			<div class='bandpaper col-sm-6' style='padding:20px 55px;'>
-				<div class='row '>
-					<div class='col-sm-12'>
+			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
+				<div class="row ">
+					<div class="col-sm-12">
 						<i>DepEd SF9-SHS</i>
 					</div>
 				</div>
 				<br />
-				<div class='row'>
-					<div class='col-sm-3 text-right'>
-						<img src='images/icons/deped-icon.jpg ?>' style='width:75px; height:75px;border-radius:50%;' />
+				<div class="row">
+					<div class="col-sm-3 text-right">
+						<img src="images/icons/deped-icon.jpg ?>" style="width:75px; height:75px;border-radius:50%;" />
 					</div>
-					<div class='col-sm-6 ctr' style='line-height:14px;font-size:11px;'>
+					<div class="col-sm-6 ctr" style="line-height:14px;font-size:11px;">
 						<center>
-							<table class='ctr'>
+							<table class="ctr">
 								<tr>
 									<td> Republic of the Philippines</td>
 								</tr>
@@ -257,7 +274,7 @@ include 'styles/style.php';
 									<td></td>
 								</tr>
 								<tr>
-									<td style='border-bottom:1px solid black; line-height: 0px;'>
+									<td style="border-bottom:1px solid black; line-height: 0px;">
 										<h5><strong>SAN JUAN NATIONAL HIGH SCHOOL</strong></h5>
 									</td>
 								</tr>
@@ -271,51 +288,51 @@ include 'styles/style.php';
 					</div>
 				</div>
 				<br />
-				<div class='row '>
-					<div class='col-sm-11'>
-						<table style='width:100%;'>
+				<div class="row ">
+					<div class="col-sm-11">
+						<table style="width:100%;">
 							<tr>
-								<td style='width:20%;font-size:12px;'>Name:</td>
-								<td colspan=3 style='border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;'>Jefone O. Gorme</td>
+								<td style="width:20%;font-size:12px;">Name:</td>
+								<td colspan=3 style="border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;">'.$gradeqryfetch['firstname'].' '.$gradeqryfetch['middlename'].' '.$gradeqryfetch['lastname'].'</td>	
 							</tr>
 							<tr>
-								<td style='width:15%;font-size:12px;'>Age:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;'>23</td>
-								<td style='width:20%;padding-left:10px;font-size:12px;'>Sex:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;'>M</td>
+								<td style="width:15%;font-size:12px;">Age:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:20%;padding-left:10px;font-size:12px;">Sex:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;">'.$gradeqryfetch['sex'].'</td>
 							</tr>
 							<tr>
-								<td style='width:15%;font-size:12px;'>Grade:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;'>11</td>
-								<td style='width:20%;padding-left:10px;font-size:12px;'>Section:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;'>STEM-12-B</td>
+								<td style="width:15%;font-size:12px;">Grade:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['year'].'</td>
+								<td style="width:20%;padding-left:10px;font-size:12px;">Section:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;text-transform: uppercase;font-size:12px;">'.$gradeqryfetch['section'].'</td>
 							</tr>
 							<tr>
-								<td style='width:15%;font-size:12px;'>LRN:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;'>12311544151231243</td>
-								<td style='width:20%;padding-left:10px;font-size:12px;'>School Year:</td>
-								<td style='width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;'>year-year</td>
+								<td style="width:15%;font-size:12px;">LRN:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
+								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
-								<td style='width:20%;font-size:12px;'>Track/Strand:</td>
-								<td colspan=3 style='border-bottom:1px solid;font-weight:bold;font-size:12px;'>Science, Technology, and Mathematics</td>
+								<td style="width:20%;font-size:12px;">Track/Strand:</td>
+								<td colspan=3 style="border-bottom:1px solid;font-weight:bold;font-size:12px;">Accountancy, Business and Management</td>
 							</tr>
 						</table>
 					</div>
 				</div>
 				<br />
-				<div class='row '>
-					<div class='col-sm-11' style="font-style:italic;font-size:10px;">
+				<div class="row ">
+					<div class="col-sm-11" style="font-style:italic;font-size:10px;">
 						Dear Parent:
-						<p style='text-indent:40px;text-align:justify;font-style:italic;font-size:10px;'>This report card shows the ability and progress your child has made in the different learning areas as well as his/her core values.</p>
-						<p style='text-indent:40px;text-align:justify;font-style:italic;font-size:10px;'>The school welcomes you should you desire to know more about your child's progress.</p>
+						<p style="text-indent:40px;text-align:justify;font-style:italic;font-size:10px;">This report card shows the ability and progress your child has made in the different learning areas as well as his/her core values.</p>
+						<p style="text-indent:40px;text-align:justify;font-style:italic;font-size:10px;">The school welcomes you should you desire to know more about your child"s progress.</p>
 					</div>
 				</div>
-				<div class='row '>
-					<div class='col-sm-5 ctr col-sm-offset-6 '>
-						<table style='width:100%;'>
+				<div class="row ">
+					<div class="col-sm-5 ctr col-sm-offset-6 ">
+						<table style="width:100%;">
 							<tr>
-								<td style='border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;'>Ligaya D. Merquita</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -323,11 +340,11 @@ include 'styles/style.php';
 						</table>
 					</div>
 				</div>
-				<div class='row '>
-					<div class='col-sm-5 ctr '>
-						<table style='width:100%;'>
+				<div class="row ">
+					<div class="col-sm-5 ctr ">
+						<table style="width:100%;">
 							<tr>
-								<td style='border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;'>Ligaya D. Merquita</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -335,62 +352,62 @@ include 'styles/style.php';
 						</table>
 					</div>
 				</div>
-				<div class='row '>
-					<div class='col-sm-12 ctr '>
-						<strong style='font-size:10px;'>CERTIFICATE OF TRANSFER</strong>
+				<div class="row ">
+					<div class="col-sm-12 ctr ">
+						<strong style="font-size:10px;">CERTIFICATE OF TRANSFER</strong>
 					</div>
 				</div>
-				<div class='row '>
-					<div class='col-sm-11'>
-						<table style='width:100%;font-size:10px;'>
+				<div class="row ">
+					<div class="col-sm-11">
+						<table style="width:100%;font-size:10px;">
 							<tr>
-								<td style='width:25%;font-size:10px;'>Admitted&nbsp;to&nbsp;Grade:</td>
-								<td style='width:25%;'><input type='text' class='input-line' style='border-bottom:1px solid black;font-size:10px;' /></td>
-								<td style='width:15%;font-size:10px;'>Section: </td>
-								<td style='width:35%;'><input type='text' class='input-line' style='border-bottom:1px solid black;font-size:10px;' /></td>
+								<td style="width:25%;font-size:10px;">Admitted&nbsp;to&nbsp;Grade:</td>
+								<td style="width:25%;"><input type="text" class="input-line" style="border-bottom:1px solid black;font-size:10px;" /></td>
+								<td style="width:15%;font-size:10px;">Section: </td>
+								<td style="width:35%;"><input type="text" class="input-line" style="border-bottom:1px solid black;font-size:10px;" /></td>
 							</tr>
 							<tr>
 								<td colspan=2 style="font-size:10px;">Eligibility for Admission to Grade:</td>
-								<td colspan=2><input type='text' class='input-line' style='border-bottom:1px solid black;font-size:10px;' /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-size:10px;" /></td>
 							</tr>
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
 							<tr>
-								<td colspan=2><input type='text' class='input-line' style='border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;' /></td>
-								<td colspan=2><input type='text' class='input-line' style='border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;' /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class='ctr' style="font-size:10px;">Principal</td>
-								<td colspan=2 class='ctr' style="font-size:10px;">Teacher</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
 				</div>
 				<br />
-				<div class='row '>
-					<div class='col-sm-12 ctr '>
+				<div class="row ">
+					<div class="col-sm-12 ctr ">
 						Cancellation of Eligibility to Transfer
 					</div>
 				</div>
-				<div class='row '>
-					<div class='col-sm-12 ctr '>
+				<div class="row ">
+					<div class="col-sm-12 ctr ">
 						<table>
 							<tr>
-								<td style='text-align:left;'>Admitted&nbsp;in:</td>
-								<td><input type='text' class='input-line' style='border-bottom:1px solid black;' /></td>
+								<td style="text-align:left;">Admitted&nbsp;in:</td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 							</tr>
 							<tr>
-								<td style='text-align:left;'>Date:</td>
-								<td><input type='text' class='input-line' style='border-bottom:1px solid black;' /></td>
-								<td style='width:100px;'></td>
-								<td><input type='text' class='input-line' style='border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;' /></td>
+								<td style="text-align:left;">Date:</td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
+								<td style="width:100px;"></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class='ctr'>Principal<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -399,23 +416,23 @@ include 'styles/style.php';
 			</div>
 		</div>
 		<!-- BACK PAGE -->
-		<div class='row ' style='padding:15px 25px;'>
-			<div class='bandpaper col-sm-6' style='padding:20px 45px;'>
+		<div class="row " style="padding:15px 25px;">
+			<div class="bandpaper col-sm-6" style="padding:20px 45px;">
 				<br />
 				<center>
-					<h5 style='font-size:11px;'><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
+					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
-				<h5 style='font-size:11px;'><strong>FIRST SEMESTER</strong></h5>
-				<div class='row'>
-					<div class='col-sm-12'>
-						<table class='table5' style='width:100%;'>
-							<tr style='font-weight:bold;'>
-								<td rowspan=2 style='width:250px;text-align:center;'>Subject</td>
-								<td colspan=2 style='width:50px;'>Quarter</td>
-								<td rowspan=2 style='width:50px;'>Final Grade</td>
-								<td rowspan=2 style='width:50px;'>Remarks</td>
+				<h5 style="font-size:11px;"><strong>FIRST SEMESTER</strong></h5>
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table5" style="width:100%;">
+							<tr style="font-weight:bold;">
+								<td rowspan=2 style="width:250px;text-align:center;">Subject</td>
+								<td colspan=2 style="width:50px;">Quarter</td>
+								<td rowspan=2 style="width:50px;">Final Grade</td>
+								<td rowspan=2 style="width:50px;">Remarks</td>
 							</tr>
-							<tr style='font-weight:bold;'>
+							<tr style="font-weight:bold;">
 							</tr>
 							<tr>
 								<td></td>
@@ -432,7 +449,68 @@ include 'styles/style.php';
 								<td></td>
 							</tr>
 							<tr>
+								<td style="font-weight:normal;">Oral Communication</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								'; 
+								}
+								if($gradeqryfetch['oral_communication_mid_ave']  >= 75 && $gradeqryfetch['oral_communication_mid_ave'] <= 100){
+									echo'
+								<td style="font-weight:normal;">PASSED</td>
+								';
+								}
+								else if ($gradeqryfetch['oral_communication_mid_ave']  >= 0 && $gradeqryfetch['oral_communication_mid_ave'] <= 74){
+								echo ';
+									<td style="font-weight:normal;">FAILED</td>
+									';
+								}
+								else if ($gradeqryfetch['oral_communication_mid_ave'] == ""){
+									echo ';
+									<td style="font-weight:normal;"></td>
+									';
+								}
+								if($gradeqryfetch['strand'] == 'ABM'){
+									echo ';
+									
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">General Mathematics</td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Earth & Life Science</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Kumunikasyon at Pananaliksik sa Wika at Kulturang Filipino</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">21st Century Literature from the Philippines & the World</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Personal Development</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Physical Education & Health</td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -446,7 +524,7 @@ include 'styles/style.php';
 								<td></td>
 							</tr>
 							<tr>
-								<td style="font-weight:normal;"></td>
+								<td style="font-weight:normal;">Empowerment Technologies</td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -458,6 +536,13 @@ include 'styles/style.php';
 								<td></td>
 								<td></td>
 								<td></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Organization & Management</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
 							</tr>
 							<tr>
 								<td style="text-align: right;">General Average</td>
@@ -472,17 +557,17 @@ include 'styles/style.php';
 						</table>
 					</div>
 				</div>
-				<h5 style='font-size:11px;'><strong>SECOND SEMESTER</strong></h5>
-				<div class='row'>
-					<div class='col-sm-12'>
-						<table class='table5' style='width:100%;'>
-							<tr style='font-weight:bold;'>
-								<td rowspan=2 style='width:250px;text-align:center;'>Subject</td>
-								<td colspan=2 style='width:50px;'>Quarter</td>
-								<td rowspan=2 style='width:50px;'>Final Grade</td>
-								<td rowspan=2 style='width:50px;'>Remarks</td>
+				<h5 style="font-size:11px;"><strong>SECOND SEMESTER</strong></h5>
+				<div class="row">
+					<div class="col-sm-12">
+						<table class="table5" style="width:100%;">
+							<tr style="font-weight:bold;">
+								<td rowspan=2 style="width:250px;text-align:center;">Subject</td>
+								<td colspan=2 style="width:50px;">Quarter</td>
+								<td rowspan=2 style="width:50px;">Final Grade</td>
+								<td rowspan=2 style="width:50px;">Remarks</td>
 							</tr>
-							<tr style='font-weight:bold;'>
+							<tr style="font-weight:bold;">
 							</tr>
 							<tr>
 								<td></td>
@@ -499,7 +584,35 @@ include 'styles/style.php';
 								<td></td>
 							</tr>
 							<tr>
+								<td style="font-weight:normal;">Reading & Writing</td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Pagbasa at Pagsusuri ng Iba`t Tekso Tungo sa Pananaliksik</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Statistic & Probability</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Contemporary Arts from the Region</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Physical Education & Health</td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -513,7 +626,14 @@ include 'styles/style.php';
 								<td></td>
 							</tr>
 							<tr>
+								<td style="font-weight:normal;">Practical Research 1</td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Entrepreneurship</td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -527,8 +647,22 @@ include 'styles/style.php';
 								<td></td>
 							</tr>
 							<tr>
+								<td style="font-weight:normal;">Fundamentals of ABM 1</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
 								<td style="text-align: right;">General Average</td>
 								<td colspan="2"></td>
+								<td></td>
+								<td style="font-weight:normal;"></td>
+							</tr>
+							<tr>
+								<td style="font-weight:normal;">Principles of Marketing</td>
+								<td></td>
+								<td></td>
 								<td></td>
 								<td style="font-weight:normal;"></td>
 							</tr>
@@ -542,182 +676,182 @@ include 'styles/style.php';
 				<br />
 				<br />
 			</div>
-			<div class='bandpaper col-sm-6' style='padding:20px 55px;'>
+			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
 				<br />
 				<center>
-					<h5 style='font-size:11px;'><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
+					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
 				<br />
-				<div class='row '>
-					<div class='col-sm-12'>
-						<table class='table5' style='width:100%;'>
+				<div class="row ">
+					<div class="col-sm-12">
+						<table class="table5" style="width:100%;">
 							<tr>
-								<td rowspan=2 style='text-align:center;width:120px;font-weight:normal;'> CORE VALUES </td>
+								<td rowspan=2 style="text-align:center;width:120px;font-weight:normal;"> CORE VALUES </td>
 								<td rowspan=2 style="font-weight:normal;"> BEHAVIOR STATEMENT </td>
 								<td colspan=4 style="font-weight:normal;"> QUARTER </td>
 							</tr>
 							<tr>
-								<td style='text-align:left;width:40px;font-weight:normal;'>
+								<td style="text-align:left;width:40px;font-weight:normal;">
 									<center>1</center>
 								</td>
-								<td style='text-align:left;width:40px;font-weight:normal;'>
+								<td style="text-align:left;width:40px;font-weight:normal;">
 									<center>2</center>
 								</td>
-								<td style='text-align:left;width:40px;font-weight:normal;'>
+								<td style="text-align:left;width:40px;font-weight:normal;">
 									<center>3</center>
 								</td>
-								<td style='text-align:left;width:40px;font-weight:normal;'>
+								<td style="text-align:left;width:40px;font-weight:normal;">
 									<center>4</center>
 								</td>
 							</tr>
 							<tr>
 								<td rowspan=1 style="font-weight:normal;">1. Maka-Diyos</td>
-								<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
-									Expresses one's spiritual beliefs while respecting the spiritual belief of others.</td>
+								<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
+									Expresses one"s spiritual beliefs while respecting the spiritual belief of others.</td>
 								</td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
 							</tr>
 							<td rowspan=2 style="font-weight:normal;">2. Makatao</td>
-							<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
+							<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
 								Shows adherence to ethical principles by upholding the truth in all undertakings.
 							</td>
-							<td class='up'></td>
-							<td class='up'></td>
-							<td class='up'></td>
-							<td class='up'></td>
+							<td class="up"></td>
+							<td class="up"></td>
+							<td class="up"></td>
+							<td class="up"></td>
 							</tr>
 							<tr>
-								<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
+								<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
 									Is sensitive to individual, social and cultural differences; resist stereotyping people.
 								</td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
 							<tr>
 								<td style="font-weight:normal;">3. Makakalikasan</td>
-								<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
+								<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
 									Cares for the environment and utilizes resources wisely, judiciously, and economically.
 								</td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
 							<tr>
 								<td rowspan=2 style="font-weight:normal;">4. Makabansa</td>
-								<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
+								<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
 									Demonstrates pride in being a Filipino, exercises the right and responsibilities of a Filipino citizen.
 								</td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
 							<tr>
-								<td style='font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;'>
+								<td style="font-size:10px;width:250px;text-align:left; padding:10px 8px;font-weight:normal;">
 									Demonstrate appropriate behavior in carrying out activities in the school, community and couNtry.
 								</td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
-								<td class='up'></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
+								<td class="up"></td>
 							</tr>
 						</table>
 						<br />
 						<center>
 							<table>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:100px;font-size:12px;'>Observed Values</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:100px;font-size:12px;">Observed Values</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:100px;'>Marking</td>
-									<td style='border:none;font-weight:bold;'>Non-numerical Rating</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:100px;">Marking</td>
+									<td style="border:none;font-weight:bold;">Non-numerical Rating</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>AO</td>
-									<td style='border:none;font-weight:normal;'>Always Observed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">AO</td>
+									<td style="border:none;font-weight:normal;">Always Observed</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>SO</td>
-									<td style='border:none;font-weight:normal;'>Sometimes Observed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">SO</td>
+									<td style="border:none;font-weight:normal;">Sometimes Observed</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>RO</td>
-									<td style='border:none;font-weight:normal;'>Rarely Observed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">RO</td>
+									<td style="border:none;font-weight:normal;">Rarely Observed</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>NO</td>
-									<td style='border:none;font-weight:normal;'>Not Observed</td>
-								</tr>
-							</table>
-						</center>
-						<center>
-							<table>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:150px;font-size:12px;'>Homeroom Guidance</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:100px;'>Marking</td>
-									<td style='border:none;font-weight:bold;'>Descriptive Rating</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>DC</td>
-									<td style='border:none;font-weight:normal;'>Developed and Commendable</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>SD</td>
-									<td style='border:none;font-weight:normal;'>Sufficiently Developed</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>D</td>
-									<td style='border:none;font-weight:normal;'>Developed</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>NI</td>
-									<td style='border:none;font-weight:normal;'>Needs Improvement</td>
-								</tr>
-								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>NO</td>
-									<td style='border:none;font-weight:normal;'>No Chance to Observe</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">NO</td>
+									<td style="border:none;font-weight:normal;">Not Observed</td>
 								</tr>
 							</table>
 						</center>
 						<center>
 							<table>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:200px;font-size:12px;'>Learner Progress and Achievement</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:150px;font-size:12px;">Homeroom Guidance</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;width:100px;font-style:italic;'>Descriptors</td>
-									<td style='border:none;font-weight:bold;font-style:italic;text-align:center;'>Grading Scale</td>
-									<td style='border:none;font-weight:bold;font-style:italic;text-align:center;'>Remarks</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:100px;">Marking</td>
+									<td style="border:none;font-weight:bold;">Descriptive Rating</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>Outstanding</td>
-									<td style='border:none;font-weight:normal;'>90-100</td>
-									<td style='border:none;font-weight:normal;'>Passed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">DC</td>
+									<td style="border:none;font-weight:normal;">Developed and Commendable</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>Very Satisfactory</td>
-									<td style='border:none;font-weight:normal;'>85-89</td>
-									<td style='border:none;font-weight:normal;'>Passed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">SD</td>
+									<td style="border:none;font-weight:normal;">Sufficiently Developed</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>Satisfactory</td>
-									<td style='border:none;font-weight:normal;'>80-84</td>
-									<td style='border:none;font-weight:normal;'>Passed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">D</td>
+									<td style="border:none;font-weight:normal;">Developed</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>Fairly Satisfactory</td>
-									<td style='border:none;font-weight:normal;'>75-79</td>
-									<td style='border:none;font-weight:normal;'>Passed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">NI</td>
+									<td style="border:none;font-weight:normal;">Needs Improvement</td>
 								</tr>
 								<tr>
-									<td style='border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;'>Did Not Meet Expectation</td>
-									<td style='border:none;font-weight:normal;'>below 75</td>
-									<td style='border:none;font-weight:normal;'>Failed</td>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">NO</td>
+									<td style="border:none;font-weight:normal;">No Chance to Observe</td>
+								</tr>
+							</table>
+						</center>
+						<center>
+							<table>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:200px;font-size:12px;">Learner Progress and Achievement</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;width:100px;font-style:italic;">Descriptors</td>
+									<td style="border:none;font-weight:bold;font-style:italic;text-align:center;">Grading Scale</td>
+									<td style="border:none;font-weight:bold;font-style:italic;text-align:center;">Remarks</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">Outstanding</td>
+									<td style="border:none;font-weight:normal;">90-100</td>
+									<td style="border:none;font-weight:normal;">Passed</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">Very Satisfactory</td>
+									<td style="border:none;font-weight:normal;">85-89</td>
+									<td style="border:none;font-weight:normal;">Passed</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">Satisfactory</td>
+									<td style="border:none;font-weight:normal;">80-84</td>
+									<td style="border:none;font-weight:normal;">Passed</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">Fairly Satisfactory</td>
+									<td style="border:none;font-weight:normal;">75-79</td>
+									<td style="border:none;font-weight:normal;">Passed</td>
+								</tr>
+								<tr>
+									<td style="border:none;width:70px;font-weight:bold;text-align:center;font-weight:normal;">Did Not Meet Expectation</td>
+									<td style="border:none;font-weight:normal;">below 75</td>
+									<td style="border:none;font-weight:normal;">Failed</td>
 								</tr>
 							</table>
 						</center>
@@ -726,6 +860,14 @@ include 'styles/style.php';
 			</div>
 		</div>
 	</div>
+	';
+}
+}
+}
+mysqli_free_result($result);
+}while(mysqli_next_result($conn));
+}
+?>
 </body>
 
 </html>
