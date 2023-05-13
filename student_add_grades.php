@@ -288,7 +288,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Computer Services System (1)</label>
+                                            <label for="validationDefault01"><strong>SPECIALIZED:</strong>Computer System Servicing (1)</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="css1_mid_1" value="'.$gradeqryfetch['css1_mid_1'].'">
                                                 </div>
@@ -448,9 +448,9 @@
                                             }
                                             else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
                                                 echo '	
-                                        <form role="form" method="POST" action="add_grades_he11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                        <form role="form" method="POST" action="add_grades_ia11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                             <div>
-                                                <h1>Home Economics (HE)</h1>
+                                                <h1>Industrial Arts (IA)</h1>
                                                 <h5>' .$gradeqryfetch['semester']. '</h5>
                                             </div>
                                             <div class="row">
@@ -2572,7 +2572,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Computer System Servicing (4)</label>
+                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Bread & Pastry</label>
                                 <div class="col-md-4 mb-3">
                                 <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="bp_mid_1" value="'.$gradeqryfetch['bp_mid_1'].'">
                                 </div>
@@ -2667,7 +2667,7 @@
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>SPECIALIZED:</strong> EIM (4)</label>
+                        <label for="validationDefault01"><strong>SPECIALIZED:</strong> Electrical Installation and Maintenance (4)</label>
                             <div class="col-md-4 mb-3">
                             <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="eim4_mid_1" value="'.$gradeqryfetch['eim4_mid_1'].'">
                             </div>
@@ -3002,25 +3002,25 @@
             <div class="row">
             <label for="validationDefault01"><strong>SPECIALIZED:</strong> Business Ethics and Social Responsibility</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="business2_mid_1" value="'.$gradeqryfetch['business2_mid_1'].'">
+                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="business2_mid_1" value="'.$gradeqryfetch['business2_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="business2_mid_2" value="'.$gradeqryfetch['business2_mid_2'].'">
+                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="business2_mid_2" value="'.$gradeqryfetch['business2_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="business2_mid_ave" value="'.$gradeqryfetch['business2_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="business2_mid_ave" value="'.$gradeqryfetch['business2_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
             <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
+                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
+                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">

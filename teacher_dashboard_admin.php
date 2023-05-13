@@ -184,7 +184,8 @@
 										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
 										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i>EDIT</button>
 										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i>DELETE</button><br>
-										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10</a>
+										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-FRONT</a>
+										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10-back.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-BACK</a>
 										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-9.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-9</a>
 										</td>	
 										<?php
