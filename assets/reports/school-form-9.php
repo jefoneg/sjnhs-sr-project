@@ -14,6 +14,7 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 	<script src="jquery/jquery.js"></script>
 	<title>SJNHS IS | Print SF-9</title>
+	<link rel="icon" type="image/png" sizes="48x48" href="../images/sjnhs_logo.png">
 </head>
 
 <?php
@@ -969,7 +970,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -1989,7 +1990,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -3009,7 +3010,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -3954,7 +3955,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -4899,7 +4900,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -5844,7 +5845,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -6889,7 +6890,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -7934,7 +7935,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -8979,7 +8980,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -10049,7 +10050,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -11119,7 +11120,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>
@@ -12189,7 +12190,7 @@ include 'styles/style.php';
 				<br />
 			</div>
 			<div class="bandpaper col-sm-6" style="padding:20px 55px;">
-				<br />xx
+				<br />
 				<center>
 					<h5 style="font-size:11px;"><strong>REPORT ON LEARNING PROGRESS AND ACHIEVEMENT</strong></h5>
 				</center>

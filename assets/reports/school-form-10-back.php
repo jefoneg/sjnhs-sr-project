@@ -14,6 +14,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="jquery/jquery.js"></script>
     <title>SJNHS-IS | Print SF-10</title>
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/sjnhs_logo.png">
 </head>
 <?php
 include "styles/style.php";
