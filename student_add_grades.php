@@ -1,6 +1,6 @@
 <?php session_start();
 
-  if(!isset($_SESSION['admusername'])){
+  if(!isset($_SESSION['staffusername'])){
     header('location:index.php');
   }
  ?>
@@ -56,7 +56,7 @@
 					    </div><!--//app-utility-item-->
 			            
 			            <div class="app-utility-item app-user-dropdown dropdown">
-						<a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img class="img-profile rounded-circle" src="assets/images/users/<?php echo $_SESSION['admprofile'];?>" alt="user profile" width="70px" height="70px"></a>
+						<a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img class="img-profile rounded-circle" src="assets/images/users/<?php echo $_SESSION['staffprofile'];?>" alt="user profile" width="70px" height="70px"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
 								<li><a class="dropdown-item" href="settings.php">Account</a></li>
 								<li><hr class="dropdown-divider"></li>
@@ -81,7 +81,7 @@
 				    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="admin_dashboard.php">
+					        <a class="nav-link" href="faculty_dashboard.php">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 		  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
@@ -93,7 +93,7 @@
 					    </li><!--//nav-item-->		
                         <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link active" href="teacher_dashboard_admin.php">
+					        <a class="nav-link active" href="teacher_dashboard_faculty.php">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
@@ -186,7 +186,7 @@
                             while($gradeqryfetch = mysqli_fetch_array($result)){
                                 if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
                                     echo '	
-                            <form role="form" method="POST" action="add_grades_ict11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_ict11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                 <div>
                                     <h1>Information Communication Technology (ICT)</h1>
                                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -317,7 +317,7 @@
                                     }
                                     else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
                                         echo '	
-                                <form role="form" method="POST" action="add_grades_he11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="add_grades_he11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                     <div>
                                         <h1>Home Economics (HE)</h1>
                                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -448,7 +448,7 @@
                                             }
                                             else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
                                                 echo '	
-                                        <form role="form" method="POST" action="add_grades_ia11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                        <form role="form" method="POST" action="add_grades_ia11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                             <div>
                                                 <h1>Industrial Arts (IA)</h1>
                                                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -579,7 +579,7 @@
                                                     }
                                             else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
                                                 echo '	
-                                        <form role="form" method="POST" action="add_grades_stem11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                        <form role="form" method="POST" action="add_grades_stem11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                             <div>
                                                 <h1>Science, Technology, Engineering, and Mathematics  (STEM)</h1>
                                                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -709,7 +709,7 @@
                                                 }
                                                 else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
                                                     echo '	
-                                            <form role="form" method="POST" action="add_grades_humms11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                            <form role="form" method="POST" action="add_grades_humms11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                                 <div>
                                                     <h1>Humanities and Social Sciences (HUMSS)</h1>
                                                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -840,7 +840,7 @@
                                                     }
                                                     else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
                                                         echo '	
-                                                <form role="form" method="POST" action="add_grades_abm11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                                <form role="form" method="POST" action="add_grades_abm11_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                                     <div>
                                                         <h1>Accountancy, Business and Management(ABM)</h1>
                                                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -971,7 +971,7 @@
                                                         }
                                     else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
                                     echo '	
-                                <form role="form" method="POST" action="add_grades_ict11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="add_grades_ict11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                    <div>
                                     <h1>Information Communication Technology (ICT)</h1>
                                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1090,7 +1090,7 @@
                             }
                             else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
                                 echo '	
-                            <form role="form" method="POST" action="add_grades_he11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_he11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                <div>
                                 <h1>Home Economics (HE)</h1>
                                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1209,7 +1209,7 @@
                         }
                         else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
                             echo '	
-                        <form role="form" method="POST" action="add_grades_ia11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                            <div>
                             <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1328,7 +1328,7 @@
                     }
                     else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
                         echo '	
-                    <form role="form" method="POST" action="add_grades_stem11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                        <div>
                         <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1459,7 +1459,7 @@
                 }
                 else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
                     echo '	
-                <form role="form" method="POST" action="add_grades_humms11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_humms11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                    <div>
                     <h1>Humanities and Social Sciences (HUMSS)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1590,7 +1590,7 @@
             }
             else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
                 echo '	
-            <form role="form" method="POST" action="add_grades_abm11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+            <form role="form" method="POST" action="add_grades_abm11_2_faculty.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                <div>
                 <h1>Accountancy, Business and Management (ABM)</h1>
                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1721,7 +1721,7 @@
         }
                             else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
                                 echo '	
-                                <form role="form" method="POST" action="add_grades_ict12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="add_grades_ict12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                 <div>
                                     <h1>Information Communication Technology (ICT)</h1>
                                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1828,7 +1828,7 @@
                         }
                         else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
                             echo '	
-                            <form role="form" method="POST" action="add_grades_he12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_he12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                             <div>
                                 <h1>Home Economics (HE)</h1>
                                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -1935,7 +1935,7 @@
                     }
                     else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
                         echo '	
-                        <form role="form" method="POST" action="add_grades_ia12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                         <div>
                             <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2042,7 +2042,7 @@
                 }
                 else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
                     echo '	
-                    <form role="form" method="POST" action="add_grades_stem12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                     <div>
                         <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2173,7 +2173,7 @@
             }
               else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
                     echo '	
-                    <form role="form" method="POST" action="add_grades_humms12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_humms12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                     <div>
                         <h1>Humanities and Social Sciences (HUMSS)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2304,7 +2304,7 @@
             }   
             else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
                 echo '	
-                <form role="form" method="POST" action="add_grades_abm12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_abm12_1_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                 <div>
                     <h1>Accountancy, Business and Management (ABM)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2423,7 +2423,7 @@
         }   
                             else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
                                 echo '	
-                                <form role="form" method="POST" action="add_grades_ict12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <form role="form" method="POST" action="add_grades_ict12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                 <div>
                                     <h1>Information Communication Technology (ICT)</h1>
                                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2518,7 +2518,7 @@
                         }
                         else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
                             echo '	
-                            <form role="form" method="POST" action="add_grades_he12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_he12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                             <div>   
                                 <h1>Home Economics (HE)</h1>
                                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2613,7 +2613,7 @@
                     }
                     else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
                         echo '	
-                        <form role="form" method="POST" action="add_grades_ia12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                         <div>
                             <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2708,7 +2708,7 @@
                 }
                 else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
                     echo '	
-                    <form role="form" method="POST" action="add_grades_stem12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                     <div>
                         <h1>Science, Techonology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2815,7 +2815,7 @@
             }
             else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
                 echo '	
-                <form role="form" method="POST" action="add_grades_humms12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_humms12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                 <div>
                     <h1>Humanities and Social Sciences (HUMSS)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -2922,7 +2922,7 @@
         }
         else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
             echo '	
-            <form role="form" method="POST" action="add_grades_abm12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+            <form role="form" method="POST" action="add_grades_abm12_2_faculty.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
             <div>
                 <h1>Accountancy, Business and Management (ABM)</h1>
                 <h5>' .$gradeqryfetch['semester']. '</h5>
@@ -3087,7 +3087,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
     {
         ?>
 Swal.fire(
-  'Welcome! ',
+  '',
   '<?php echo $_SESSION['success']; ?>',
   'success'
 )

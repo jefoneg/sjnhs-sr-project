@@ -131,9 +131,6 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
-                                  Add Student
-                                </button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
@@ -177,8 +174,7 @@
                                         <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_lname'].', '.$rowfetchdata['teacher_fname']); ?></td>
 										<td style="text-align: center;">
 										<a type="button" class="btn btn-outline-success" href="student_add_grades_teacher.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i></button>
+										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-9.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF9</a>
 										</td>
 									</tr>
 									<?php

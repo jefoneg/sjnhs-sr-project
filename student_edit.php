@@ -80,5 +80,5 @@ $qry = "UPDATE abm_table SET lrn = '$lrn', firstname = '$firstname', middlename 
 mysqli_query($conn,$qry);
 $qry = "UPDATE student_tbl SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-header('location: teacher_dashboard_admin.php');
+header('location: teacher_dashboard_faculty.php');
 ?>

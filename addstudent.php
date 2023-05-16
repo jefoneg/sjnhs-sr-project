@@ -38,7 +38,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
     if($strand == 'HE'){
         $query = "INSERT INTO he_table (lrn,image,firstname,middlename,lastname,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
@@ -48,7 +48,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         mysqli_query($conn,$query1);
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
     if($strand == 'IA'){
         $query = "INSERT INTO ia_table (lrn,image,firstname,middlename,lastname,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
@@ -59,7 +59,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
     if($strand == 'ICT'){
         $query = "INSERT INTO ict_table (lrn,image,firstname,middlename,lastname,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
@@ -70,7 +70,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
     if($strand == 'HUMSS'){
         $query = "INSERT INTO humms_table (lrn,image,firstname,middlename,lastname,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
@@ -81,7 +81,7 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
     if($strand == 'ABM'){
         $query = "INSERT INTO abm_table (lrn,image,firstname,middlename,lastname,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
@@ -92,13 +92,13 @@ if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         
         $_SESSION['prompt'] = "Alert!";
         $_SESSION['success'] ="Sucessfully added!";
-        header('location: teacher_dashboard_admin.php');
+        header('location: teacher_dashboard_faculty.php');
     }
 
 } 
 else {
     $_SESSION['prompt'] = "Alert!";
     $_SESSION['success'] ="Error";
-    header('location: teacher_dashboard_admin.php');
+    header('location: teacher_dashboard_faculty.php');
 }
 ?>

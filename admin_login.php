@@ -54,11 +54,13 @@
             header('location:teacher_dashboard.php');
         } 
         else if($countstaff == 1){  
-            $_SESSION['username'] = $username; 
-            $_SESSION['password']= $password;
+            $_SESSION['staffusername'] = $rowstaff['username'];
+            $_SESSION['stafffname'] = $rowstaff['firstname']; 
+            $_SESSION['stafflname']= $rowstaff['lastname'];
+            $_SESSION['staffprofile']= $rowstaff['image'];
             $_SESSION['prompt'] = "Welcome!";
-            $_SESSION['success']= 'You have successfully logged in!';
-            header('location:template/dashboard.php');
+            $_SESSION['success'] = "You have successfully logged in, " . ucwords($_SESSION['staffusername']) . "!";
+            header('location:faculty_dashboard.php');
         }
         else{  
             $_SESSION['warning'] = "Invalid username and password!";

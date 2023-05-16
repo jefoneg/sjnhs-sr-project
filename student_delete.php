@@ -46,7 +46,8 @@ session_start();
 	$olduserfiledir2 = "assets/images/users/".$fetchgetuser['image'];
 	mysqli_query($conn,"delete from student_tbl where lrn ='$id'");
 	unlink($olduserfiledir2);
-	header('location: teacher_dashboard_admin.php');
+	$_SESSION['success'] = 'Sucessfully Deleted!';
+	header('location: teacher_dashboard_faculty.php');
 
 
 ?>

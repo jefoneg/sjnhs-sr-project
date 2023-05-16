@@ -3,7 +3,6 @@ session_start();
 include('conn.php');
 $semester = $_POST['semester'];
 
-
 $sem_update_qry = mysqli_query($conn,"UPDATE abm_table SET semester = '$semester'");
 $sem_update_qry = mysqli_query($conn,"UPDATE ict_table SET semester = '$semester'");
 $sem_update_qry = mysqli_query($conn,"UPDATE stem_table SET semester = '$semester'");
@@ -14,6 +13,6 @@ $sem_update_qry = mysqli_query($conn,"UPDATE student_tbl SET semester = '$semest
 
 $_SESSION['prompt'] = "";
 $_SESSION['success'] = "Semester status updated successfully!";
-header("location: settings.php");
+header("location: settings_faculty.php");
 
 ?>

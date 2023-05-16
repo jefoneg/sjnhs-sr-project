@@ -132,12 +132,12 @@
                             <?php 
                               include 'conn.php';
                               $lrn = $_GET['lrn'];
-                              $gradeqry = "SELECT * FROM ict_table WHERE lrn = '$lrn' AND strand = 'ICT' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                              $gradeqry .= "SELECT * FROM he_table WHERE lrn = '$lrn' AND strand = 'HE' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                              $gradeqry .= "SELECT * FROM stem_table WHERE lrn = '$lrn' AND strand = 'STEM' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                              $gradeqry .= "SELECT * FROM humms_table WHERE lrn = '$lrn' AND strand = 'HUMMS' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                              $gradeqry .= "SELECT * FROM ia_table WHERE lrn = '$lrn' AND strand = 'IA' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                              $gradeqry .= "SELECT * FROM abm_table WHERE lrn = '$lrn' AND strand = 'ABM' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+                              $gradeqry = "SELECT * FROM ict_table WHERE lrn = '$lrn' AND strand = 'ICT';";
+                              $gradeqry .= "SELECT * FROM he_table WHERE lrn = '$lrn' AND strand = 'HE';";
+                              $gradeqry .= "SELECT * FROM stem_table WHERE lrn = '$lrn' AND strand = 'STEM';";
+                              $gradeqry .= "SELECT * FROM humms_table WHERE lrn = '$lrn' AND strand = 'HUMMS';";
+                              $gradeqry .= "SELECT * FROM ia_table WHERE lrn = '$lrn' AND strand = 'IA';";
+                              $gradeqry .= "SELECT * FROM abm_table WHERE lrn = '$lrn' AND strand = 'ABM';";
                               if(mysqli_multi_query($conn,$gradeqry)){
                                   do{
                                       if($result = mysqli_store_result($conn)){
@@ -162,941 +162,25 @@
 					    <?php 
                             include 'conn.php';
                             $lrn = $_GET['lrn'];
-                            $gradeqry = "SELECT * FROM ict_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                            $gradeqry .= "SELECT * FROM he_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                            $gradeqry .= "SELECT * FROM stem_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                            $gradeqry .= "SELECT * FROM humms_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                            $gradeqry .= "SELECT * FROM ia_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
-                            $gradeqry .= "SELECT * FROM abm_table WHERE lrn='$lrn' AND teacher_lname = '".$_SESSION['teacherlname']."' AND teacher_mname = '".$_SESSION['teachermname']."' AND teacher_fname = '".$_SESSION['teacherfname']."';";
+                            $gradeqry = "SELECT * FROM ict_table WHERE lrn='$lrn';";
+                            $gradeqry .= "SELECT * FROM he_table WHERE lrn='$lrn';";
+                            $gradeqry .= "SELECT * FROM stem_table WHERE lrn='$lrn';";
+                            $gradeqry .= "SELECT * FROM humms_table WHERE lrn='$lrn';";
+                            $gradeqry .= "SELECT * FROM ia_table WHERE lrn='$lrn';";
+                            $gradeqry .= "SELECT * FROM abm_table WHERE lrn='$lrn';";
                             if(mysqli_multi_query($conn,$gradeqry)){
                                 do{
                                     if($result = mysqli_store_result($conn)){
                             while($gradeqryfetch = mysqli_fetch_array($result)){
-                                 if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
-                                echo '	
-                        <form role="form" method="POST" action="add_grades_ict11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-							<div>
-								<h1>Information Communication Technology (ICT)</h1>
-								<h5>' .$gradeqryfetch['semester']. '</h5>
-							</div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
-                            <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Computer System Servicing (1)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="css1_mid_1" value="'.$gradeqryfetch['css1_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="css1_mid_2" value="'.$gradeqryfetch['css1_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="css1_mid_ave" value="'.$gradeqryfetch['css1_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Computer System Servicing (1)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="css1_final_1" value="'.$gradeqryfetch['css1_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="css1_final_2" value="'.$gradeqryfetch['css1_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="css1_final_ave" value="'.$gradeqryfetch['css1_final_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="bg-light clearfix">  
-								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-							</div>
-                            </form>
-                        			';
-                        		}
-                                else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
+                                if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
                                     echo '	
-                            <form role="form" method="POST" action="add_grades_he11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_ict11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                 <div>
-                                    <h1>Home Economics (HE)</h1>
+                                    <h1>Information Communication Technology (ICT)</h1>
                                     <h5>' .$gradeqryfetch['semester']. '</h5>
                                 </div>
                                 <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
-                                <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Cookery (1)</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="cookery_mid_1" value="'.$gradeqryfetch['cookery_mid_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="cookery_mid_2" value="'.$gradeqryfetch['cookery_mid_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="cookery_mid_ave" value="'.$gradeqryfetch['cookery_mid_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Cookery (1)</label>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="cookery_final_1" value="'.$gradeqryfetch['cookery_final_1'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="cookery_final_2" value="'.$gradeqryfetch['cookery_final_2'].'">
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                    <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="cookery_final_ave" value="'.$gradeqryfetch['cookery_final_ave'].'" readonly>
-                                    </div>
-                                </div>
-                                <div class="bg-light clearfix">  
-                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-                                </div>
-                                </form>
-                                        ';
-                                    }
-                                    else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
-                                        echo '	
-                                <form role="form" method="POST" action="add_grades_ia11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                                    <div>
-                                        <h1>Industrial Arts (IA)</h1>
-                                        <h5>' .$gradeqryfetch['semester']. '</h5>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
-                                    <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> EIM (1)</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="eim_mid_1" value="'.$gradeqryfetch['eim_mid_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="eim_mid_2" value="'.$gradeqryfetch['eim_mid_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="eim_mid_ave" value="'.$gradeqryfetch['eim_mid_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> EIM (1)</label>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="eim_final_1" value="'.$gradeqryfetch['eim_final_1'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="eim_final_2" value="'.$gradeqryfetch['eim_final_2'].'">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                        <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="eim_final_ave" value="'.$gradeqryfetch['eim_final_ave'].'" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="bg-light clearfix">  
-                                        <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-                                    </div>
-                                    </form>
-                                            ';
-                                        }
-                                        else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
-                                            echo '	
-                                    <form role="form" method="POST" action="add_grades_stem11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                                        <div>
-                                            <h1>Science, Technology, Engineering, and Mathematics  (STEM)</h1>
-                                            <h5>' .$gradeqryfetch['semester']. '</h5>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
-                                        <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Pre-calculus</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="precal_mid_1" value="'.$gradeqryfetch['precal_mid_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="precal_mid_2" value="'.$gradeqryfetch['precal_mid_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="precal_mid_ave" value="'.$gradeqryfetch['precal_mid_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Pre-calculus</label>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="precal_final_1" value="'.$gradeqryfetch['precal_final_1'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="precal_final_2" value="'.$gradeqryfetch['precal_final_2'].'">
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                            <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="precal_final_ave" value="'.$gradeqryfetch['precal_final_ave'].'" readonly>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light clearfix">  
-                                            <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-                                        </div>
-                                        </form>
-                                                ';
-                                            }
-                                            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
-                                                echo '	
-                                        <form role="form" method="POST" action="add_grades_humms11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                                            <div>
-                                                <h1>Humanities and Social Sciences (HUMSS)</h1>
-                                                <h5>' .$gradeqryfetch['semester']. '</h5>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
                                                 </div>
@@ -1108,19 +192,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
                                                 </div>
@@ -1132,19 +204,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
                                                 </div>
@@ -1156,19 +216,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
                                             <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
                                                 </div>
@@ -1180,19 +228,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
                                                 </div>
@@ -1204,19 +240,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
                                                 </div>
@@ -1228,19 +252,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
+                                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
                                                 </div>
@@ -1252,19 +264,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                            <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
                                                 <div class="col-md-4 mb-3">
                                                 <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
                                                 </div>
@@ -1276,39 +276,417 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                            <label for="validationDefault01"><strong>SPECIALIZED:</strong>Computer System Servicing (1)</label>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
+                                                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="css1_mid_1" value="'.$gradeqryfetch['css1_mid_1'].'">
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
+                                                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="css1_mid_2" value="'.$gradeqryfetch['css1_mid_2'].'">
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Introduction to World Religion and Belief System</label>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="introduction_mid_1" value="'.$gradeqryfetch['introduction_mid_1'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="introduction_mid_2" value="'.$gradeqryfetch['introduction_mid_2'].'">
-                                                </div>
-                                                <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="introduction_mid_ave" value="'.$gradeqryfetch['introduction_mid_ave'].'" readonly>
+                                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="css1_mid_ave" value="'.$gradeqryfetch['css1_mid_ave'].'" readonly>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Introduction to World Religion and Belief System</label>
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
+                                            </div>
+                                                <div class="col-md-4">
+                                                <label><strong>General Ave. for the Semester:</strong></label>
+                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
+                                                </div>
+                                            </div>
+                                <div class="bg-light clearfix">  
+                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                </div>
+                                </form>
+                                        ';
+                                    }
+                                    else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
+                                        echo '	
+                                <form role="form" method="POST" action="add_grades_he11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                    <div>
+                                        <h1>Home Economics (HE)</h1>
+                                        <h5>' .$gradeqryfetch['semester']. '</h5>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
+                                    <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Cookery (1)</label>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="cookery_mid_1" value="'.$gradeqryfetch['cookery_mid_1'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="cookery_mid_2" value="'.$gradeqryfetch['cookery_mid_2'].'">
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="cookery_mid_ave" value="'.$gradeqryfetch['cookery_mid_ave'].'" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                        <div class="col-md-4">
+                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                        <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
+                                        </div>
+                                    </div>
+                                        <div class="bg-light clearfix">  
+                                            <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                        </div>
+                                        </form>
+                                                ';
+                                            }
+                                            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
+                                                echo '	
+                                        <form role="form" method="POST" action="add_grades_ia11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                            <div>
+                                                <h1>Industrial Arts (IA)</h1>
+                                                <h5>' .$gradeqryfetch['semester']. '</h5>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="introduction_final_1" value="'.$gradeqryfetch['introduction_final_1'].'">
+                                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="introduction_final_2" value="'.$gradeqryfetch['introduction_final_2'].'">
+                                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
                                                 </div>
                                                 <div class="col-md-4 mb-3">
-                                                <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="introduction_final_ave" value="'.$gradeqryfetch['introduction_final_ave'].'" readonly>
+                                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
+                                            <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Electrical Installation and Maintenance (1)</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="eim_mid_1" value="'.$gradeqryfetch['eim_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="eim_mid_2" value="'.$gradeqryfetch['eim_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="eim_mid_ave" value="'.$gradeqryfetch['eim_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
+                                            </div>
+                                                <div class="col-md-4">
+                                                <label><strong>General Ave. for the Semester:</strong></label>
+                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
+                                                </div>
+                                            </div>
+                                                <div class="bg-light clearfix">  
+                                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                                </div>
+                                                </form>
+                                                        ';
+                                                    }
+                                            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
+                                                echo '	
+                                        <form role="form" method="POST" action="add_grades_stem11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                            <div>
+                                                <h1>Science, Technology, Engineering, and Mathematics  (STEM)</h1>
+                                                <h5>' .$gradeqryfetch['semester']. '</h5>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
+                                            <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Pre-calculus</label>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="precal_mid_1" value="'.$gradeqryfetch['precal_mid_1'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="precal_mid_2" value="'.$gradeqryfetch['precal_mid_2'].'">
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="precal_mid_ave" value="'.$gradeqryfetch['precal_mid_ave'].'" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-4">
+                                            </div>
+                                                <div class="col-md-4">
+                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
                                                 </div>
                                             </div>
                                             <div class="bg-light clearfix">  
@@ -1317,15 +695,15 @@
                                             </form>
                                                     ';
                                                 }
-                                                else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
+                                                else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
                                                     echo '	
-                                            <form role="form" method="POST" action="add_grades_abm11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                            <form role="form" method="POST" action="add_grades_humms11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                                                 <div>
-                                                    <h1>Accountancy, Business and Management(ABM)</h1>
+                                                    <h1>Humanities and Social Sciences (HUMSS)</h1>
                                                     <h5>' .$gradeqryfetch['semester']. '</h5>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Oral Communication in Context</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
                                                     </div>
@@ -1337,19 +715,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Oral Communication in Context</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="oral_communication_final_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="oral_communication_final_2" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="oral_communication_final_ave" value="'.$gradeqryfetch['oral_communication_final_ave'].'" readonly="true">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
                                                     </div>
@@ -1361,19 +727,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_final_1" value="'.$gradeqryfetch['kpwkp_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_final_2" value="'.$gradeqryfetch['kpwkp_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="kpwkp_final_ave" value="'.$gradeqryfetch['kpwkp_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Mathematics</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
                                                     </div>
@@ -1385,19 +739,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Mathematics</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="genmath_final_1" value="'.$gradeqryfetch['genmath_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_final_2" value="'.$gradeqryfetch['genmath_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="genmath_final_ave" value="'.$gradeqryfetch['genmath_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Personal Development</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
                                                 <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
                                                     </div>
@@ -1409,19 +751,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Personal Development</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_final_development_1" value="'.$gradeqryfetch['personal_final_development_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_final_development_2" value="'.$gradeqryfetch['personal_final_development_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="personal_final_development_ave" value="'.$gradeqryfetch['personal_final_development_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> 21st Century Literature from the Philippines & the World</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
                                                     </div>
@@ -1433,19 +763,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> 21st Century Literature from the Philippines & the World</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_final_1" value="'.$gradeqryfetch['century_literature_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_final_2" value="'.$gradeqryfetch['century_literature_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="century_literature_final_ave" value="'.$gradeqryfetch['century_literature_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Earth, Life and Science</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
                                                     </div>
@@ -1457,19 +775,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Earth, Life and Science</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="els_final_1" value="'.$gradeqryfetch['els_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="els_final_2" value="'.$gradeqryfetch['els_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="els_final_ave" value="'.$gradeqryfetch['els_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 1</label>
+                                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
                                                     </div>
@@ -1481,19 +787,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 1</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="peh_final_1" value="'.$gradeqryfetch['peh_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh_final_2" value="'.$gradeqryfetch['peh_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="peh_final_ave" value="'.$gradeqryfetch['peh_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                                <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
                                                     <div class="col-md-4 mb-3">
                                                     <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
                                                     </div>
@@ -1505,39 +799,25 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Empowerment Technologies (E-Tech) ICT for Professionals Tracks</label>
+                                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Introduction to World Religion and Belief System</label>
                                                     <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_final_1" value="'.$gradeqryfetch['empowerment_tech_final_1'].'">
+                                                    <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="introduction_mid_1" value="'.$gradeqryfetch['introduction_mid_1'].'">
                                                     </div>
                                                     <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_final_2" value="'.$gradeqryfetch['empowerment_tech_final_2'].'">
+                                                    <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="introduction_mid_2" value="'.$gradeqryfetch['introduction_mid_2'].'">
                                                     </div>
                                                     <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="empowerment_tech_final_ave" value="'.$gradeqryfetch['empowerment_tech_final_ave'].'" readonly>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong>Organization & Management</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="organization_mid_1" value="'.$gradeqryfetch['organization_mid_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="organization_mid_2" value="'.$gradeqryfetch['organization_mid_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="organization_mid_ave" value="'.$gradeqryfetch['organization_mid_ave'].'" readonly>
+                                                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="introduction_mid_ave" value="'.$gradeqryfetch['introduction_mid_ave'].'" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong>Organization & Management</label>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="organization_final_1" value="'.$gradeqryfetch['organization_final_1'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="organization_final_2" value="'.$gradeqryfetch['organization_final_2'].'">
-                                                    </div>
-                                                    <div class="col-md-4 mb-3">
-                                                    <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="organization_final_ave" value="'.$gradeqryfetch['organization_final_ave'].'" readonly>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                    <div class="col-md-4">
+                                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                                    <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="bg-light clearfix">  
@@ -1546,630 +826,634 @@
                                                 </form>
                                                         ';
                                                     }
-                                else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
+                                                    else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
+                                                        echo '	
+                                                <form role="form" method="POST" action="add_grades_abm11_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                                    <div>
+                                                        <h1>Accountancy, Business and Management(ABM)</h1>
+                                                        <h5>' .$gradeqryfetch['semester']. '</h5>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> Oral Communication in Context</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="oral_communication_mid_1" onkeyup="total()" value="'.$gradeqryfetch['oral_communication_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="oral_communication_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['oral_communication_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="oral_communication_mid_ave"  value="'.$gradeqryfetch['oral_communication_mid_ave'].'" readonly="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="kpwkp_mid_1"  value="'.$gradeqryfetch['kpwkp_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="kpwkp_mid_2" value="'.$gradeqryfetch['kpwkp_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="kpwkp_mid_ave" value="'.$gradeqryfetch['kpwkp_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> General Mathematics</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="genmath_mid_1" value="'.$gradeqryfetch['genmath_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="genmath_mid_2" value="'.$gradeqryfetch['genmath_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="genmath_mid_ave" value="'.$gradeqryfetch['genmath_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> Personal Development</label>
+                                                    <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="personal_mid_development_1" value="'.$gradeqryfetch['personal_mid_development_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="personal_mid_development_2" value="'.$gradeqryfetch['personal_mid_development_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="personal_mid_development_ave" value="'.$gradeqryfetch['personal_mid_development_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> 21st Century Literature from the Philippines & the World</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="century_literature_mid_1" value="'.$gradeqryfetch['century_literature_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="century_literature_mid_2" value="'.$gradeqryfetch['century_literature_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="century_literature_mid_ave" value="'.$gradeqryfetch['century_literature_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> Earth, Life and Science</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="els_mid_1" value="'.$gradeqryfetch['els_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="els_mid_2" value="'.$gradeqryfetch['els_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="els_mid_ave" value="'.$gradeqryfetch['els_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 1</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh_mid_1" value="'.$gradeqryfetch['peh_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh_mid_2" value="'.$gradeqryfetch['peh_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="peh_mid_ave" value="'.$gradeqryfetch['peh_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>APPLIED: </strong> Empowerment Technologies </label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="empowerment_tech_mid_1" value="'.$gradeqryfetch['empowerment_tech_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="empowerment_tech_mid_2" value="'.$gradeqryfetch['empowerment_tech_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="empowerment_tech_mid_ave" value="'.$gradeqryfetch['empowerment_tech_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Organization & Management (1)</label>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="organization_mid_1" value="'.$gradeqryfetch['organization_mid_1'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="organization_mid_2" value="'.$gradeqryfetch['organization_mid_2'].'">
+                                                        </div>
+                                                        <div class="col-md-4 mb-3">
+                                                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="organization_mid_ave" value="'.$gradeqryfetch['organization_mid_ave'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                        <div class="col-md-4">
+                                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                                        <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bg-light clearfix">  
+                                                        <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                                    </div>
+                                                    </form>
+                                                            ';
+                                                        }
+                                    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ICT"){
+                                    echo '	
+                                <form role="form" method="POST" action="add_grades_ict11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                   <div>
+                                    <h1>Information Communication Technology (ICT)</h1>
+                                    <h5>' .$gradeqryfetch['semester']. '</h5>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral1_communication_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral1_communication_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral1_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp1_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath1_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                              <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal1_mid_development_1" onkeyup = "total1()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal1_mid_development_2" onkeyup = "total1()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal1_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els1_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh1_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment1_tech_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment1_tech_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment1_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Computer System Servicing (2)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="css2_mid_1" value="'.$gradeqryfetch['css2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="css2_mid_2" value="'.$gradeqryfetch['css2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_ave" placeholder="Average" name="css2_mid_ave" value="'.$gradeqryfetch['css2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                        <div class="col-md-4">
+                                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                                        <input type="number" class="form-control" id="final1_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                                        </div>
+                                                    </div>
+                                <div class="bg-light clearfix">  
+                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                </div>
+                                </form>
+                                ';
+                            }
+                            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
                                 echo '	
-                            <form role="form" method="POST" action="add_grades_ict11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                           	<div>
-                            	<h1>Information Communication Technology (ICT)</h1>
-								<h5>' .$gradeqryfetch['semester']. '</h5>
-							</div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
-                                </div>
+                            <form role="form" method="POST" action="add_grades_he11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                               <div>
+                                <h1>Home Economics (HE)</h1>
+                                <h5>' .$gradeqryfetch['semester']. '</h5>
                             </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
+                                <input type="number" class="form-control" id="oral1_communication_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
+                                <input type="number" class="form-control" id="oral1_communication_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral1_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
+                                <input type="number" class="form-control" id="kpwkp1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
+                                <input type="number" class="form-control" id="kpwkp1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
+                                <input type="number" class="form-control" id="kpwkp1_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
+                                <input type="number" class="form-control" id="genmath1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="genmath1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath1_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
                                 </div>
                             </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
+                          <div class="row">
+                            <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
+                                <input type="number" class="form-control" id="personal1_mid_development_1" onkeyup = "total1()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
+                                <input type="number" class="form-control" id="personal1_mid_development_2" onkeyup = "total1()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
+                                <input type="number" class="form-control" id="personal1_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
+                                <input type="number" class="form-control" id="els1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="els1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="els1_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
+                            <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
+                                <input type="number" class="form-control" id="peh1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
+                                <input type="number" class="form-control" id="peh1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="peh1_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                           <div class="row">
+                            <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="empowerment1_tech_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="empowerment1_tech_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="empowerment1_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                           <div class="row">
+                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Cookery (2)</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="css2_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="cookery2_mid_1" value="'.$gradeqryfetch['cookery2_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="css2_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="cookery2_mid_2" value="'.$gradeqryfetch['cookery2_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="css2_mid_ave" placeholder="Average" name="cookery2_mid_ave" value="'.$gradeqryfetch['cookery2_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Computer System Servicing (2)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="css2_mid_1" value="'.$gradeqryfetch['css2_mid_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="css2_mid_2" value="'.$gradeqryfetch['css2_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="css2_mid_ave" value="'.$gradeqryfetch['css2_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-							<div class="row">
-                            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Computer System Servicing (2)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="css2_final_1" value="'.$gradeqryfetch['css2_final_1'].'">
-                                </div>
-								<div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="css2_final_2" value="'.$gradeqryfetch['css2_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="css2_final_ave" value="'.$gradeqryfetch['css2_final_ave'].'" readonly>
-                                </div>
-                            </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                <div class="col-md-4">
+                                                </div>
+                                                    <div class="col-md-4">
+                                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                                    <input type="number" class="form-control" id="final1_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                                    </div>
+                                                </div>
                             <div class="bg-light clearfix">  
-								<button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-							</div>
+                                <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                            </div>
                             </form>
                             ';
                         }
-                        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HE"){
+                        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
                             echo '	
-                        <form role="form" method="POST" action="add_grades_he11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                            <div>
-                            <h1>Home Economics (HE)</h1>
+                            <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
+                        <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
+                            <input type="number" class="form-control" id="oral1_communication_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
+                            <input type="number" class="form-control" id="oral1_communication_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
+                            <input type="number" class="form-control" id="oral1_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                        <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
+                            <input type="number" class="form-control" id="kpwkp1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
+                            <input type="number" class="form-control" id="kpwkp1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
+                            <input type="number" class="form-control" id="kpwkp1_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
+                        <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
+                            <input type="number" class="form-control" id="genmath1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
+                            <input type="number" class="form-control" id="genmath1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
+                            <input type="number" class="form-control" id="genmath1_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
+                            </div>
+                        </div>
+                      <div class="row">
+                        <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
+                            <div class="col-md-4 mb-3">
+                            <input type="number" class="form-control" id="personal1_mid_development_1" onkeyup = "total1()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                            <input type="number" class="form-control" id="personal1_mid_development_2" onkeyup = "total1()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                            <input type="number" class="form-control" id="personal1_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
+                        <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
+                            <input type="number" class="form-control" id="els1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
+                            <input type="number" class="form-control" id="els1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
+                            <input type="number" class="form-control" id="els1_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
+                        <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
+                            <input type="number" class="form-control" id="peh1_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
+                            <input type="number" class="form-control" id="peh1_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
+                            <input type="number" class="form-control" id="peh1_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
                             </div>
                         </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
+                       <div class="row">
+                        <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
+                            <input type="number" class="form-control" id="empowerment1_tech_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
+                            <input type="number" class="form-control" id="empowerment1_tech_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
+                            <input type="number" class="form-control" id="empowerment1_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
                             </div>
                         </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Cookery (2)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="cookery2_mid_1" value="'.$gradeqryfetch['cookery2_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="cookery2_mid_2" value="'.$gradeqryfetch['cookery2_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="cookery2_mid_ave" value="'.$gradeqryfetch['cookery2_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Cookery (2)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="cookery2_final_1" value="'.$gradeqryfetch['cookery2_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="cookery2_final_2" value="'.$gradeqryfetch['cookery2_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="cookery2_final_ave" value="'.$gradeqryfetch['cookery2_final_ave'].'" readonly>
-                            </div>
-                        </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Electrical Installation and Maintenance (2)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_1" onkeyup = "total1()" placeholder="First Quarter" name="eim2_mid_1" value="'.$gradeqryfetch['eim2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_2" onkeyup = "total1()" placeholder="Second Quarter" name="eim2_mid_2" value="'.$gradeqryfetch['eim2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css2_mid_ave" placeholder="Average" name="eim2_mid_ave" value="'.$gradeqryfetch['eim2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                        <div class="col-md-4">
+                                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                                        <input type="number" class="form-control" id="final1_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                                        </div>
+                                                    </div>
                         <div class="bg-light clearfix">  
                             <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                         </div>
                         </form>
                         ';
                     }
-                    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "IA"){
+                    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
                         echo '	
-                    <form role="form" method="POST" action="add_grades_ia11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                        <div>
-                        <h1>Industrial Arts (IA)</h1>
+                        <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
                     </div>
+                   <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral_communication_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                              <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal_mid_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Basic Calculos</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="basic_mid_1" value="'.$gradeqryfetch['basic_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="basic_mid_2" value="'.$gradeqryfetch['basic_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="basic_mid_ave" value="'.$gradeqryfetch['basic_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Biology (1)</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
+                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="biology_mid_1" value="'.$gradeqryfetch['biology_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
+                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="biology_mid_2" value="'.$gradeqryfetch['biology_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
+                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="biology_mid_ave" value="'.$gradeqryfetch['biology_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> EIM (2)</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="eim2_mid_1" value="'.$gradeqryfetch['eim2_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="eim2_mid_2" value="'.$gradeqryfetch['eim2_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="eim2_mid_ave" value="'.$gradeqryfetch['eim2_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> EIM (2)</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="eim2_final_1" value="'.$gradeqryfetch['eim2_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="eim2_final_2" value="'.$gradeqryfetch['eim2_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="eim2_final_ave" value="'.$gradeqryfetch['eim2_final_ave'].'" readonly>
-                        </div>
-                    </div>
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                    </div>
+                                                        <div class="col-md-4">
+                                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                                        <input type="number" class="form-control" id="final_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                                        </div>
+                                                    </div>
                     <div class="bg-light clearfix">  
                         <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                     </div>
                     </form>
                     ';
                 }
-                else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "STEM"){
+                else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
                     echo '	
-                <form role="form" method="POST" action="add_grades_stem11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_humms11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                    <div>
-                    <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
+                    <h1>Humanities and Social Sciences (HUMSS)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
                     </div>
@@ -2181,19 +1465,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
                     </div>
@@ -2205,19 +1477,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
                     </div>
@@ -2228,20 +1488,8 @@
                     <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
                     </div>
                 </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
+              <div class="row">
+                <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
                     </div>
@@ -2253,19 +1501,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
                     </div>
@@ -2277,19 +1513,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
+                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
                     </div>
@@ -2300,20 +1524,8 @@
                     <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
                     </div>
                 </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
+               <div class="row">
+                <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
                     <div class="col-md-4 mb-3">
                     <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
                     </div>
@@ -2324,81 +1536,55 @@
                     <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
                     </div>
                 </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
+               <div class="row">
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Humanities 1 (Creative Writing)</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
+                    <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="humanities_mid_1" value="'.$gradeqryfetch['humanities_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
+                    <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="humanities_mid_2" value="'.$gradeqryfetch['humanities_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Basic Calculus</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="basic_mid_1" value="'.$gradeqryfetch['basic_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="basic_mid_2" value="'.$gradeqryfetch['basic_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="basic_mid_ave" value="'.$gradeqryfetch['basic_mid_ave'].'" readonly>
+                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="humanities_mid_ave" value="'.$gradeqryfetch['humanities_mid_ave'].'" readonly>
                     </div>
                 </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Basic Calculus</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="basic_final_1" value="'.$gradeqryfetch['basic_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="basic_final_2" value="'.$gradeqryfetch['basic_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="basic_final_ave" value="'.$gradeqryfetch['basic_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> General Biology (1)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="biology_mid_1" value="'.$gradeqryfetch['biology_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="biology_mid_2" value="'.$gradeqryfetch['biology_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="biology_mid_ave" value="'.$gradeqryfetch['biology_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> General Biology (1)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_1" onkeyup = "total()" placeholder="First Quarter" name="biology_final_1" value="'.$gradeqryfetch['biology_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_2" onkeyup = "total()" placeholder="Second Quarter" name="biology_final_2" value="'.$gradeqryfetch['biology_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="biology_final_ave" value="'.$gradeqryfetch['biology_final_ave'].'" readonly>
-                    </div>
-                </div>
+    <div class="row">
+    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Social Science (Philippine Politics & Governance)</label>
+        <div class="col-md-4 mb-3">
+        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="social_mid_1" value="'.$gradeqryfetch['social_mid_1'].'">
+        </div>
+        <div class="col-md-4 mb-3">
+        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="social_mid_2" value="'.$gradeqryfetch['social_mid_2'].'">
+        </div>
+        <div class="col-md-4 mb-3">
+        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="social_mid_ave" value="'.$gradeqryfetch['social_mid_ave'].'" readonly>
+        </div>
+    </div>
+    <div class="row">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+                                        <div class="col-md-4">
+                                        <label><strong>General Ave. for the Semester:</strong></label>
+                                        <input type="number" class="form-control" id="final_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                        </div>
+                                        </div>
                 <div class="bg-light clearfix">  
                     <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                 </div>
                 </form>
                 ';
             }
-            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "HUMSS"){
+            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
                 echo '	
-            <form role="form" method="POST" action="add_grades_humms11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+            <form role="form" method="POST" action="add_grades_abm11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                <div>
-                <h1>Humanities and Social Sciences (HUMSS)</h1>
+                <h1>Accountancy, Business and Management (ABM)</h1>
                 <h5>' .$gradeqryfetch['semester']. '</h5>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Reading and Writing Skills</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
                 </div>
@@ -2410,19 +1596,7 @@
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
                 </div>
@@ -2434,19 +1608,7 @@
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Contemporary Arts from the Region</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
                 </div>
@@ -2457,20 +1619,8 @@
                 <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
                 </div>
             </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
+          <div class="row">
+            <label for="validationDefault01"><strong>CORE:</strong> Statistics and Probability</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
                 </div>
@@ -2482,19 +1632,7 @@
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Physical Education and Health (P.E.) 2</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
                 </div>
@@ -2506,19 +1644,7 @@
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
+            <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 1</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
                 </div>
@@ -2529,20 +1655,8 @@
                 <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
                 </div>
             </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
+           <div class="row">
+            <label for="validationDefault01"><strong>APPLIED:</strong> Entrepreneurship</label>
                 <div class="col-md-4 mb-3">
                 <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
                 </div>
@@ -2553,672 +1667,376 @@
                 <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
                 </div>
             </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
+           <div class="row">
+            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Fundamentals of ABM (1)</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
+                <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="fundamentals_mid_1" value="'.$gradeqryfetch['fundamentals_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
+                <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="fundamentals_mid_2" value="'.$gradeqryfetch['fundamentals_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Humanities 1 (Creative Writing)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="humanities_mid_1" value="'.$gradeqryfetch['humanities_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="humanities_mid_2" value="'.$gradeqryfetch['humanities_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="humanities_mid_ave" value="'.$gradeqryfetch['humanities_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="fundamentals_mid_ave" value="'.$gradeqryfetch['fundamentals_mid_ave'].'" readonly>
                 </div>
             </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Humanities 1 (Creative Writing)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="humanities_final_1" value="'.$gradeqryfetch['humanities_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="humanities_final_2" value="'.$gradeqryfetch['humanities_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="humanities_final_ave" value="'.$gradeqryfetch['humanities_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Social Science (Philippine Politics & Governance)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="social_mid_1" value="'.$gradeqryfetch['social_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="social_mid_2" value="'.$gradeqryfetch['social_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="social_mid_ave" value="'.$gradeqryfetch['social_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Social Science (Philippine Politics & Governance)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_final_1" onkeyup = "total()" placeholder="First Quarter" name="social_final_1" value="'.$gradeqryfetch['social_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_final_2" onkeyup = "total()" placeholder="Second Quarter" name="social_final_2" value="'.$gradeqryfetch['social_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="social_final_ave" value="'.$gradeqryfetch['social_final_ave'].'" readonly>
-                </div>
-            </div>
+<div class="row">
+<label for="validationDefault01"><strong>SPECIALIZED:</strong> Principles of Marketing</label>
+    <div class="col-md-4 mb-3">
+    <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="principles_mid_1" value="'.$gradeqryfetch['principles_mid_1'].'">
+    </div>
+    <div class="col-md-4 mb-3">
+    <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="principles_mid_2" value="'.$gradeqryfetch['principles_mid_2'].'">
+    </div>
+    <div class="col-md-4 mb-3">
+    <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="principles_mid_ave" value="'.$gradeqryfetch['principles_mid_ave'].'" readonly>
+    </div>
+</div>
+<div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final_average" placeholder="Average" name="2nd_average" value="'.$gradeqryfetch['2nd_average'].'" readonly>
+                                    </div>
+                                    </div>
             <div class="bg-light clearfix">  
                 <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
             </div>
             </form>
             ';
         }
-        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "11" && $gradeqryfetch['strand'] == "ABM"){
-            echo '	
-        <form role="form" method="POST" action="add_grades_abm11_2.php?lrn='.$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-           <div>
-            <h1>Accountancy, Business and Management (ABM)</h1>
-            <h5>' .$gradeqryfetch['semester']. '</h5>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Reading and Writing Skills</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_1" onkeyup = "total()" placeholder="First Quarter" name="reading_mid_1" value="'.$gradeqryfetch['reading_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_mid_2" value="'.$gradeqryfetch['reading_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="reading_mid_ave" value="'.$gradeqryfetch['reading_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Reading and Writing Skills</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_1" onkeyup = "total()" placeholder="First Quarter" name="reading_final_1" value="'.$gradeqryfetch['reading_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_2" onkeyup = "total()" placeholder="Second Quarter" name="reading_final_2" value="'.$gradeqryfetch['reading_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="reading_final_ave" value="'.$gradeqryfetch['reading_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_mid_1" value="'.$gradeqryfetch['pptp_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_mid_2" value="'.$gradeqryfetch['pptp_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="pptp_mid_ave" value="'.$gradeqryfetch['pptp_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Pagbasa at Pagsusuri ng ibat ibang Teksto sa Pananaliksik</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup = "total()" placeholder="First Quarter" name="pptp_final_1" value="'.$gradeqryfetch['pptp_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup = "total()" placeholder="Second Quarter" name="pptp_final_2" value="'.$gradeqryfetch['pptp_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="pptp_final_ave" value="'.$gradeqryfetch['pptp_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Contemporary Arts from the Region</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_mid_1" value="'.$gradeqryfetch['contemporary_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_mid_2" value="'.$gradeqryfetch['contemporary_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="contemporary_mid_ave" value="'.$gradeqryfetch['contemporary_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Contemporary Arts from the Region</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_1" onkeyup = "total()" placeholder="First Quarter" name="contemporary_final_1" value="'.$gradeqryfetch['contemporary_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_2" onkeyup = "total()" placeholder="Second Quarter" name="contemporary_final_2" value="'.$gradeqryfetch['contemporary_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="contemporary_final_ave" value="'.$gradeqryfetch['contemporary_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Statistics and Probability</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_mid_1" value="'.$gradeqryfetch['statistic_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_mid_2" value="'.$gradeqryfetch['statistic_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="statistic_mid_ave" value="'.$gradeqryfetch['statistic_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Statistics and Probability</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_1" onkeyup = "total()" placeholder="First Quarter" name="statistic_final_1" value="'.$gradeqryfetch['statistic_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_2" onkeyup = "total()" placeholder="Second Quarter" name="statistic_final_2" value="'.$gradeqryfetch['statistic_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="statistic_final_ave" value="'.$gradeqryfetch['statistic_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education and Health (P.E.) 2</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_mid_1" value="'.$gradeqryfetch['peh2_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_mid_2" value="'.$gradeqryfetch['peh2_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="peh2_mid_ave" value="'.$gradeqryfetch['peh2_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education and Health (P.E.) 2</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_1" onkeyup = "total()" placeholder="First Quarter" name="peh2_final_1" value="'.$gradeqryfetch['peh2_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_2" onkeyup = "total()" placeholder="Second Quarter" name="peh2_final_2" value="'.$gradeqryfetch['peh2_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="peh2_final_ave" value="'.$gradeqryfetch['peh2_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Practical Research 1</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_1" onkeyup = "total()" placeholder="First Quarter" name="practical_mid_1" value="'.$gradeqryfetch['practical_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_mid_2" value="'.$gradeqryfetch['practical_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="practical_mid_ave" value="'.$gradeqryfetch['practical_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Practical Research 1</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_1" onkeyup = "total()" placeholder="First Quarter" name="practical_final_1" value="'.$gradeqryfetch['practical_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_2" onkeyup = "total()" placeholder="Second Quarter" name="practical_final_2" value="'.$gradeqryfetch['practical_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="practical_final_ave" value="'.$gradeqryfetch['practical_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Entrepreneurship</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_mid_1" value="'.$gradeqryfetch['entrep_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_mid_2" value="'.$gradeqryfetch['entrep_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="entrep_mid_ave" value="'.$gradeqryfetch['entrep_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Entrepreneurship</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup = "total()" placeholder="First Quarter" name="entrep_final_1" value="'.$gradeqryfetch['entrep_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup = "total()" placeholder="Second Quarter" name="entrep_final_2" value="'.$gradeqryfetch['entrep_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="entrep_final_ave" value="'.$gradeqryfetch['entrep_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Fundamentals of ABM (1)</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_mid_1" onkeyup = "total()" placeholder="First Quarter" name="fundamentals_mid_1" value="'.$gradeqryfetch['fundamentals_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="fundamentals_mid_2" value="'.$gradeqryfetch['fundamentals_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="fundamentals_mid_ave" value="'.$gradeqryfetch['fundamentals_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Fundamentals of ABM (1)</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_final_1" onkeyup = "total()" placeholder="First Quarter" name="fundamentals_final_1" value="'.$gradeqryfetch['fundamentals_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_final_2" onkeyup = "total()" placeholder="Second Quarter" name="fundamentals_final_2" value="'.$gradeqryfetch['fundamentals_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="fundamentals_final_ave" value="'.$gradeqryfetch['fundamentals_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Middle Term -</strong> Principles of Marketing</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_mid_1" onkeyup = "total()" placeholder="First Quarter" name="principles_mid_1" value="'.$gradeqryfetch['principles_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_mid_2" onkeyup = "total()" placeholder="Second Quarter" name="principles_mid_2" value="'.$gradeqryfetch['principles_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="principles_mid_ave" value="'.$gradeqryfetch['principles_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>APPLIED AND SPECIALIZED: Final Term -</strong> Principles of Marketing</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_final_1" onkeyup = "total()" placeholder="First Quarter" name="principles_final_1" value="'.$gradeqryfetch['principles_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_final_2" onkeyup = "total()" placeholder="Second Quarter" name="principles_final_2" value="'.$gradeqryfetch['principles_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="principles_final_ave" value="'.$gradeqryfetch['principles_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="bg-light clearfix">  
-            <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-        </div>
-        </form>
-        ';
-    }
-                        else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
+                            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
+                                echo '	
+                                <form role="form" method="POST" action="add_grades_ict12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <div>
+                                    <h1>Information Communication Technology (ICT)</h1>
+                                    <h5>' .$gradeqryfetch['semester']. '</h5>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total2()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total2()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
+                                <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_1" onkeyup="total2()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_2" onkeyup="total2()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Computer System Servicing (3)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_1" onkeyup="total2()" placeholder="First Quarter" name="css3_mid_1" value="'.$gradeqryfetch['css3_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="css3_mid_2" value="'.$gradeqryfetch['css3_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_ave" placeholder="Average" name="css3_mid_ave" value="'.$gradeqryfetch['css3_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final2_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
+                                    </div>
+                                    </div>
+                                <div class="bg-light clearfix">  
+                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                </div>
+                                </form>
+                            ';
+                        }
+                        else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
                             echo '	
-                            <form role="form" method="POST" action="add_grades_ict12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <form role="form" method="POST" action="add_grades_he12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                             <div>
-                                <h1>Information Communication Technology (ICT)</h1>
+                                <h1>Home Economics (HE)</h1>
                                 <h5>' .$gradeqryfetch['semester']. '</h5>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
+                                <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total2()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total2()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                                    <input type="number" class="form-control" id="personal2_mid_development_1" onkeyup="total2()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_2" onkeyup="total2()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                               <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
+                                <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Housekeeping</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_1" onkeyup="total2()" placeholder="First Quarter" name="housekeeping_mid_1" value="'.$gradeqryfetch['housekeeping_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="housekeeping_mid_2" value="'.$gradeqryfetch['housekeeping_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="empowerment2_tech_mid_ave" placeholder="Average" name="housekeeping_mid_ave" value="'.$gradeqryfetch['housekeeping_mid_ave'].'" readonly>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
+                                <div class="row">
+                                <div class="col-md-4">
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
+                                <div class="col-md-4">
                                 </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
-                            <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Computer System Servicing (3)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="css3_mid_1" value="'.$gradeqryfetch['css3_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="css3_mid_2" value="'.$gradeqryfetch['css3_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="css3_mid_ave" value="'.$gradeqryfetch['css3_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Computer System Servicing (3)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="css3_final_1" value="'.$gradeqryfetch['css3_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="css3_final_2" value="'.$gradeqryfetch['css3_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="css3_final_ave" value="'.$gradeqryfetch['css3_final_ave'].'" readonly>
-                                </div>
-                            </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final2_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
+                                    </div>
+                                    </div>
                             <div class="bg-light clearfix">  
                                 <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                             </div>
                             </form>
                         ';
                     }
-                    else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
+                    else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
                         echo '	
-                        <form role="form" method="POST" action="add_grades_he12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                         <div>
-                            <h1>Home Economics (HE)</h1>
+                            <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
+                                <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total2()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total2()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral2_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp2_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath2_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
+                                <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_1" onkeyup="total2()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_2" onkeyup="total2()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal2_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els2_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh2_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                        <div class="row">
+                        <label for="validationDefault01"><strong>SPECIALIZED:</strong>Electrical Installation and Maintenance (3)</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                            <input type="number" class="form-control" id="empowerment2_tech_mid_1" onkeyup="total2()" placeholder="First Quarter" name="eim3_mid_1" value="'.$gradeqryfetch['eim3_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                            <input type="number" class="form-control" id="empowerment2_tech_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="eim3_mid_2" value="'.$gradeqryfetch['eim3_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                            <input type="number" class="form-control" id="empowerment2_tech_mid_ave" placeholder="Average" name="eim3_mid_ave" value="'.$gradeqryfetch['eim3_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
-                            </div>
+                        <div class="col-md-4">
                         </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
-                            </div>
+                        <div class="col-md-4">
                         </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
+                            <div class="col-md-4">
+                            <label><strong>General Ave. for the Semester:</strong></label>
+                            <input type="number" class="form-control" id="final2_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
                             </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
                             </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
-                        <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Housekeeping</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="housekeeping_mid_1" value="'.$gradeqryfetch['housekeeping_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="housekeeping_mid_2" value="'.$gradeqryfetch['housekeeping_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="housekeeping_mid_ave" value="'.$gradeqryfetch['housekeeping_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Housekeeping</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="housekeeping_final_1" value="'.$gradeqryfetch['housekeeping_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="housekeeping_final_2" value="'.$gradeqryfetch['housekeeping_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="housekeeping_final_ave" value="'.$gradeqryfetch['housekeeping_final_ave'].'" readonly>
-                            </div>
-                        </div>
                         <div class="bg-light clearfix">  
                             <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                         </div>
                         </form>
                     ';
                 }
-                else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
+                else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
                     echo '	
-                    <form role="form" method="POST" action="add_grades_ia12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                     <div>
-                        <h1>Industrial Arts (IA)</h1>
+                        <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
+                    <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
                         <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
                         </div>
@@ -3229,20 +2047,8 @@
                         <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
                         </div>
                     </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
+                   <div class="row">
+                    <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
                         <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
                         </div>
@@ -3254,19 +2060,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
+                    <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
                         <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
                         </div>
@@ -3278,19 +2072,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
+                    <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
                     <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
                         </div>
@@ -3302,19 +2084,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
+                    <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
                         <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
                         </div>
@@ -3326,19 +2096,7 @@
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                    <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
                         <div class="col-md-4 mb-3">
                         <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
                         </div>
@@ -3350,1760 +2108,937 @@
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Physics (1)</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
+                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="physics_mid_1" value="'.$gradeqryfetch['physics_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
+                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="physics_mid_2" value="'.$gradeqryfetch['physics_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> EIM (3)</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="eim3_mid_1" value="'.$gradeqryfetch['eim3_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="eim3_mid_2" value="'.$gradeqryfetch['eim3_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="eim3_mid_ave" value="'.$gradeqryfetch['eim3_mid_ave'].'" readonly>
+                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="physics_mid_ave" value="'.$gradeqryfetch['physics_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> EIM (3)</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Chemistry (1)</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="eim3_final_1" value="'.$gradeqryfetch['eim3_final_1'].'">
+                        <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="chemistry_mid_1" value="'.$gradeqryfetch['chemistry_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="eim3_final_2" value="'.$gradeqryfetch['eim3_final_2'].'">
+                        <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="chemistry_mid_2" value="'.$gradeqryfetch['chemistry_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="eim3_final_ave" value="'.$gradeqryfetch['eim3_final_ave'].'" readonly>
+                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="chemistry_mid_ave" value="'.$gradeqryfetch['chemistry_mid_ave'].'" readonly>
                         </div>
                     </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Biology (2)</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="biology1_mid_1" value="'.$gradeqryfetch['biology1_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="biology1_mid_2" value="'.$gradeqryfetch['biology1_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="biology1_mid_ave" value="'.$gradeqryfetch['biology1_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                            <div class="col-md-4">
+                            <label><strong>General Ave. for the Semester:</strong></label>
+                            <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
+                            </div>
+                            </div>
                     <div class="bg-light clearfix">  
                         <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                     </div>
                     </form>
                 ';
             }
-            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
+              else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
+                    echo '	
+                    <form role="form" method="POST" action="add_grades_humms12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <div>
+                        <h1>Humanities and Social Sciences (HUMSS)</h1>
+                        <h5>' .$gradeqryfetch['semester']. '</h5>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
+                    <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                   <div class="row">
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Discipline Ideas in Applied Sciences</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="discipline_mid_1" value="'.$gradeqryfetch['discipline_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="discipline_mid_2" value="'.$gradeqryfetch['discipline_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="discipline_mid_ave" value="'.$gradeqryfetch['discipline_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Creative Fiction</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="fiction_mid_1" value="'.$gradeqryfetch['fiction_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fiction_mid_2" value="'.$gradeqryfetch['fiction_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="fiction_mid_ave" value="'.$gradeqryfetch['fiction_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Philippine Politics and Governance</label>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="politics_mid_1" value="'.$gradeqryfetch['politics_mid_1'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="politics_mid_2" value="'.$gradeqryfetch['politics_mid_2'].'">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="politics_mid_ave" value="'.$gradeqryfetch['politics_mid_ave'].'" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                            <div class="col-md-4">
+                            <label><strong>General Ave. for the Semester:</strong></label>
+                            <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
+                            </div>
+                            </div>
+                    <div class="bg-light clearfix">  
+                        <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                    </div>
+                    </form>
+                ';
+            }   
+            else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
                 echo '	
-                <form role="form" method="POST" action="add_grades_stem12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_abm12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                 <div>
-                    <h1>Science, Technology, Engineering, and Mathematics (STEM)</h1>
+                    <h1>Accountancy, Business and Management (ABM)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Introduction to Philosophy of the Human Person</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                    <input type="number" class="form-control" id="oral1_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total1()" value="'.$gradeqryfetch['iphp_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
+                    <input type="number" class="form-control" id="oral1_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total1()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
+                    <input type="number" class="form-control" id="oral1_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Understanding Culture Society & Politics</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
+                    <input type="number" class="form-control" id="kpwkp1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
+                    <input type="number" class="form-control" id="kpwkp1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="kpwkp1_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
+                    <input type="number" class="form-control" id="genmath1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
+                    <input type="number" class="form-control" id="genmath1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="genmath1_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
+                <label for="validationDefault01"><strong>APPLIED:</strong> English for Academic & Professional Purpose</label>
                 <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
+                    <input type="number" class="form-control" id="personal1_mid_development_1" onkeyup="total1()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
+                    <input type="number" class="form-control" id="personal1_mid_development_2" onkeyup="total1()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="personal1_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
+                <label for="validationDefault01"><strong>APPLIED:</strong> Practical Research 2</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
+                    <input type="number" class="form-control" id="els1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
+                    <input type="number" class="form-control" id="els1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="els1_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
+                <label for="validationDefault01"><strong>APPLIED:</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
+                    <input type="number" class="form-control" id="peh1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
+                    <input type="number" class="form-control" id="peh1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="peh1_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Physics (1)</label>
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Fundamentals of ABM (2)</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="physics_mid_1" value="'.$gradeqryfetch['physics_mid_1'].'">
+                    <input type="number" class="form-control" id="empowerment1_tech_mid_1" onkeyup="total1()" placeholder="First Quarter" name="fundamentals1_mid_1" value="'.$gradeqryfetch['fundamentals1_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="physics_mid_2" value="'.$gradeqryfetch['physics_mid_2'].'">
+                    <input type="number" class="form-control" id="empowerment1_tech_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="fundamentals1_mid_2" value="'.$gradeqryfetch['fundamentals1_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="physics_mid_ave" value="'.$gradeqryfetch['physics_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Physics (1)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="physics_final_1" value="'.$gradeqryfetch['physics_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="physics_final_2" value="'.$gradeqryfetch['physics_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="physics_final_ave" value="'.$gradeqryfetch['physics_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="empowerment1_tech_mid_ave" placeholder="Average" name="fundamentals1_mid_ave" value="'.$gradeqryfetch['fundamentals1_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Chemistry (1)</label>
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Business Mathematics</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="chemistry_mid_1" value="'.$gradeqryfetch['chemistry_mid_1'].'">
+                    <input type="number" class="form-control" id="css2_mid_1" onkeyup="total1()" placeholder="First Quarter" name="business_mid_1" value="'.$gradeqryfetch['business_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="chemistry_mid_2" value="'.$gradeqryfetch['chemistry_mid_2'].'">
+                    <input type="number" class="form-control" id="css2_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="business_mid_2" value="'.$gradeqryfetch['business_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="chemistry_mid_ave" value="'.$gradeqryfetch['chemistry_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Chemistry (1)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="chemistry_final_1" value="'.$gradeqryfetch['chemistry_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="chemistry_final_2" value="'.$gradeqryfetch['chemistry_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="chemistry_final_ave" value="'.$gradeqryfetch['chemistry_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="css2_mid_ave" placeholder="Average" name="business_mid_ave" value="'.$gradeqryfetch['business_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Biology (2)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="biology1_mid_1" value="'.$gradeqryfetch['biology1_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="biology1_mid_2" value="'.$gradeqryfetch['biology1_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="biology1_mid_ave" value="'.$gradeqryfetch['biology1_mid_ave'].'" readonly>
-                    </div>
+                <div class="col-md-4">
                 </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Biology (2)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="biology1_final_1" value="'.$gradeqryfetch['biology1_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="biology1_final_2" value="'.$gradeqryfetch['biology1_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="biology1_final_ave" value="'.$gradeqryfetch['biology1_final_ave'].'" readonly>
-                    </div>
+                <div class="col-md-4">
                 </div>
-                <div class="bg-light clearfix">  
-                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-                </div>
-                </form>
-            ';
-        }
-          else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
-                echo '	
-                <form role="form" method="POST" action="add_grades_humms12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                <div>
-                    <h1>Humanities and Social Sciences (HUMSS)</h1>
-                    <h5>' .$gradeqryfetch['semester']. '</h5>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
+                    <div class="col-md-4">
+                    <label><strong>General Ave. for the Semester:</strong></label>
+                    <input type="number" class="form-control" id="final1_average" placeholder="Average" name="1st_average_12" value="'.$gradeqryfetch['1st_average_12'].'" readonly>
                     </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
                     </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
-                <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Discipline Ideas in Applied Sciences</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="discipline_mid_1" value="'.$gradeqryfetch['discipline_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="discipline_mid_2" value="'.$gradeqryfetch['discipline_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="discipline_mid_ave" value="'.$gradeqryfetch['discipline_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Discipline Ideas in Applied Sciences</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="discipline_final_1" value="'.$gradeqryfetch['discipline_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="discipline_final_2" value="'.$gradeqryfetch['discipline_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="discipline_final_ave" value="'.$gradeqryfetch['discipline_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Creative Fiction</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="fiction_mid_1" value="'.$gradeqryfetch['fiction_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fiction_mid_2" value="'.$gradeqryfetch['fiction_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="fiction_mid_ave" value="'.$gradeqryfetch['fiction_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Creative Fiction</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="fiction_final_1" value="'.$gradeqryfetch['fiction_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="fiction_final_2" value="'.$gradeqryfetch['fiction_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="fiction_final_ave" value="'.$gradeqryfetch['fiction_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Philippine Politics and Governance</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_1" onkeyup="total()" placeholder="First Quarter" name="politics_mid_1" value="'.$gradeqryfetch['politics_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_2" onkeyup="total()" placeholder="Second Quarter" name="politics_mid_2" value="'.$gradeqryfetch['politics_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_mid_ave" placeholder="Average" name="politics_mid_ave" value="'.$gradeqryfetch['politics_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Philippine Politics and Governance</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_1" onkeyup="total()" placeholder="First Quarter" name="politics_final_1" value="'.$gradeqryfetch['politics_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_2" onkeyup="total()" placeholder="Second Quarter" name="politics_final_2" value="'.$gradeqryfetch['politics_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="century_literature_final_ave" placeholder="Average" name="politics_final_ave" value="'.$gradeqryfetch['politics_final_ave'].'" readonly>
-                    </div>
-                </div>
                 <div class="bg-light clearfix">  
                     <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                 </div>
                 </form>
             ';
         }   
-        else if($gradeqryfetch['semester'] == "First Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
-            echo '	
-            <form role="form" method="POST" action="add_grades_abm12_1.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-            <div>
-                <h1>Accountancy, Business and Management (ABM)</h1>
-                <h5>' .$gradeqryfetch['semester']. '</h5>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Introduction to Philosophy of the Human Person</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="iphp_mid_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="iphp_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['iphp_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="iphp_mid_ave"  value="'.$gradeqryfetch['iphp_mid_ave'].'" readonly="true">
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Introduction to Philosophy of the Human Person</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="iphp_final_1" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="iphp_final_2" onkeyup="total()" value="'.$gradeqryfetch['iphp_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="iphp_final_ave" value="'.$gradeqryfetch['iphp_final_ave'].'" readonly="true">
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Understanding Culture Society & Politics</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_mid_1"  value="'.$gradeqryfetch['ucsp_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_mid_2" value="'.$gradeqryfetch['ucsp_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ucsp_mid_ave" value="'.$gradeqryfetch['ucsp_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Understanding Culture Society & Politics</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ucsp_final_1" value="'.$gradeqryfetch['ucsp_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ucsp_final_2" value="'.$gradeqryfetch['ucsp_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ucsp_final_ave" value="'.$gradeqryfetch['ucsp_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh3_mid_1" value="'.$gradeqryfetch['peh3_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_mid_2" value="'.$gradeqryfetch['peh3_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh3_mid_ave" value="'.$gradeqryfetch['peh3_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh3_final_1" value="'.$gradeqryfetch['peh3_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh3_final_2" value="'.$gradeqryfetch['peh3_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh3_final_ave" value="'.$gradeqryfetch['peh3_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> English for Academic & Professional Purpose</label>
-            <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_mid_1" value="'.$gradeqryfetch['eapp_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_mid_2" value="'.$gradeqryfetch['eapp_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="eapp_mid_ave" value="'.$gradeqryfetch['eapp_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> English for Academic & Professional Purpose</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="eapp_final_1" value="'.$gradeqryfetch['eapp_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="eapp_final_2" value="'.$gradeqryfetch['eapp_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="eapp_final_ave" value="'.$gradeqryfetch['eapp_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Practical Research 2</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="practical2_mid_1" value="'.$gradeqryfetch['practical2_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_mid_2" value="'.$gradeqryfetch['practical2_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="practical2_mid_ave" value="'.$gradeqryfetch['practical2_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Practical Research 2</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="practical2_final_1" value="'.$gradeqryfetch['practical2_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="practical2_final_2" value="'.$gradeqryfetch['practical2_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="practical2_final_ave" value="'.$gradeqryfetch['practical2_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="fpl_mid_1" value="'.$gradeqryfetch['fpl_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_mid_2" value="'.$gradeqryfetch['fpl_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="fpl_mid_ave" value="'.$gradeqryfetch['fpl_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Filipino sa Piling Larangan (Akedemiko at Tech. Voc.)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="fpl_final_1" value="'.$gradeqryfetch['fpl_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="fpl_final_2" value="'.$gradeqryfetch['fpl_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="fpl_final_ave" value="'.$gradeqryfetch['fpl_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Fundamentals of ABM (2)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="fundamentals1_mid_1" value="'.$gradeqryfetch['fundamentals1_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="fundamentals1_mid_2" value="'.$gradeqryfetch['fundamentals1_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="fundamentals1_mid_ave" value="'.$gradeqryfetch['fundamentals1_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Fundamentals of ABM (2)</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="fundamentals1_final_1" value="'.$gradeqryfetch['fundamentals1_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="fundamentals1_final_2" value="'.$gradeqryfetch['fundamentals1_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="fundamentals1_final_ave" value="'.$gradeqryfetch['fundamentals1_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Business Mathematics</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_1" onkeyup="total()" placeholder="First Quarter" name="business_mid_1" value="'.$gradeqryfetch['business_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_2" onkeyup="total()" placeholder="Second Quarter" name="business_mid_2" value="'.$gradeqryfetch['business_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_mid_ave" placeholder="Average" name="business_mid_ave" value="'.$gradeqryfetch['business_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Business Mathematics</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_1" onkeyup="total()" placeholder="First Quarter" name="business_final_1" value="'.$gradeqryfetch['business_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_2" onkeyup="total()" placeholder="Second Quarter" name="business_final_2" value="'.$gradeqryfetch['business_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="css1_final_ave" placeholder="Average" name="business_final_ave" value="'.$gradeqryfetch['business_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="bg-light clearfix">  
-                <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-            </div>
-            </form>
-        ';
-    }   
-                        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
+                            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ICT"){
+                                echo '	
+                                <form role="form" method="POST" action="add_grades_ict12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                                <div>
+                                    <h1>Information Communication Technology (ICT)</h1>
+                                    <h5>' .$gradeqryfetch['semester']. '</h5>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral3_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total3()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral3_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total3()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="oral3_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="kpwkp3_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="genmath3_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
+                                <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal3_mid_development_1" onkeyup="total3()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal3_mid_development_2" onkeyup="total3()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="personal3_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Computer System Servicing (4)</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="css4_mid_1" value="'.$gradeqryfetch['css4_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="css4_mid_2" value="'.$gradeqryfetch['css4_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="els3_mid_ave" placeholder="Average" name="css4_mid_ave" value="'.$gradeqryfetch['css4_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                    <input type="number" class="form-control" id="peh3_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final3_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
+                                <div class="bg-light clearfix">  
+                                    <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
+                                </div>
+                                </form>
+                            ';
+                        }
+                        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
                             echo '	
-                            <form role="form" method="POST" action="add_grades_ict12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-                            <div>
-                                <h1>Information Communication Technology (ICT)</h1>
+                            <form role="form" method="POST" action="add_grades_he12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                            <div>   
+                                <h1>Home Economics (HE)</h1>
                                 <h5>' .$gradeqryfetch['semester']. '</h5>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                                <input type="number" class="form-control" id="oral3_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total3()" value="'.$gradeqryfetch['mil_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                                <input type="number" class="form-control" id="oral3_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total3()"  value="'.$gradeqryfetch['mil_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
+                                <input type="number" class="form-control" id="oral3_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                                <input type="number" class="form-control" id="kpwkp3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                                <input type="number" class="form-control" id="kpwkp3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="kpwkp3_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                           <div class="row">
+                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
+                            <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
                             <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                                <input type="number" class="form-control" id="personal3_mid_development_1" onkeyup="total3()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                                <input type="number" class="form-control" id="personal3_mid_development_2" onkeyup="total3()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="personal3_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
+                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Bread & Pastry</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
+                                <input type="number" class="form-control" id="els3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="bp_mid_1" value="'.$gradeqryfetch['bp_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
+                                <input type="number" class="form-control" id="els3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="bp_mid_2" value="'.$gradeqryfetch['bp_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Computer System Servicing (4)</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="css4_mid_1" value="'.$gradeqryfetch['css4_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="css4_mid_2" value="'.$gradeqryfetch['css4_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="css4_mid_ave" value="'.$gradeqryfetch['css4_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="els3_mid_ave" placeholder="Average" name="bp_mid_ave" value="'.$gradeqryfetch['bp_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Computer System Servicing (4)</label>
+                            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="css4_final_1" value="'.$gradeqryfetch['css4_final_1'].'">
+                                <input type="number" class="form-control" id="peh3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="css4_final_2" value="'.$gradeqryfetch['css4_final_2'].'">
+                                <input type="number" class="form-control" id="peh3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="css4_final_ave" value="'.$gradeqryfetch['css4_final_ave'].'" readonly>
-                                </div>
-                            </div>
-                            <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
+                                <input type="number" class="form-control" id="peh3_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
+                                <div class="col-md-4">
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
+                                <div class="col-md-4">
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
-                                </div>
-                            </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final3_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
                             <div class="bg-light clearfix">  
                                 <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                             </div>
                             </form>
                         ';
                     }
-                    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HE"){
+                    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
                         echo '	
-                        <form role="form" method="POST" action="add_grades_he12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                        <form role="form" method="POST" action="add_grades_ia12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                         <div>
-                            <h1>Home Economics (HE)</h1>
+                            <h1>Industrial Arts (IA)</h1>
                             <h5>' .$gradeqryfetch['semester']. '</h5>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
+                            <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral3_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total3()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral3_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total3()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="oral3_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="kpwkp3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="kpwkp3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="kpwkp3_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                           <div class="row">
+                            <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="genmath3_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                                <input type="number" class="form-control" id="personal3_mid_development_1" onkeyup="total3()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="personal3_mid_development_2" onkeyup="total3()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                <input type="number" class="form-control" id="personal3_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                                </div>
+                            </div>
+                        <div class="row">
+                        <label for="validationDefault01"><strong>SPECIALIZED:</strong> Electrical Installation and Maintenance (4)</label>
+                            <div class="col-md-4 mb-3">
+                            <input type="number" class="form-control" id="els3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="eim4_mid_1" value="'.$gradeqryfetch['eim4_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                            <input type="number" class="form-control" id="els3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="eim4_mid_2" value="'.$gradeqryfetch['eim4_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
+                            <input type="number" class="form-control" id="els3_mid_ave" placeholder="Average" name="eim4_mid_ave" value="'.$gradeqryfetch['eim4_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
+                        <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
+                            <input type="number" class="form-control" id="peh3_mid_1" onkeyup="total3()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
+                            <input type="number" class="form-control" id="peh3_mid_2" onkeyup="total3()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                             </div>
                             <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
+                            <input type="number" class="form-control" id="peh3_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                             </div>
                         </div>
                         <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
-                        <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Computer System Servicing (4)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="bp_mid_1" value="'.$gradeqryfetch['bp_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="bp_mid_2" value="'.$gradeqryfetch['bp_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="bp_mid_ave" value="'.$gradeqryfetch['bp_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Computer System Servicing (4)</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="bp_final_1" value="'.$gradeqryfetch['bp_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="bp_final_2" value="'.$gradeqryfetch['bp_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="bp_final_ave" value="'.$gradeqryfetch['bp_final_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
-                            </div>
-                            <div class="col-md-4 mb-3">
-                            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
-                            </div>
-                        </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final3_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
                         <div class="bg-light clearfix">  
                             <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                         </div>
                         </form>
                     ';
                 }
-                else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "IA"){
+                else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
                     echo '	
-                    <form role="form" method="POST" action="add_grades_ia12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                    <form role="form" method="POST" action="add_grades_stem12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                     <div>
-                        <h1>Industrial Arts (IA)</h1>
+                        <h1>Science, Techonology, Engineering, and Mathematics (STEM)</h1>
                         <h5>' .$gradeqryfetch['semester']. '</h5>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
+                    <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                        <input type="number" class="form-control" id="oral2_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total2()" value="'.$gradeqryfetch['mil_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                        <input type="number" class="form-control" id="oral2_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total2()"  value="'.$gradeqryfetch['mil_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
+                        <input type="number" class="form-control" id="oral2_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
+                    <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                        <input type="number" class="form-control" id="kpwkp2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                        <input type="number" class="form-control" id="kpwkp2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
+                        <input type="number" class="form-control" id="kpwkp2_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
+                    <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                        <input type="number" class="form-control" id="genmath2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                        <input type="number" class="form-control" id="genmath2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
+                        <input type="number" class="form-control" id="genmath2_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
+                    <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
                     <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                        <input type="number" class="form-control" id="personal2_mid_development_1" onkeyup="total2()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                        <input type="number" class="form-control" id="personal2_mid_development_2" onkeyup="total2()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                        <input type="number" class="form-control" id="personal2_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Physics (2)</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
+                        <input type="number" class="form-control" id="els2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="physics1_mid_1" value="'.$gradeqryfetch['physics1_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
+                        <input type="number" class="form-control" id="els2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="physics1_mid_2" value="'.$gradeqryfetch['physics1_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> EIM (4)</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="eim4_mid_1" value="'.$gradeqryfetch['eim4_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="eim4_mid_2" value="'.$gradeqryfetch['eim4_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="eim4_mid_ave" value="'.$gradeqryfetch['eim4_mid_ave'].'" readonly>
+                        <input type="number" class="form-control" id="els2_mid_ave" placeholder="Average" name="physics1_mid_ave" value="'.$gradeqryfetch['physics1_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> EIM (4)</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> General Chemistry (2)</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="eim4_final_1" value="'.$gradeqryfetch['eim4_final_1'].'">
+                        <input type="number" class="form-control" id="peh2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="chemistry1_mid_1" value="'.$gradeqryfetch['chemistry1_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="eim4_final_2" value="'.$gradeqryfetch['eim4_final_2'].'">
+                        <input type="number" class="form-control" id="peh2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="chemistry1_mid_2" value="'.$gradeqryfetch['chemistry1_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="eim4_final_ave" value="'.$gradeqryfetch['eim4_final_ave'].'" readonly>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-                        </div>
-                        <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
+                        <input type="number" class="form-control" id="peh2_mid_ave" placeholder="Average" name="chemistry1_mid_ave" value="'.$gradeqryfetch['chemistry1_mid_ave'].'" readonly>
                         </div>
                     </div>
                     <div class="row">
-                    <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
+                    <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
+                        <input type="number" class="form-control" id="empowerment2_tech_mid_1" onkeyup="total2()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
+                        <input type="number" class="form-control" id="empowerment2_tech_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                         </div>
                         <div class="col-md-4 mb-3">
-                        <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
+                        <input type="number" class="form-control" id="empowerment2_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                         </div>
                     </div>
+                    <div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final2_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
                     <div class="bg-light clearfix">  
                         <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                     </div>
                     </form>
                 ';
             }
-            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "STEM"){
+            else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
                 echo '	
-                <form role="form" method="POST" action="add_grades_stem12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+                <form role="form" method="POST" action="add_grades_humms12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
                 <div>
-                    <h1>Science, Techonology, Engineering, and Mathematics (STEM)</h1>
+                    <h1>Humanities and Social Sciences (HUMSS)</h1>
                     <h5>' .$gradeqryfetch['semester']. '</h5>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                    <input type="number" class="form-control" id="oral2_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total2()" value="'.$gradeqryfetch['mil_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                    <input type="number" class="form-control" id="oral2_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total2()"  value="'.$gradeqryfetch['mil_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
+                    <input type="number" class="form-control" id="oral2_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                    <input type="number" class="form-control" id="kpwkp2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                    <input type="number" class="form-control" id="kpwkp2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="kpwkp2_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
+                <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                    <input type="number" class="form-control" id="genmath2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                    <input type="number" class="form-control" id="genmath2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
+                    <input type="number" class="form-control" id="genmath2_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
+                <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
                 <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                    <input type="number" class="form-control" id="personal2_mid_development_1" onkeyup="total2()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                    <input type="number" class="form-control" id="personal2_mid_development_2" onkeyup="total2()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                    <input type="number" class="form-control" id="personal2_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                    </div>
+                </div>
+                 <div class="row">
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong>Trends, Network, Critical Thinking in the 21st Century</label>
+                    <div class="col-md-4 mb-3">
+                    <input type="number" class="form-control" id="els2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="tnc_mid_1" value="'.$gradeqryfetch['tnc_mid_1'].'">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                    <input type="number" class="form-control" id="els2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="tnc_mid_2" value="'.$gradeqryfetch['tnc_mid_2'].'">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                    <input type="number" class="form-control" id="els2_mid_ave" placeholder="Average" name="tnc_mid_ave" value="'.$gradeqryfetch['tnc_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Community Engagement, Solidarity Citizenship</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
+                    <input type="number" class="form-control" id="peh2_mid_1" onkeyup="total2()" placeholder="First Quarter" name="csc_mid_1" value="'.$gradeqryfetch['csc_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
+                    <input type="number" class="form-control" id="peh2_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="csc_mid_2" value="'.$gradeqryfetch['csc_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Physics (2)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="physics1_mid_1" value="'.$gradeqryfetch['physics1_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="physics1_mid_2" value="'.$gradeqryfetch['physics1_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="physics1_mid_ave" value="'.$gradeqryfetch['physics1_mid_ave'].'" readonly>
+                    <input type="number" class="form-control" id="peh2_mid_ave" placeholder="Average" name="csc_mid_ave" value="'.$gradeqryfetch['csc_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Physics (2)</label>
+                <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="physics1_final_1" value="'.$gradeqryfetch['physics1_final_1'].'">
+                    <input type="number" class="form-control" id="empowerment2_tech_mid_1" onkeyup="total2()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="physics1_final_2" value="'.$gradeqryfetch['physics1_final_2'].'">
+                    <input type="number" class="form-control" id="empowerment2_tech_mid_2" onkeyup="total2()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                     </div>
                     <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="physics1_final_ave" value="'.$gradeqryfetch['physics1_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> General Chemistry (2)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="chemistry1_mid_1" value="'.$gradeqryfetch['chemistry1_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="chemistry1_mid_2" value="'.$gradeqryfetch['chemistry1_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="chemistry1_mid_ave" value="'.$gradeqryfetch['chemistry1_mid_ave'].'" readonly>
+                    <input type="number" class="form-control" id="empowerment2_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                     </div>
                 </div>
                 <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> General Chemistry (2)</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="chemistry1_final_1" value="'.$gradeqryfetch['chemistry1_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="chemistry1_final_2" value="'.$gradeqryfetch['chemistry1_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="chemistry1_final_ave" value="'.$gradeqryfetch['chemistry1_final_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
-                    </div>
-                </div>
-                <div class="row">
-                <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
-                    </div>
-                    <div class="col-md-4 mb-3">
-                    <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
-                    </div>
-                </div>
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final2_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
                 <div class="bg-light clearfix">  
                     <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
                 </div>
                 </form>
             ';
         }
-        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "HUMSS"){
+        else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
             echo '	
-            <form role="form" method="POST" action="add_grades_humms12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
+            <form role="form" method="POST" action="add_grades_abm12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
             <div>
-                <h1>Humanities and Social Sciences (HUMSS)</h1>
+                <h1>Accountancy, Business and Management (ABM)</h1>
                 <h5>' .$gradeqryfetch['semester']. '</h5>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Media & Information Literacy</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
+                <input type="number" class="form-control" id="oral1_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total1()" value="'.$gradeqryfetch['mil_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
+                <input type="number" class="form-control" id="oral1_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total1()"  value="'.$gradeqryfetch['mil_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
+                <input type="number" class="form-control" id="oral1_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Physical Science</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
+                <input type="number" class="form-control" id="kpwkp1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
+                <input type="number" class="form-control" id="kpwkp1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
+                <input type="number" class="form-control" id="kpwkp1_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
+            <label for="validationDefault01"><strong>CORE:</strong> Physical Education & Health</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
+                <input type="number" class="form-control" id="genmath1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
+                <input type="number" class="form-control" id="genmath1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
+                <input type="number" class="form-control" id="genmath1_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
+            <label for="validationDefault01"><strong>APPLIED:</strong> Inquiries, Investigation and Immersion</label>
             <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
+                <input type="number" class="form-control" id="personal1_mid_development_1" onkeyup="total1()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
+                <input type="number" class="form-control" id="personal1_mid_development_2" onkeyup="total1()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="personal1_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
+            <label for="validationDefault01"><strong>SPECIALIZED:</strong>Business Finance</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
+                <input type="number" class="form-control" id="els1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="business1_mid_1" value="'.$gradeqryfetch['business1_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
+                <input type="number" class="form-control" id="els1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="business1_mid_2" value="'.$gradeqryfetch['business1_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong>Trends, Network, Critical Thinking in the 21st Century</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="tnc_mid_1" value="'.$gradeqryfetch['tnc_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="tnc_mid_2" value="'.$gradeqryfetch['tnc_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="tnc_mid_ave" value="'.$gradeqryfetch['tnc_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="els1_mid_ave" placeholder="Average" name="business1_mid_ave" value="'.$gradeqryfetch['business1_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong>Trends, Network, Critical Thinking in the 21st Century</label>
+            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Applied Economics</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="tnc_final_1" value="'.$gradeqryfetch['tnc_final_1'].'">
+                <input type="number" class="form-control" id="peh1_mid_1" onkeyup="total1()" placeholder="First Quarter" name="economics_mid_1" value="'.$gradeqryfetch['economics_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="tnc_final_2" value="'.$gradeqryfetch['tnc_final_2'].'">
+                <input type="number" class="form-control" id="peh1_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="economics_mid_2" value="'.$gradeqryfetch['economics_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="tnc_final_ave" value="'.$gradeqryfetch['tnc_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Community Engagement, Solidarity Citizenship</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="csc_mid_1" value="'.$gradeqryfetch['csc_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="csc_mid_2" value="'.$gradeqryfetch['csc_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="csc_mid_ave" value="'.$gradeqryfetch['csc_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="peh1_mid_ave" placeholder="Average" name="economics_mid_ave" value="'.$gradeqryfetch['economics_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Community Engagement, Solidarity Citizenship</label>
+            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Business Ethics and Social Responsibility</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="csc_final_1" value="'.$gradeqryfetch['csc_final_1'].'">
+                <input type="number" class="form-control" id="empowerment1_tech_mid_1" onkeyup="total1()" placeholder="First Quarter" name="business2_mid_1" value="'.$gradeqryfetch['business2_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="csc_final_2" value="'.$gradeqryfetch['csc_final_2'].'">
+                <input type="number" class="form-control" id="empowerment1_tech_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="business2_mid_2" value="'.$gradeqryfetch['business2_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="csc_final_ave" value="'.$gradeqryfetch['csc_final_ave'].'" readonly>
-                </div>
-            </div>
-            <div class="row">
-            <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-                </div>
-                <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
+                <input type="number" class="form-control" id="empowerment1_tech_mid_ave" placeholder="Average" name="business2_mid_ave" value="'.$gradeqryfetch['business2_mid_ave'].'" readonly>
                 </div>
             </div>
             <div class="row">
-            <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
+            <label for="validationDefault01"><strong>SPECIALIZED:</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
+                <input type="number" class="form-control" id="css2_mid_1" onkeyup="total1()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
+                <input type="number" class="form-control" id="css2_mid_2" onkeyup="total1()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
                 </div>
                 <div class="col-md-4 mb-3">
-                <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
+                <input type="number" class="form-control" id="css2_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
                 </div>
             </div>
+            <div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-4">
+                                </div>
+                                    <div class="col-md-4">
+                                    <label><strong>General Ave. for the Semester:</strong></label>
+                                    <input type="number" class="form-control" id="final1_average" placeholder="Average" name="2nd_average_12" value="'.$gradeqryfetch['2nd_average_12'].'" readonly>
+                                    </div>
+                                    </div>
             <div class="bg-light clearfix">  
                 <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
             </div>
             </form>
         ';
     }
-    else if($gradeqryfetch['semester'] == "Second Semester" && $gradeqryfetch['year'] == "12" && $gradeqryfetch['strand'] == "ABM"){
-        echo '	
-        <form role="form" method="POST" action="add_grades_abm12_2.php?lrn=' .$gradeqryfetch['lrn'].'" enctype="multipart/form-data">
-        <div>
-            <h1>Accountancy, Business and Management (ABM)</h1>
-            <h5>' .$gradeqryfetch['semester']. '</h5>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Media & Information Literacy</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_1" placeholder="First Quarter" name="mil_mid_1" onkeyup="total()" value="'.$gradeqryfetch['mil_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_2" placeholder="Second Quarter" name="mil_mid_2" onkeyup="total()"  value="'.$gradeqryfetch['mil_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_mid_ave" placeholder="Average" name="mil_mid_ave"  value="'.$gradeqryfetch['mil_mid_ave'].'" readonly="true">
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Media & Information Literacy</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_1" placeholder="First Quarter" name="mil_final_1" onkeyup="total()" value="'.$gradeqryfetch['mil_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_2" placeholder="Second Quarter" name="mil_final_2" onkeyup="total()" value="'.$gradeqryfetch['mil_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="oral_communication_final_ave" placeholder="Average" name="mil_final_ave" value="'.$gradeqryfetch['mil_final_ave'].'" readonly="true">
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Science</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_1" onkeyup="total()" placeholder="First Quarter" name="ps_mid_1"  value="'.$gradeqryfetch['ps_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_2" onkeyup="total()" placeholder="Second Quarter" name="ps_mid_2" value="'.$gradeqryfetch['ps_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_mid_ave" placeholder="Average" name="ps_mid_ave" value="'.$gradeqryfetch['ps_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Science</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_1" onkeyup="total()" placeholder="First Quarter" name="ps_final_1" value="'.$gradeqryfetch['ps_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_2" onkeyup="total()" placeholder="Second Quarter" name="ps_final_2" value="'.$gradeqryfetch['ps_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="kpwkp_final_ave" placeholder="Average" name="ps_final_ave" value="'.$gradeqryfetch['ps_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Physical Education & Health</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_1" onkeyup="total()" placeholder="First Quarter" name="peh4_mid_1" value="'.$gradeqryfetch['peh4_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_mid_2" value="'.$gradeqryfetch['peh4_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_mid_ave" placeholder="Average" name="peh4_mid_ave" value="'.$gradeqryfetch['peh4_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Physical Education & Health</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_1" onkeyup="total()" placeholder="First Quarter" name="peh4_final_1" value="'.$gradeqryfetch['peh4_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_2" onkeyup="total()" placeholder="Second Quarter" name="peh4_final_2" value="'.$gradeqryfetch['peh4_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="genmath_final_ave" placeholder="Average" name="peh4_final_ave" value="'.$gradeqryfetch['peh4_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Inquiries, Investigation and Immersion</label>
-        <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_mid_1" value="'.$gradeqryfetch['immersion_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_mid_2" value="'.$gradeqryfetch['immersion_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_mid_development_ave" placeholder="Average" name="immersion_mid_ave" value="'.$gradeqryfetch['immersion_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Inquiries, Investigation and Immersion</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_1" onkeyup="total()" placeholder="First Quarter" name="immersion_final_1" value="'.$gradeqryfetch['immersion_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_2" onkeyup="total()" placeholder="Second Quarter" name="immersion_final_2" value="'.$gradeqryfetch['immersion_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="personal_final_development_ave" placeholder="Average" name="immersion_final_ave" value="'.$gradeqryfetch['immersion_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong>Business Finance</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_1" onkeyup="total()" placeholder="First Quarter" name="business1_mid_1" value="'.$gradeqryfetch['business1_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_2" onkeyup="total()" placeholder="Second Quarter" name="business1_mid_2" value="'.$gradeqryfetch['business1_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_mid_ave" placeholder="Average" name="business1_mid_ave" value="'.$gradeqryfetch['business1_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong>Business Finance</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_1" onkeyup="total()" placeholder="First Quarter" name="business1_final_1" value="'.$gradeqryfetch['business1_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_2" onkeyup="total()" placeholder="Second Quarter" name="business1_final_2" value="'.$gradeqryfetch['business1_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="els_final_ave" placeholder="Average" name="business1_final_ave" value="'.$gradeqryfetch['business1_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Applied Economics</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="economics_mid_1" value="'.$gradeqryfetch['economics_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="economics_mid_2" value="'.$gradeqryfetch['economics_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="economics_mid_ave" value="'.$gradeqryfetch['economics_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Applied Economics</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="economics_final_1" value="'.$gradeqryfetch['economics_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="economics_final_2" value="'.$gradeqryfetch['economics_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="economics_final_ave" value="'.$gradeqryfetch['economics_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Business Ethics and Social Responsibility</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_1" onkeyup="total()" placeholder="First Quarter" name="business2_mid_1" value="'.$gradeqryfetch['business2_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_2" onkeyup="total()" placeholder="Second Quarter" name="business2_mid_2" value="'.$gradeqryfetch['business2_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_mid_ave" placeholder="Average" name="business2_mid_ave" value="'.$gradeqryfetch['business2_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Business Ethics and Social Responsibility</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_1" onkeyup="total()" placeholder="First Quarter" name="business2_final_1" value="'.$gradeqryfetch['business2_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_2" onkeyup="total()" placeholder="Second Quarter" name="business2_final_2" value="'.$gradeqryfetch['business2_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="peh_final_ave" placeholder="Average" name="business2_final_ave" value="'.$gradeqryfetch['business2_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Middle Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_mid_1" value="'.$gradeqryfetch['wrcc_mid_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_mid_2" value="'.$gradeqryfetch['wrcc_mid_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_mid_ave" placeholder="Average" name="wrcc_mid_ave" value="'.$gradeqryfetch['wrcc_mid_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="row">
-        <label for="validationDefault01"><strong>CORE: Final Term -</strong> Work Immersion/Research/Career Advocacy/Culminating Activity</label>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_1" onkeyup="total()" placeholder="First Quarter" name="wrcc_final_1" value="'.$gradeqryfetch['wrcc_final_1'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_2" onkeyup="total()" placeholder="Second Quarter" name="wrcc_final_2" value="'.$gradeqryfetch['wrcc_final_2'].'">
-            </div>
-            <div class="col-md-4 mb-3">
-            <input type="number" class="form-control" id="empowerment_tech_final_ave" placeholder="Average" name="wrcc_final_ave" value="'.$gradeqryfetch['wrcc_final_ave'].'" readonly>
-            </div>
-        </div>
-        <div class="bg-light clearfix">  
-            <button class="btn btn-primary float-end" name="submit" type="submit"><i class="fas fa-save"></i> Save</button>
-        </div>
-        </form>
-    ';
-}
-                                 else if($gradeqryfetch['semester'] == "Closed"){
-                                echo '	
-                    <h5>Not Available</h5>
-                    ';
+                                     else if($gradeqryfetch['semester'] == "Closed"){
+                                    echo '	
+                        <h5>Not Available</h5>
+                        ';
+                    }
                 }
-            }
-            }
-            mysqli_free_result($result);
-        }while(mysqli_next_result($conn));
-    }
-
-            ?>
+                }
+                mysqli_free_result($result);
+            }while(mysqli_next_result($conn));
+        }
+    
+                ?>
 
             
 				    </div><!--//app-card-body-->
@@ -5140,7 +3075,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
     {
         ?>
 Swal.fire(
-  'Welcome! ',
+  '',
   '<?php echo $_SESSION['success']; ?>',
   'success'
 )
@@ -5175,87 +3110,183 @@ function total(){
     var oral_communication_mid_2 = document.getElementById('oral_communication_mid_2').value;
     oral_communication_mid_ave = parseInt(oral_communication_mid_1) + parseInt(oral_communication_mid_2);
     document.getElementById('oral_communication_mid_ave').value = oral_communication_mid_ave / 2;
-    var oral_communication_final_1 = document.getElementById('oral_communication_final_1').value;
-    var oral_communication_final_2 = document.getElementById('oral_communication_final_2').value;
-    oral_communication_final_ave = parseInt(oral_communication_final_1) + parseInt(oral_communication_final_2);
-    document.getElementById('oral_communication_final_ave').value = oral_communication_final_ave / 2;
    
     var kpwkp_mid_1 = document.getElementById('kpwkp_mid_1').value;
     var kpwkp_mid_2 = document.getElementById('kpwkp_mid_2').value;
     kpwkp_mid_ave = parseInt(kpwkp_mid_1) + parseInt(kpwkp_mid_2);
     document.getElementById('kpwkp_mid_ave').value = kpwkp_mid_ave / 2;
-    var kpwkp_final_1 = document.getElementById('kpwkp_final_1').value;
-    var kpwkp_final_2 = document.getElementById('kpwkp_final_2').value;
-    kpwkp_final_ave = parseInt(kpwkp_final_1) + parseInt(kpwkp_final_2);
-    document.getElementById('kpwkp_final_ave').value = kpwkp_final_ave / 2;
     
     var genmath_mid_1 = document.getElementById('genmath_mid_1').value;
     var genmath_mid_2 = document.getElementById('genmath_mid_2').value;
     genmath_mid_ave = parseInt(genmath_mid_1) + parseInt(genmath_mid_2);
     document.getElementById('genmath_mid_ave').value = genmath_mid_ave / 2;
-    var genmath_final_1 = document.getElementById('genmath_final_1').value;
-    var genmath_final_2 = document.getElementById('genmath_final_2').value;
-    genmath_final_ave = parseInt(genmath_final_1) + parseInt(genmath_final_2);
-    document.getElementById('genmath_final_ave').value = genmath_final_ave / 2;
- 
+
     var personal_mid_development_1 = document.getElementById('personal_mid_development_1').value;
     var personal_mid_development_2 = document.getElementById('personal_mid_development_2').value;
     personal_mid_development_ave = parseInt(personal_mid_development_1) + parseInt(personal_mid_development_2);
     document.getElementById('personal_mid_development_ave').value = personal_mid_development_ave / 2;
-    var personal_final_development_1 = document.getElementById('personal_final_development_1').value;
-    var personal_final_development_2 = document.getElementById('personal_final_development_2').value;
-    personal_final_development_ave = parseInt(personal_final_development_1) + parseInt(personal_final_development_2);
-    document.getElementById('personal_final_development_ave').value = personal_final_development_ave / 2;
 
     var els_mid_1 = document.getElementById('els_mid_1').value;
     var els_mid_2 = document.getElementById('els_mid_2').value;
     els_mid_ave = parseInt(els_mid_1) + parseInt(els_mid_2);
     document.getElementById('els_mid_ave').value = els_mid_ave / 2;
-    var els_final_1 = document.getElementById('els_final_1').value;
-    var els_final_2 = document.getElementById('els_final_2').value;
-    els_final_ave = parseInt(els_final_1) + parseInt(els_final_2);
-    document.getElementById('els_final_ave').value = els_final_ave / 2;
 
     var peh_mid_1 = document.getElementById('peh_mid_1').value;
     var peh_mid_2 = document.getElementById('peh_mid_2').value;
     peh_mid_ave = parseInt(peh_mid_1) + parseInt(peh_mid_2);
     document.getElementById('peh_mid_ave').value = peh_mid_ave / 2;
-    var peh_final_1 = document.getElementById('peh_final_1').value;
-    var peh_final_2 = document.getElementById('peh_final_2').value;
-    peh_final_ave = parseInt(peh_final_1) + parseInt(peh_final_2);
-    document.getElementById('peh_final_ave').value = peh_final_ave / 2;
 
     var empowerment_tech_mid_1 = document.getElementById('empowerment_tech_mid_1').value;
     var empowerment_tech_mid_2 = document.getElementById('empowerment_tech_mid_2').value;
     empowerment_tech_mid_ave = parseInt(empowerment_tech_mid_1) + parseInt(empowerment_tech_mid_2);
     document.getElementById('empowerment_tech_mid_ave').value = empowerment_tech_mid_ave / 2;
-    var empowerment_tech_final_1 = document.getElementById('empowerment_tech_final_1').value;
-    var empowerment_tech_final_2 = document.getElementById('empowerment_tech_final_2').value;
-    empowerment_tech_final_ave = parseInt(empowerment_tech_final_1) + parseInt(empowerment_tech_final_2);
-    document.getElementById('empowerment_tech_final_ave').value = empowerment_tech_final_ave / 2;
-    
+ 
     var css1_mid_1 = document.getElementById('css1_mid_1').value;
     var css1_mid_2 = document.getElementById('css1_mid_2').value;
     css1_mid_ave = parseInt(css1_mid_1) + parseInt(css1_mid_2);
     document.getElementById('css1_mid_ave').value = css1_mid_ave / 2;
-    var css1_final_1 = document.getElementById('css1_final_1').value;
-    var css1_final_2 = document.getElementById('css1_final_2').value;
-    css1_final_ave = parseInt(css1_final_1) + parseInt(css1_final_2);
-    document.getElementById('css1_final_ave').value = css1_final_ave / 2;
 
     var century_literature_mid_1 = document.getElementById('century_literature_mid_1').value;
     var century_literature_mid_2 = document.getElementById('century_literature_mid_2').value;
     century_literature_mid_ave = parseInt(century_literature_mid_1) + parseInt(century_literature_mid_2);
-
     document.getElementById('century_literature_mid_ave').value = century_literature_mid_ave / 2;
-    var century_literature_final_1 = document.getElementById('century_literature_final_1').value;
-    var century_literature_final_2 = document.getElementById('century_literature_final_2').value;
-    century_literature_final_ave = parseInt(century_literature_final_1) + parseInt(century_literature_final_2);
-    document.getElementById('century_literature_final_ave').value = century_literature_final_ave / 2;
-    
 
-    
+    final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_mid_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css1_mid_ave)) / 2 + parseInt((century_literature_mid_ave)) / 2;
+    document.getElementById('final_average').value = final_average / 9;
 
+   
+}
+   
+    </script>
+         <script>
+function total1(){
+    var oral1_communication_mid_1 = document.getElementById('oral1_communication_mid_1').value;
+    var oral1_communication_mid_2 = document.getElementById('oral1_communication_mid_2').value;
+    oral1_communication_mid_ave = parseInt(oral1_communication_mid_1) + parseInt(oral1_communication_mid_2);
+    document.getElementById('oral1_communication_mid_ave').value = oral1_communication_mid_ave / 2;
+   
+    var kpwkp1_mid_1 = document.getElementById('kpwkp1_mid_1').value;
+    var kpwkp1_mid_2 = document.getElementById('kpwkp1_mid_2').value;
+     kpwkp1_mid_ave = parseInt( kpwkp1_mid_1) + parseInt( kpwkp1_mid_2);
+    document.getElementById('kpwkp1_mid_ave').value =  kpwkp1_mid_ave / 2;
+    
+    var genmath1_mid_1 = document.getElementById('genmath1_mid_1').value;
+    var genmath1_mid_2 = document.getElementById('genmath1_mid_2').value;
+    genmath1_mid_ave = parseInt(genmath1_mid_1) + parseInt(genmath1_mid_2);
+    document.getElementById('genmath1_mid_ave').value = genmath1_mid_ave / 2;
+
+    var personal1_mid_development_1 = document.getElementById('personal1_mid_development_1').value;
+    var personal1_mid_development_2 = document.getElementById('personal1_mid_development_2').value;
+    personal1_mid_development_ave = parseInt(personal1_mid_development_1) + parseInt(personal1_mid_development_2);
+    document.getElementById('personal1_mid_development_ave').value = personal1_mid_development_ave / 2;
+
+    var els1_mid_1 = document.getElementById('els1_mid_1').value;
+    var els1_mid_2 = document.getElementById('els1_mid_2').value;
+    els1_mid_ave = parseInt(els1_mid_1) + parseInt(els1_mid_2);
+    document.getElementById('els1_mid_ave').value = els1_mid_ave / 2;
+
+    var peh1_mid_1 = document.getElementById('peh1_mid_1').value;
+    var peh1_mid_2 = document.getElementById('peh1_mid_2').value;
+    peh1_mid_ave = parseInt(peh1_mid_1) + parseInt(peh1_mid_2);
+    document.getElementById('peh1_mid_ave').value = peh1_mid_ave / 2;
+
+    var empowerment1_tech_mid_1 = document.getElementById('empowerment1_tech_mid_1').value;
+    var empowerment1_tech_mid_2 = document.getElementById('empowerment1_tech_mid_2').value;
+    empowerment1_tech_mid_ave = parseInt(empowerment1_tech_mid_1) + parseInt(empowerment1_tech_mid_2);
+    document.getElementById('empowerment1_tech_mid_ave').value = empowerment1_tech_mid_ave / 2;
+ 
+    var css2_mid_1 = document.getElementById('css2_mid_1').value;
+    var css2_mid_2 = document.getElementById('css2_mid_2').value;
+    css2_mid_ave = parseInt(css2_mid_1) + parseInt(css2_mid_2);
+    document.getElementById('css2_mid_ave').value = css2_mid_ave / 2;
+
+    final1_average = parseInt((oral1_communication_mid_ave)) / 2 + parseInt((kpwkp1_mid_ave)) / 2 + parseInt((genmath1_mid_ave)) / 2 + parseInt((personal1_mid_development_ave)) / 2 + parseInt((els1_mid_ave)) / 2 + parseInt((peh1_mid_ave)) / 2 + parseInt((empowerment1_tech_mid_ave)) / 2 + parseInt((css2_mid_ave)) / 2;
+    document.getElementById('final1_average').value = final1_average / 8;
+
+   
+}
+   
+    </script>
+     <script>
+function total2(){
+    var oral2_communication_mid_1 = document.getElementById('oral2_communication_mid_1').value;
+    var oral2_communication_mid_2 = document.getElementById('oral2_communication_mid_2').value;
+    oral2_communication_mid_ave = parseInt(oral2_communication_mid_1) + parseInt(oral2_communication_mid_2);
+    document.getElementById('oral2_communication_mid_ave').value = oral2_communication_mid_ave / 2;
+   
+    var kpwkp2_mid_1 = document.getElementById('kpwkp2_mid_1').value;
+    var kpwkp2_mid_2 = document.getElementById('kpwkp2_mid_2').value;
+     kpwkp2_mid_ave = parseInt( kpwkp2_mid_1) + parseInt( kpwkp2_mid_2);
+    document.getElementById('kpwkp2_mid_ave').value =  kpwkp2_mid_ave / 2;
+    
+    var genmath2_mid_1 = document.getElementById('genmath2_mid_1').value;
+    var genmath2_mid_2 = document.getElementById('genmath2_mid_2').value;
+    genmath2_mid_ave = parseInt(genmath2_mid_1) + parseInt(genmath2_mid_2);
+    document.getElementById('genmath2_mid_ave').value = genmath2_mid_ave / 2;
+
+    var personal2_mid_development_1 = document.getElementById('personal2_mid_development_1').value;
+    var personal2_mid_development_2 = document.getElementById('personal2_mid_development_2').value;
+    personal2_mid_development_ave = parseInt(personal2_mid_development_1) + parseInt(personal2_mid_development_2);
+    document.getElementById('personal2_mid_development_ave').value = personal2_mid_development_ave / 2;
+
+    var els2_mid_1 = document.getElementById('els2_mid_1').value;
+    var els2_mid_2 = document.getElementById('els2_mid_2').value;
+    els2_mid_ave = parseInt(els2_mid_1) + parseInt(els2_mid_2);
+    document.getElementById('els2_mid_ave').value = els2_mid_ave / 2;
+
+    var peh2_mid_1 = document.getElementById('peh2_mid_1').value;
+    var peh2_mid_2 = document.getElementById('peh2_mid_2').value;
+    peh2_mid_ave = parseInt(peh2_mid_1) + parseInt(peh2_mid_2);
+    document.getElementById('peh2_mid_ave').value = peh2_mid_ave / 2;
+
+    var empowerment2_tech_mid_1 = document.getElementById('empowerment2_tech_mid_1').value;
+    var empowerment2_tech_mid_2 = document.getElementById('empowerment2_tech_mid_2').value;
+    empowerment2_tech_mid_ave = parseInt(empowerment2_tech_mid_1) + parseInt(empowerment2_tech_mid_2);
+    document.getElementById('empowerment2_tech_mid_ave').value = empowerment2_tech_mid_ave / 2;
+ 
+    final2_average = parseInt((oral2_communication_mid_ave)) / 2 + parseInt((kpwkp2_mid_ave)) / 2 + parseInt((genmath2_mid_ave)) / 2 + parseInt((personal2_mid_development_ave)) / 2 + parseInt((els2_mid_ave)) / 2 + parseInt((peh2_mid_ave)) / 2 + parseInt((empowerment2_tech_mid_ave)) / 2;
+    document.getElementById('final2_average').value = final2_average / 7;
+
+   
+}
+   
+    </script>
+    <script>
+function total3(){
+    var oral3_communication_mid_1 = document.getElementById('oral3_communication_mid_1').value;
+    var oral3_communication_mid_2 = document.getElementById('oral3_communication_mid_2').value;
+    oral3_communication_mid_ave = parseInt(oral3_communication_mid_1) + parseInt(oral3_communication_mid_2);
+    document.getElementById('oral3_communication_mid_ave').value = oral3_communication_mid_ave / 2;
+   
+    var kpwkp3_mid_1 = document.getElementById('kpwkp3_mid_1').value;
+    var kpwkp3_mid_2 = document.getElementById('kpwkp3_mid_2').value;
+     kpwkp3_mid_ave = parseInt( kpwkp3_mid_1) + parseInt( kpwkp3_mid_2);
+    document.getElementById('kpwkp3_mid_ave').value =  kpwkp3_mid_ave / 2;
+    
+    var genmath3_mid_1 = document.getElementById('genmath3_mid_1').value;
+    var genmath3_mid_2 = document.getElementById('genmath3_mid_2').value;
+    genmath3_mid_ave = parseInt(genmath3_mid_1) + parseInt(genmath3_mid_2);
+    document.getElementById('genmath3_mid_ave').value = genmath3_mid_ave / 2;
+
+    var personal3_mid_development_1 = document.getElementById('personal3_mid_development_1').value;
+    var personal3_mid_development_2 = document.getElementById('personal3_mid_development_2').value;
+    personal3_mid_development_ave = parseInt(personal3_mid_development_1) + parseInt(personal3_mid_development_2);
+    document.getElementById('personal3_mid_development_ave').value = personal3_mid_development_ave / 2;
+
+    var els3_mid_1 = document.getElementById('els3_mid_1').value;
+    var els3_mid_2 = document.getElementById('els3_mid_2').value;
+    els3_mid_ave = parseInt(els3_mid_1) + parseInt(els3_mid_2);
+    document.getElementById('els3_mid_ave').value = els3_mid_ave / 2;
+
+    var peh3_mid_1 = document.getElementById('peh3_mid_1').value;
+    var peh3_mid_2 = document.getElementById('peh3_mid_2').value;
+    peh3_mid_ave = parseInt(peh3_mid_1) + parseInt(peh3_mid_2);
+    document.getElementById('peh3_mid_ave').value = peh3_mid_ave / 2;
+
+    final3_average = parseInt((oral3_communication_mid_ave)) / 2 + parseInt((kpwkp3_mid_ave)) / 2 + parseInt((genmath3_mid_ave)) / 2 + parseInt((personal3_mid_development_ave)) / 2 + parseInt((els3_mid_ave)) / 2 + parseInt((peh3_mid_ave)) / 2;
+    document.getElementById('final3_average').value = final3_average / 6;
+
+   
 }
    
     </script>
