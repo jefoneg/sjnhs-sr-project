@@ -137,6 +137,17 @@
 			    <!--//app-card-->
 			    <div class="app-card app-card-notification shadow-sm mb-4">
 				    <div class="app-card-header px-4 py-3">
+					<?php if(isset($_SESSION['warning'])) 
+					 echo '
+					 <div class="alert alert-danger text-center" role="alert">
+					 <span><i class="fas fa-exclamation-triangle"></i></span>
+					 '.$_SESSION['warning'].'
+				 	</div>
+					 ';
+					 unset($_SESSION['warning']);
+					?>
+
+
 				        <div class="row g-3 align-items-center">
 					        <!--//col-->
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
