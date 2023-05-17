@@ -3119,52 +3119,62 @@ $(document).ready(function () {
          <script>
 function total(){
     var oral_communication_mid_1 = document.getElementById('oral_communication_mid_1').value;
-    var oral_communication_mid_2 = document.getElementById('oral_communication_mid_2').value;
-    oral_communication_mid_ave = parseInt(oral_communication_mid_1) + parseInt(oral_communication_mid_2);
-    document.getElementById('oral_communication_mid_ave').value = oral_communication_mid_ave / 2;
+var oral_communication_mid_2 = document.getElementById('oral_communication_mid_2').value;
+var oral_communication_mid_ave = (parseInt(oral_communication_mid_1) + parseInt(oral_communication_mid_2)) / 2;
+var roundedOralCommunicationMidAve = Math.round(oral_communication_mid_ave);
+document.getElementById('oral_communication_mid_ave').value = roundedOralCommunicationMidAve;
    
     var kpwkp_mid_1 = document.getElementById('kpwkp_mid_1').value;
-    var kpwkp_mid_2 = document.getElementById('kpwkp_mid_2').value;
-    kpwkp_mid_ave = parseInt(kpwkp_mid_1) + parseInt(kpwkp_mid_2);
-    document.getElementById('kpwkp_mid_ave').value = kpwkp_mid_ave / 2;
+var kpwkp_mid_2 = document.getElementById('kpwkp_mid_2').value;
+var kpwkp_mid_ave = (parseInt(kpwkp_mid_1) + parseInt(kpwkp_mid_2)) / 2;
+var roundedKpwkpMidAve = Math.round(kpwkp_mid_ave);
+document.getElementById('kpwkp_mid_ave').value = roundedKpwkpMidAve;
     
     var genmath_mid_1 = document.getElementById('genmath_mid_1').value;
-    var genmath_mid_2 = document.getElementById('genmath_mid_2').value;
-    genmath_mid_ave = parseInt(genmath_mid_1) + parseInt(genmath_mid_2);
-    document.getElementById('genmath_mid_ave').value = genmath_mid_ave / 2;
+var genmath_mid_2 = document.getElementById('genmath_mid_2').value;
+var genmath_mid_ave = (parseInt(genmath_mid_1) + parseInt(genmath_mid_2)) / 2;
+var roundedGenmathMidAve = Math.round(genmath_mid_ave);
+document.getElementById('genmath_mid_ave').value = roundedGenmathMidAve;
 
     var personal_mid_development_1 = document.getElementById('personal_mid_development_1').value;
-    var personal_mid_development_2 = document.getElementById('personal_mid_development_2').value;
-    personal_mid_development_ave = parseInt(personal_mid_development_1) + parseInt(personal_mid_development_2);
-    document.getElementById('personal_mid_development_ave').value = personal_mid_development_ave / 2;
+var personal_mid_development_2 = document.getElementById('personal_mid_development_2').value;
+var personal_mid_development_ave = (parseInt(personal_mid_development_1) + parseInt(personal_mid_development_2)) / 2;
+var roundedPersonalMidDevelopmentAve = Math.round(personal_mid_development_ave);
+document.getElementById('personal_mid_development_ave').value = roundedPersonalMidDevelopmentAve;
 
     var els_mid_1 = document.getElementById('els_mid_1').value;
-    var els_mid_2 = document.getElementById('els_mid_2').value;
-    els_mid_ave = parseInt(els_mid_1) + parseInt(els_mid_2);
-    document.getElementById('els_mid_ave').value = els_mid_ave / 2;
+var els_mid_2 = document.getElementById('els_mid_2').value;
+var els_mid_ave = (parseInt(els_mid_1) + parseInt(els_mid_2)) / 2;
+var roundedElsMidAve = Math.round(els_mid_ave);
+document.getElementById('els_mid_ave').value = roundedElsMidAve;
 
     var peh_mid_1 = document.getElementById('peh_mid_1').value;
-    var peh_mid_2 = document.getElementById('peh_mid_2').value;
-    peh_mid_ave = parseInt(peh_mid_1) + parseInt(peh_mid_2);
-    document.getElementById('peh_mid_ave').value = peh_mid_ave / 2;
+var peh_mid_2 = document.getElementById('peh_mid_2').value;
+var peh_mid_ave = (parseInt(peh_mid_1) + parseInt(peh_mid_2)) / 2;
+var roundedPehMidAve = Math.round(peh_mid_ave);
+document.getElementById('peh_mid_ave').value = roundedPehMidAve;
 
-    var empowerment_tech_mid_1 = document.getElementById('empowerment_tech_mid_1').value;
-    var empowerment_tech_mid_2 = document.getElementById('empowerment_tech_mid_2').value;
-    empowerment_tech_mid_ave = parseInt(empowerment_tech_mid_1) + parseInt(empowerment_tech_mid_2);
-    document.getElementById('empowerment_tech_mid_ave').value = empowerment_tech_mid_ave / 2;
+var empowerment_tech_mid_1 = document.getElementById('empowerment_tech_mid_1').value;
+var empowerment_tech_mid_2 = document.getElementById('empowerment_tech_mid_2').value;
+var empowerment_tech_mid_ave = (parseInt(empowerment_tech_mid_1) + parseInt(empowerment_tech_mid_2)) / 2;
+var roundedEmpowermentTechMidAve = Math.round(empowerment_tech_mid_ave);
+document.getElementById('empowerment_tech_mid_ave').value = roundedEmpowermentTechMidAve;
  
     var css1_mid_1 = document.getElementById('css1_mid_1').value;
-    var css1_mid_2 = document.getElementById('css1_mid_2').value;
-    css1_mid_ave = parseInt(css1_mid_1) + parseInt(css1_mid_2);
-    document.getElementById('css1_mid_ave').value = css1_mid_ave / 2;
+var css1_mid_2 = document.getElementById('css1_mid_2').value;
+var css1_mid_ave = (parseInt(css1_mid_1) + parseInt(css1_mid_2)) / 2;
+var roundedCss1MidAve = Math.round(css1_mid_ave);
+document.getElementById('css1_mid_ave').value = roundedCss1MidAve;
 
-    var century_literature_mid_1 = document.getElementById('century_literature_mid_1').value;
-    var century_literature_mid_2 = document.getElementById('century_literature_mid_2').value;
-    century_literature_mid_ave = parseInt(century_literature_mid_1) + parseInt(century_literature_mid_2);
-    document.getElementById('century_literature_mid_ave').value = century_literature_mid_ave / 2;
+var century_literature_mid_1 = document.getElementById('century_literature_mid_1').value;
+var century_literature_mid_2 = document.getElementById('century_literature_mid_2').value;
+var century_literature_mid_ave = (parseInt(century_literature_mid_1) + parseInt(century_literature_mid_2)) / 2;
+var roundedCenturyLiteratureMidAve = Math.round(century_literature_mid_ave);
+document.getElementById('century_literature_mid_ave').value = roundedCenturyLiteratureMidAve;
 
-    final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_mid_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css1_mid_ave)) / 2 + parseInt((century_literature_mid_ave)) / 2;
-    document.getElementById('final_average').value = final_average / 9;
+final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_mid_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css1_mid_ave)) / 2 + parseInt((century_literature_mid_ave)) / 2;
+var roundedFinalAverage = Math.round(final_average / 9);
+document.getElementById('final_average').value = roundedFinalAverage;
 
    
 }
@@ -3173,47 +3183,54 @@ function total(){
          <script>
 function total1(){
     var oral1_communication_mid_1 = document.getElementById('oral1_communication_mid_1').value;
-    var oral1_communication_mid_2 = document.getElementById('oral1_communication_mid_2').value;
-    oral1_communication_mid_ave = parseInt(oral1_communication_mid_1) + parseInt(oral1_communication_mid_2);
-    document.getElementById('oral1_communication_mid_ave').value = oral1_communication_mid_ave / 2;
-   
-    var kpwkp1_mid_1 = document.getElementById('kpwkp1_mid_1').value;
-    var kpwkp1_mid_2 = document.getElementById('kpwkp1_mid_2').value;
-     kpwkp1_mid_ave = parseInt( kpwkp1_mid_1) + parseInt( kpwkp1_mid_2);
-    document.getElementById('kpwkp1_mid_ave').value =  kpwkp1_mid_ave / 2;
-    
-    var genmath1_mid_1 = document.getElementById('genmath1_mid_1').value;
-    var genmath1_mid_2 = document.getElementById('genmath1_mid_2').value;
-    genmath1_mid_ave = parseInt(genmath1_mid_1) + parseInt(genmath1_mid_2);
-    document.getElementById('genmath1_mid_ave').value = genmath1_mid_ave / 2;
+var oral1_communication_mid_2 = document.getElementById('oral1_communication_mid_2').value;
+var oral1_communication_mid_ave = (parseInt(oral1_communication_mid_1) + parseInt(oral1_communication_mid_2)) / 2;
+var roundedOral1CommunicationMidAve = Math.round(oral1_communication_mid_ave);
+document.getElementById('oral1_communication_mid_ave').value = roundedOral1CommunicationMidAve;
 
-    var personal1_mid_development_1 = document.getElementById('personal1_mid_development_1').value;
-    var personal1_mid_development_2 = document.getElementById('personal1_mid_development_2').value;
-    personal1_mid_development_ave = parseInt(personal1_mid_development_1) + parseInt(personal1_mid_development_2);
-    document.getElementById('personal1_mid_development_ave').value = personal1_mid_development_ave / 2;
+var kpwkp1_mid_1 = document.getElementById('kpwkp1_mid_1').value;
+var kpwkp1_mid_2 = document.getElementById('kpwkp1_mid_2').value;
+var kpwkp1_mid_ave = (parseInt(kpwkp1_mid_1) + parseInt(kpwkp1_mid_2)) / 2;
+var roundedKpwkp1MidAve = Math.round(kpwkp1_mid_ave);
+document.getElementById('kpwkp1_mid_ave').value = roundedKpwkp1MidAve;
 
-    var els1_mid_1 = document.getElementById('els1_mid_1').value;
-    var els1_mid_2 = document.getElementById('els1_mid_2').value;
-    els1_mid_ave = parseInt(els1_mid_1) + parseInt(els1_mid_2);
-    document.getElementById('els1_mid_ave').value = els1_mid_ave / 2;
+var genmath1_mid_1 = document.getElementById('genmath1_mid_1').value;
+var genmath1_mid_2 = document.getElementById('genmath1_mid_2').value;
+var genmath1_mid_ave = (parseInt(genmath1_mid_1) + parseInt(genmath1_mid_2)) / 2;
+var roundedGenmath1MidAve = Math.round(genmath1_mid_ave);
+document.getElementById('genmath1_mid_ave').value = roundedGenmath1MidAve;
+
+var personal1_mid_development_1 = document.getElementById('personal1_mid_development_1').value;
+var personal1_mid_development_2 = document.getElementById('personal1_mid_development_2').value;
+var personal1_mid_development_ave = (parseInt(personal1_mid_development_1) + parseInt(personal1_mid_development_2)) / 2;
+var roundedPersonalMidDevelopmentAve = Math.round(personalMidDevelopmentAve);
+document.getElementById('personalMidDevelopmentAve').value = roundedPersonalMidDevelopmentAve;
+
+var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
+var roundedElsMidAve = Math.round(elsMidAve);
+document.getElementById('elsMidAve').value = roundedElsMidAve;
 
     var peh1_mid_1 = document.getElementById('peh1_mid_1').value;
-    var peh1_mid_2 = document.getElementById('peh1_mid_2').value;
-    peh1_mid_ave = parseInt(peh1_mid_1) + parseInt(peh1_mid_2);
-    document.getElementById('peh1_mid_ave').value = peh1_mid_ave / 2;
+var peh1_mid_2 = document.getElementById('peh1_mid_2').value;
+var peh1_mid_ave = (parseInt(peh1_mid_1) + parseInt(peh1_mid_2)) / 2;
+var roundedPeh1MidAve = Math.round(peh1_mid_ave);
+document.getElementById('peh1_mid_ave').value = roundedPeh1MidAve;
 
-    var empowerment1_tech_mid_1 = document.getElementById('empowerment1_tech_mid_1').value;
-    var empowerment1_tech_mid_2 = document.getElementById('empowerment1_tech_mid_2').value;
-    empowerment1_tech_mid_ave = parseInt(empowerment1_tech_mid_1) + parseInt(empowerment1_tech_mid_2);
-    document.getElementById('empowerment1_tech_mid_ave').value = empowerment1_tech_mid_ave / 2;
- 
-    var css2_mid_1 = document.getElementById('css2_mid_1').value;
-    var css2_mid_2 = document.getElementById('css2_mid_2').value;
-    css2_mid_ave = parseInt(css2_mid_1) + parseInt(css2_mid_2);
-    document.getElementById('css2_mid_ave').value = css2_mid_ave / 2;
+var empowerment1_tech_mid_1 = document.getElementById('empowerment1_tech_mid_1').value;
+var empowerment1_tech_mid_2 = document.getElementById('empowerment1_tech_mid_2').value;
+var empowerment1_tech_mid_ave = (parseInt(empowerment1_tech_mid_1) + parseInt(empowerment1_tech_mid_2)) / 2;
+var roundedEmpowermentTechMidAve = Math.round(empowermentTechMidAve);
+document.getElementById('empowermentTechMidAve').value = roundedEmpowermentTechMidAve;
 
-    final1_average = parseInt((oral1_communication_mid_ave)) / 2 + parseInt((kpwkp1_mid_ave)) / 2 + parseInt((genmath1_mid_ave)) / 2 + parseInt((personal1_mid_development_ave)) / 2 + parseInt((els1_mid_ave)) / 2 + parseInt((peh1_mid_ave)) / 2 + parseInt((empowerment1_tech_mid_ave)) / 2 + parseInt((css2_mid_ave)) / 2;
-    document.getElementById('final1_average').value = final1_average / 8;
+var css2_mid_1 = document.getElementById('css2_mid_1').value;
+var css2_mid_2 = document.getElementById('css2_mid_2').value;
+var css2_mid_ave = (parseInt(css2_mid_1) + parseInt(css2_mid_2)) / 2;
+var roundedCss2MidAve = Math.round(css2_mid_ave);
+document.getElementById('css2_mid_ave').value = roundedCss2MidAve;
+
+final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css_mid_ave)) / 2;
+var roundedFinalAverage = Math.round(final_average / 8);
+document.getElementById('final_average').value = roundedFinalAverage;
 
    
 }
@@ -3222,42 +3239,44 @@ function total1(){
      <script>
 function total2(){
     var oral2_communication_mid_1 = document.getElementById('oral2_communication_mid_1').value;
-    var oral2_communication_mid_2 = document.getElementById('oral2_communication_mid_2').value;
-    oral2_communication_mid_ave = parseInt(oral2_communication_mid_1) + parseInt(oral2_communication_mid_2);
-    document.getElementById('oral2_communication_mid_ave').value = oral2_communication_mid_ave / 2;
-   
-    var kpwkp2_mid_1 = document.getElementById('kpwkp2_mid_1').value;
-    var kpwkp2_mid_2 = document.getElementById('kpwkp2_mid_2').value;
-     kpwkp2_mid_ave = parseInt( kpwkp2_mid_1) + parseInt( kpwkp2_mid_2);
-    document.getElementById('kpwkp2_mid_ave').value =  kpwkp2_mid_ave / 2;
-    
-    var genmath2_mid_1 = document.getElementById('genmath2_mid_1').value;
-    var genmath2_mid_2 = document.getElementById('genmath2_mid_2').value;
-    genmath2_mid_ave = parseInt(genmath2_mid_1) + parseInt(genmath2_mid_2);
-    document.getElementById('genmath2_mid_ave').value = genmath2_mid_ave / 2;
+var oral2_communication_mid_2 = document.getElementById('oral2_communication_mid_2').value;
+var oral2_communication_mid_ave = (parseInt(oral2_communication_mid_1) + parseInt(oral2_communication_mid_2)) / 2;
+var roundedOral2CommunicationMidAve = Math.round(oral2_communication_mid_ave);
+document.getElementById('oral2_communication_mid_ave').value = roundedOral2CommunicationMidAve;
 
-    var personal2_mid_development_1 = document.getElementById('personal2_mid_development_1').value;
-    var personal2_mid_development_2 = document.getElementById('personal2_mid_development_2').value;
-    personal2_mid_development_ave = parseInt(personal2_mid_development_1) + parseInt(personal2_mid_development_2);
-    document.getElementById('personal2_mid_development_ave').value = personal2_mid_development_ave / 2;
+var kpwkp2_mid_1 = document.getElementById('kpwkp2_mid_1').value;
+var kpwkp2_mid_2 = document.getElementById('kpwkp2_mid_2').value;
+var kpwkp2_mid_ave = (parseInt(kpwkp2_mid_1) + parseInt(kpwkp2_mid_2)) / 2;
+var roundedKpwkp2MidAve = Math.round(kpwkp2_mid_ave);
+document.getElementById('kpwkp2_mid_ave').value = roundedKpwkp2MidAve;
 
-    var els2_mid_1 = document.getElementById('els2_mid_1').value;
-    var els2_mid_2 = document.getElementById('els2_mid_2').value;
-    els2_mid_ave = parseInt(els2_mid_1) + parseInt(els2_mid_2);
-    document.getElementById('els2_mid_ave').value = els2_mid_ave / 2;
+var genmath2_mid_1 = document.getElementById('genmath2_mid_1').value;
+var genmath2_mid_2 = document.getElementById('genmath2_mid_2').value;
+var genmath2_mid_ave = (parseInt(genmath2_mid_1) + parseInt(genmath2_mid_2)) / 2;
+var roundedGenmathMidAve = Math.round(genmathMidAve);
+document.getElementById('genmathMidAve').value = roundedGenmathMidAve;
 
-    var peh2_mid_1 = document.getElementById('peh2_mid_1').value;
-    var peh2_mid_2 = document.getElementById('peh2_mid_2').value;
-    peh2_mid_ave = parseInt(peh2_mid_1) + parseInt(peh2_mid_2);
-    document.getElementById('peh2_mid_ave').value = peh2_mid_ave / 2;
+var personal_development_ave = (parseInt(personal_development_one) + parseInt(personal_development_two)) / 2;
+var roundedPersonalDevelopmentAve = Math.round(personalDevelopmentAve);
+document.getElementById('personalDevelopmentAve').value = roundedPersonalDevelopmentAve;
+
+var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
+var roundedElsMidAve = Math.round(elsMidAve);
+document.getElementById('elsMidAve').value = roundedElsMidAve;
+
+var pehMidAve = (parseInt(pehMidOne) + parseInt(pehMidTwo)) / 2;
+var roundedPehMidAve = Math.round(pehMidAve);
+document.getElementById('pehMidAve').value = roundedPehMidAve;
 
     var empowerment2_tech_mid_1 = document.getElementById('empowerment2_tech_mid_1').value;
-    var empowerment2_tech_mid_2 = document.getElementById('empowerment2_tech_mid_2').value;
-    empowerment2_tech_mid_ave = parseInt(empowerment2_tech_mid_1) + parseInt(empowerment2_tech_mid_2);
-    document.getElementById('empowerment2_tech_mid_ave').value = empowerment2_tech_mid_ave / 2;
- 
-    final2_average = parseInt((oral2_communication_mid_ave)) / 2 + parseInt((kpwkp2_mid_ave)) / 2 + parseInt((genmath2_mid_ave)) / 2 + parseInt((personal2_mid_development_ave)) / 2 + parseInt((els2_mid_ave)) / 2 + parseInt((peh2_mid_ave)) / 2 + parseInt((empowerment2_tech_mid_ave)) / 2;
-    document.getElementById('final2_average').value = final2_average / 7;
+var empowerment2_tech_mid_2 = document.getElementById('empowerment2_tech_mid_2').value;
+var empowerment2_tech_mid_ave = (parseInt(empowerment2_tech_mid_1) + parseInt(empowerment2_tech_mid_2)) / 2;
+var roundedEmpowermentTechMidAve = Math.round(empowermentTechMidAve);
+document.getElementById('empowermentTechMidAve').value = roundedEmpowermentTechMidAve;
+
+final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2;
+var roundedFinalAverage = Math.round(final_average / 7);
+document.getElementById('final_average').value = roundedFinalAverage;
 
    
 }
@@ -3266,37 +3285,38 @@ function total2(){
     <script>
 function total3(){
     var oral3_communication_mid_1 = document.getElementById('oral3_communication_mid_1').value;
-    var oral3_communication_mid_2 = document.getElementById('oral3_communication_mid_2').value;
-    oral3_communication_mid_ave = parseInt(oral3_communication_mid_1) + parseInt(oral3_communication_mid_2);
-    document.getElementById('oral3_communication_mid_ave').value = oral3_communication_mid_ave / 2;
-   
-    var kpwkp3_mid_1 = document.getElementById('kpwkp3_mid_1').value;
-    var kpwkp3_mid_2 = document.getElementById('kpwkp3_mid_2').value;
-     kpwkp3_mid_ave = parseInt( kpwkp3_mid_1) + parseInt( kpwkp3_mid_2);
-    document.getElementById('kpwkp3_mid_ave').value =  kpwkp3_mid_ave / 2;
-    
-    var genmath3_mid_1 = document.getElementById('genmath3_mid_1').value;
-    var genmath3_mid_2 = document.getElementById('genmath3_mid_2').value;
-    genmath3_mid_ave = parseInt(genmath3_mid_1) + parseInt(genmath3_mid_2);
-    document.getElementById('genmath3_mid_ave').value = genmath3_mid_ave / 2;
+var oral3_communication_mid_2 = document.getElementById('oral3_communication_mid_2').value;
+var oral3_communication_mid_ave = (parseInt(oral3_communication_mid_1) + parseInt(oral3_communication_mid_2)) / 2;
+var roundedOral3CommunicationMidAve = Math.round(oral3_communication_mid_ave);
+document.getElementById('oral3_communication_mid_ave').value = roundedOral3CommunicationMidAve;
 
-    var personal3_mid_development_1 = document.getElementById('personal3_mid_development_1').value;
-    var personal3_mid_development_2 = document.getElementById('personal3_mid_development_2').value;
-    personal3_mid_development_ave = parseInt(personal3_mid_development_1) + parseInt(personal3_mid_development_2);
-    document.getElementById('personal3_mid_development_ave').value = personal3_mid_development_ave / 2;
+var kpwkp3_mid_1 = document.getElementById('kpwkp3_mid_1').value;
+var kpwkp3_mid_2 = document.getElementById('kpwkp3_mid_2').value;
+var kpwkp3_mid_ave = (parseInt(kpwkp3_mid_1) + parseInt(kpwkp3_mid_2)) / 2;
+var roundedKpwkp3MidAve = Math.round(kpwkp3_mid_ave);
+document.getElementById('kpwkp3_mid_ave').value = roundedKpwkp3MidAve;
 
-    var els3_mid_1 = document.getElementById('els3_mid_1').value;
-    var els3_mid_2 = document.getElementById('els3_mid_2').value;
-    els3_mid_ave = parseInt(els3_mid_1) + parseInt(els3_mid_2);
-    document.getElementById('els3_mid_ave').value = els3_mid_ave / 2;
+var genmath3_mid_1 = document.getElementById('genmath3_mid_1').value;
+var genmath3_mid_2 = document.getElementById('genmath3_mid_2').value;
+var genmath3_mid_ave = (parseInt(genmath3_mid_1) + parseInt(genmath3_mid_2)) / 2;
+var roundedGenmathMidAve = Math.round(genmathMidAve);
+document.getElementById('genmathMidAve').value = roundedGenmathMidAve;
 
-    var peh3_mid_1 = document.getElementById('peh3_mid_1').value;
-    var peh3_mid_2 = document.getElementById('peh3_mid_2').value;
-    peh3_mid_ave = parseInt(peh3_mid_1) + parseInt(peh3_mid_2);
-    document.getElementById('peh3_mid_ave').value = peh3_mid_ave / 2;
+var personal_development_ave = (parseInt(personal_development_one) + parseInt(personal_development_two)) / 2;
+var roundedPersonalDevelopmentAve = Math.round(personalDevelopmentAve);
+document.getElementById('personalDevelopmentAve').value = roundedPersonalDevelopmentAve;
 
-    final3_average = parseInt((oral3_communication_mid_ave)) / 2 + parseInt((kpwkp3_mid_ave)) / 2 + parseInt((genmath3_mid_ave)) / 2 + parseInt((personal3_mid_development_ave)) / 2 + parseInt((els3_mid_ave)) / 2 + parseInt((peh3_mid_ave)) / 2;
-    document.getElementById('final3_average').value = final3_average / 6;
+var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
+var roundedElsMidAve = Math.round(elsMidAve);
+document.getElementById('elsMidAve').value = roundedElsMidAve;
+
+var pehMidAve = (parseInt(pehMidOne) + parseInt(pehMidTwo)) / 2;
+var roundedPehMidAve = Math.round(pehMidAve);
+document.getElementById('pehMidAve').value = roundedPehMidAve;
+
+    final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2;
+var roundedFinalAverage = Math.round(final_average / 6);
+document.getElementById('final_average').value = roundedFinalAverage;
 
    
 }
