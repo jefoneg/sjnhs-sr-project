@@ -2,15 +2,15 @@
 session_start();
 include('conn.php');
 
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$lastname = $_POST['lastname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$position = $_POST['position'];
-$section = $_POST['section'];
-$year = $_POST['year'];
-$strand = $_POST['strand'];
+$firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+$middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
+$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
+$position = mysqli_real_escape_string($conn, $_POST['position']);
+$section = mysqli_real_escape_string($conn, $_POST['section']);
+$year = mysqli_real_escape_string($conn, $_POST['year']);
+$strand = mysqli_real_escape_string($conn, $_POST['strand']);
 $userfile = $_FILES['userfile']['name'];
 $uploaddir = 'assets/images/users/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);

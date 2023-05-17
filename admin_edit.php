@@ -3,13 +3,13 @@ session_start();
 include('conn.php');
 $id=$_GET['id'];
 
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$lastname = $_POST['lastname'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$position = $_POST['position'];
-$section = $_POST['section'];
+$firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+$middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
+$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
+$position = mysqli_real_escape_string($conn, $_POST['position']);
+$section = mysqli_real_escape_string($conn, $_POST['section']);
 
 $getuserindb = "select * from user where user_id = '$id'";
 $rungetuser = mysqli_query($conn,$getuserindb);

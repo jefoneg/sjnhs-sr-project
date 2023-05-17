@@ -1,10 +1,8 @@
 <?php
-if(isset($_POST['get_option']))
-{
  include 'conn.php';
- $strand = $_POST['get_option'];
- $year = $_POST['get_option'];
- $section = $_POST['get_option'];
+ $strand = $_POST['strand'];
+ $year = $_POST['year'];
+ $section = $_POST['section'];
  $find= mysqli_query($conn, "select firstname,lastname,middlename from user where strand='$strand' and year = '$year' and section = '$section' and position = 'Teacher'");
  while($row=mysqli_fetch_array($find))
  {
@@ -28,5 +26,4 @@ if(isset($_POST['get_option']))
                     ';
                   }
                   exit;
-                 }
                  ?>

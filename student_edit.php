@@ -2,17 +2,17 @@
 session_start();
 include('conn.php');
 
-$lrn = $_POST['lrn'];
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$lastname = $_POST['lastname'];
-$section = $_POST['section'];
-$year = $_POST['year'];
-$strand = $_POST['strand'];
-$semester = $_POST['semester'];
-$teacher_mname = $_POST['teacher_mname'];
-$teacher_fname = $_POST['teacher_fname'];
-$teacher_lname = $_POST['teacher_lname'];
+$lrn = mysqli_real_escape_string($conn, $_POST['lrn']);
+$firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+$middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
+$lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+$section = mysqli_real_escape_string($conn, $_POST['section']);
+$year = mysqli_real_escape_string($conn, $_POST['year']);
+$strand = mysqli_real_escape_string($conn, $_POST['strand']);
+$semester = mysqli_real_escape_string($conn, $_POST['semester']);
+$teacher_mname = mysqli_real_escape_string($conn, $_POST['teacher_mname']);
+$teacher_fname = mysqli_real_escape_string($conn, $_POST['teacher_fname']);
+$teacher_lname = mysqli_real_escape_string($conn, $_POST['teacher_lname']);
 
 $getuserindb = "select * from he_table where lrn = '$lrn'";
 $rungetuser = mysqli_query($conn,$getuserindb);

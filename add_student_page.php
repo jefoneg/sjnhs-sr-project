@@ -213,7 +213,7 @@
                       <div style="max-width: 125px;">
                       <div class="form-group">
                         <label>Strand</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" onchange="fetch_select(this.value);" >
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" id="strand" onchange="fetchSelect(this.value, document.getElementById('year').value, document.getElementById('section').value)" >
                         <option></option>
                         <?php 
                             include('conn.php');
@@ -228,7 +228,7 @@
                     <div style="max-width: 110px;">
                       <div class="form-group">
                         <label>Year</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year" onchange="fetch_select(this.value);">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year" id="year" onchange="fetchSelect(document.getElementById('strand').value, this.value, document.getElementById('section').value)">
                         <option></option>
                         <?php 
                             include('conn.php');
@@ -243,7 +243,7 @@
                     <div style="max-width: 125px;">
                       <div class="form-group">
                         <label>Section</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section" onchange="fetch_select(this.value);">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section" id="section" onchange="fetchSelect(document.getElementById('strand').value, document.getElementById('year').value, this.value)">
                         <option></option>
                           <?php 
                             include('conn.php');
@@ -309,19 +309,21 @@ Swal.fire(
 ?>  
     </script>
 	<script type="text/javascript">
-function fetch_select(val)
-{
- $.ajax({
- type: 'post',
- url: 'fetch_data.php',
- data: {
-  get_option:val
- },
- 
- success: function (response) {
-  document.getElementById("new_select").innerHTML=response; 
- }
- });
+function fetchSelect(strandVal, yearVal, sectionVal) {
+  const data = {
+    strand: strandVal,
+    year: yearVal,
+    section: sectionVal
+  };
+  
+  $.ajax({
+    type: 'POST',
+    url: 'fetch_data.php',
+    data,
+    success(response) {
+      document.getElementById('new_select').innerHTML = response;
+    }
+  });
 }
 
 </script>
