@@ -3203,14 +3203,16 @@ document.getElementById('genmath1_mid_ave').value = roundedGenmath1MidAve;
 var personal1_mid_development_1 = document.getElementById('personal1_mid_development_1').value;
 var personal1_mid_development_2 = document.getElementById('personal1_mid_development_2').value;
 var personal1_mid_development_ave = (parseInt(personal1_mid_development_1) + parseInt(personal1_mid_development_2)) / 2;
-var roundedPersonalMidDevelopmentAve = Math.round(personalMidDevelopmentAve);
-document.getElementById('personalMidDevelopmentAve').value = roundedPersonalMidDevelopmentAve;
+var roundedPersonalMidDevelopmentAve = Math.round(personal1_mid_development_ave);
+document.getElementById('personal1_mid_development_ave').value = roundedPersonalMidDevelopmentAve;
 
-var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
-var roundedElsMidAve = Math.round(elsMidAve);
-document.getElementById('elsMidAve').value = roundedElsMidAve;
+var els1_mid_1 = document.getElementById('els1_mid_1').value;
+var els1_mid_2 = document.getElementById('els1_mid_2').value;
+var els1_mid_ave = (parseInt(els1_mid_1) + parseInt(els1_mid_2)) / 2;
+var roundedels1MidAve = Math.round(els1_mid_ave);
+document.getElementById('els1_mid_ave').value = roundedels1MidAve;
 
-    var peh1_mid_1 = document.getElementById('peh1_mid_1').value;
+var peh1_mid_1 = document.getElementById('peh1_mid_1').value;
 var peh1_mid_2 = document.getElementById('peh1_mid_2').value;
 var peh1_mid_ave = (parseInt(peh1_mid_1) + parseInt(peh1_mid_2)) / 2;
 var roundedPeh1MidAve = Math.round(peh1_mid_ave);
@@ -3219,8 +3221,8 @@ document.getElementById('peh1_mid_ave').value = roundedPeh1MidAve;
 var empowerment1_tech_mid_1 = document.getElementById('empowerment1_tech_mid_1').value;
 var empowerment1_tech_mid_2 = document.getElementById('empowerment1_tech_mid_2').value;
 var empowerment1_tech_mid_ave = (parseInt(empowerment1_tech_mid_1) + parseInt(empowerment1_tech_mid_2)) / 2;
-var roundedEmpowermentTechMidAve = Math.round(empowermentTechMidAve);
-document.getElementById('empowermentTechMidAve').value = roundedEmpowermentTechMidAve;
+var roundedEmpowermentTechMidAve = Math.round(empowerment1_tech_mid_ave);
+document.getElementById('empowerment1_tech_mid_ave').value = roundedEmpowermentTechMidAve;
 
 var css2_mid_1 = document.getElementById('css2_mid_1').value;
 var css2_mid_2 = document.getElementById('css2_mid_2').value;
@@ -3228,13 +3230,10 @@ var css2_mid_ave = (parseInt(css2_mid_1) + parseInt(css2_mid_2)) / 2;
 var roundedCss2MidAve = Math.round(css2_mid_ave);
 document.getElementById('css2_mid_ave').value = roundedCss2MidAve;
 
-final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave))+ parseInt(Math.round(empowerment_tech_mid_ave)) + parseInt(Math.round(css_mid_ave));
-var roundedFinalAverage = Math.round(final_average / 8);
-document.getElementById('final_average').value = roundedFinalAverage;
-
-   
+final1_average = parseInt(Math.round(oral1_communication_mid_ave)) + parseInt(Math.round(kpwkp1_mid_ave)) + parseInt(Math.round(genmath1_mid_ave)) + parseInt(Math.round(personal1_development_ave)) + parseInt(Math.round(els1_mid_ave)) + parseInt(Math.round(peh1_mid_ave))+ parseInt(Math.round(empowerment1_tech_mid_ave)) + parseInt(Math.round(css2_mid_ave));
+var roundedFinal1Average = Math.round(final1_average / 8);
+document.getElementById('final1_average').value = roundedFinal1Average;
 }
-   
     </script>
      <script>
 function total2(){
