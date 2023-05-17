@@ -306,7 +306,7 @@
                                             </div>
                                                 <div class="col-md-4">
                                                 <label><strong>General Ave. for the Semester:</strong></label>
-                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch(round(['1st_average'])).'" readonly>
+                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch,['1st_average'].'" readonly>
                                                 </div>
                                             </div>
                                 <div class="bg-light clearfix">  
@@ -3172,7 +3172,7 @@ var century_literature_mid_ave = (parseInt(century_literature_mid_1) + parseInt(
 var roundedCenturyLiteratureMidAve = Math.round(century_literature_mid_ave);
 document.getElementById('century_literature_mid_ave').value = roundedCenturyLiteratureMidAve;
 
-final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_mid_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css1_mid_ave)) / 2 + parseInt((century_literature_mid_ave)) / 2;
+final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_mid_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave)) + parseInt(Math.round(empowerment_tech_mid_ave)) + parseInt(Math.round(css1_mid_ave)) + parseInt(Math.round(century_literature_mid_ave));
 var roundedFinalAverage = Math.round(final_average / 9);
 document.getElementById('final_average').value = roundedFinalAverage;
 
