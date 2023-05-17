@@ -22,7 +22,7 @@ $row = mysqli_fetch_array($sql);
     if(mysqli_num_rows($sql) !== 0){
         
        echo $_SESSION['warning'] = "Error! Student with $lrn have already existed!";
-        header('location: teacher_dashboard_faculty.php');
+        header('location: add_student_page.php');
     }
     else{
         $uploaddir = 'assets/images/users/';

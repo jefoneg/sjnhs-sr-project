@@ -62,13 +62,14 @@
                       <div class="form-group">
                         <label>Strand</label>
                         <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand">
+                        <option></option>
                         <?php 
                             include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM user WHERE position = 'Teacher' GROUP BY strand");
+                            $fetchsection = mysqli_query($conn,"SELECT strand FROM user WHERE position = 'Teacher' GROUP BY strand");
                             while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
-                          ?>
-                          <option style="text-transform: capitalize;"><?php echo $fetchsectioninfo['strand']; ?></option>
-                          <?php } ?>                           
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['strand'].'">'.$fetchsectioninfo['strand'].'</option>';
+                            } ?>                                   
                         </select>
                       </div>
                     </div>
@@ -76,8 +77,14 @@
                       <div class="form-group">
                         <label>Year</label>
                         <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year">
-                          <option value="11">11</option>      
-                          <option value="12">12</option>                            
+                        <option></option>
+                        <?php 
+                            include('conn.php');
+                            $fetchsection = mysqli_query($conn,"SELECT year FROM user WHERE position = 'Teacher' GROUP BY year");
+                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['year'].'">'.$fetchsectioninfo['year'].'</option>';
+                            } ?>                           
                         </select>
                       </div>
                     </div>
@@ -85,32 +92,20 @@
                       <div class="form-group">
                         <label>Section</label>
                         <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
+                        <option></option>
                           <?php 
                             include('conn.php');
-                            $fetchsection = mysqli_query($conn,"SELECT * FROM user WHERE position = 'Teacher' GROUP BY section");
+                            $fetchsection = mysqli_query($conn,"SELECT section FROM user WHERE position = 'Teacher' GROUP BY section");
                             while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
-                          ?>
-                          <option style="text-transform: capitalize;" value="<?php echo $fetchsectioninfo['section']; ?>"><?php echo $fetchsectioninfo['section']; ?></option>
-                          <?php } ?>                         
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['section'].'">'.$fetchsectioninfo['section'].'</option>';
+                            } ?>                  
                         </select>
                       </div>
                     </div>
                     <h5>Adviser</h5>
-                    <div class="row">
-                    <div class="col-sm-3">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_fname" placeholder="First Name">
-                      </div>
-                    </div>
-                    <div class="col-sm-3">
-                      <label>Middle Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_mname" placeholder="Middle Name">
-                      </div>
-                    <div class="col-sm-3">
-                      <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="teacher_lname" placeholder="Last Name">
-                      </div>
+                    <div id = "new_select">
+
                     </div>
 					<div style="height:10px;"></div>
                 <div class="modal-footer">
@@ -127,3 +122,4 @@
         </div>
     </div>
 </div>
+

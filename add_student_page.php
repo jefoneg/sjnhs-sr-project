@@ -153,60 +153,120 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<a type="button" class="btn btn-outline-success" href="add_student_page.php">Add student</a>
+					  <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>Add Student</button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
 				    <div class="app-card-body p-4">
-						<div class="table-responsive">
-							<table id="example" class="table table-sm table-hover dt-responsive display nowrap">
-								<thead>
-									<tr>
-										<th style="text-align: center;">LRN No.</th>
-										<th style="text-align: center;">Image</th>
-										<th style="text-align: center;">First Name</th>
-										<th style="text-align: center;">Middle Name</th>
-										<th style="text-align: center;">Last Name</th>
-										<th style="text-align: center;">Year & Section</th>
-										<th style="text-align: center;">Semester</th>
-                                        <th style="text-align: center;">Adviser</th>
-										<th style="text-align: center;">Action</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-									include('conn.php');
-
-  											$fetchdata = mysqli_query($conn, "SELECT * FROM student_tbl");
-											while($rowfetchdata = mysqli_fetch_array($fetchdata)){
-									
-										?>
-									<tr>
-										<?php include 'studentfunction.php'; ?>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lrn']); ?></td>
-										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['middlename']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['lastname']); ?></td>
-										<td style="text-align: center; text-transform: uppercase;"><?php echo ucwords($rowfetchdata['strand'].'-'.$rowfetchdata['year'].'-'.$rowfetchdata['section']); ?></td>
-										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['semester']); ?></td>
-                                        <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_fname'].' '.$rowfetchdata['teacher_mname'].' '.$rowfetchdata['teacher_lname']); ?></td>
-										<td style="text-align: center;">
-										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i>EDIT</button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i>DELETE</button><br>
-										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-FRONT</a>
-										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10-back.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-BACK</a>
-										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-9.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-9</a>
-										</td>	
-										<?php
-											}
-								 ?>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-				    </div>
+                    <form enctype="multipart/form-data" action="addstudent.php" method="POST" id = "select_box">
+        <div class="row">
+            <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>LRN No.</label>
+                        <input type="number" class="form-control" name="lrn" placeholder="LRN No." required>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" placeholder="First Name">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <label>Last Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
+                      </div>
+                      <div class="col-sm-3">
+                      <label>Middle Name</label>
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="middlename" placeholder="Middle Name">
+                      </div>
+                 </div>
+          <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" class="form-control" style="text-transform: uppercase;" name="birth">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                    <div class="form-group">
+                        <label>Sex</label>
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="sex">
+                          <option value="Male">Male</option>      
+                          <option value="Female">Female</option>                         
+                        </select>
+                      </div>
+                      </div>
+                      <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Date of SHS Admission</label>
+                        <input type="date" class="form-control" style="text-transform: uppercase;" name="date_admission">
+                      </div>
+                    </div>
+                   </div>
+                    <div class="row">
+                    <div class="col-sm-4">
+                    <label>Profile Image</label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5000000"/>
+                        <input class="form-control" type="file" name="userfile" accept=".png, .jpg, .jpeg" required>
+                      </div>
+                      <div style="max-width: 125px;">
+                      <div class="form-group">
+                        <label>Strand</label>
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" onchange="fetch_select(this.value);" >
+                        <option></option>
+                        <?php 
+                            include('conn.php');
+                            $fetchsection = mysqli_query($conn,"SELECT strand FROM user WHERE position = 'Teacher' GROUP BY strand");
+                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['strand'].'">'.$fetchsectioninfo['strand'].'</option>';
+                            } ?>                                   
+                        </select>
+                      </div>
+                    </div>
+                    <div style="max-width: 110px;">
+                      <div class="form-group">
+                        <label>Year</label>
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year" onchange="fetch_select(this.value);">
+                        <option></option>
+                        <?php 
+                            include('conn.php');
+                            $fetchsection = mysqli_query($conn,"SELECT year FROM user WHERE position = 'Teacher' GROUP BY year");
+                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['year'].'">'.$fetchsectioninfo['year'].'</option>';
+                            } ?>                           
+                        </select>
+                      </div>
+                    </div>
+                    <div style="max-width: 125px;">
+                      <div class="form-group">
+                        <label>Section</label>
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section" onchange="fetch_select(this.value);">
+                        <option></option>
+                          <?php 
+                            include('conn.php');
+                            $fetchsection = mysqli_query($conn,"SELECT section FROM user WHERE position = 'Teacher' GROUP BY section");
+                            while($fetchsectioninfo = mysqli_fetch_array($fetchsection)){
+                          echo '
+                          <option style="text-transform: capitalize;" value="'.$fetchsectioninfo['section'].'">'.$fetchsectioninfo['section'].'</option>';
+                            } ?>                  
+                        </select>
+                      </div>
+                    </div>
+                    <h5>Adviser</h5>
+                    <div id="new_select"></div>
+					<div style="height:10px;"></div>
+                <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
+                                            <i class="fas fa-backspace"></i>
+                                        </span>Cancel</button>
+                    <button type="submit" class="btn btn-success"><span class="icon text-white-100">
+                                            <i class="fas fa-check"></i>
+                                        </span> Submit</a>
+                </div>
+				</form>
 				</div>
 		
 	    <footer class="app-footer">
@@ -248,7 +308,23 @@ Swal.fire(
 
 ?>  
     </script>
-	
+	<script type="text/javascript">
+function fetch_select(val)
+{
+ $.ajax({
+ type: 'post',
+ url: 'fetch_data.php',
+ data: {
+  get_option:val
+ },
+ 
+ success: function (response) {
+  document.getElementById("new_select").innerHTML=response; 
+ }
+ });
+}
+
+</script>
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script> 
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
