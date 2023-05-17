@@ -306,7 +306,7 @@
                                             </div>
                                                 <div class="col-md-4">
                                                 <label><strong>General Ave. for the Semester:</strong></label>
-                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
+                                                <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch(round(['1st_average'])).'" readonly>
                                                 </div>
                                             </div>
                                 <div class="bg-light clearfix">  
