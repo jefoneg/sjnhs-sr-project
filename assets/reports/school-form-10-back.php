@@ -151,7 +151,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="HUMANITIES AND SOCIAL SCIENCES" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -445,12 +445,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -470,7 +470,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -555,7 +555,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="HUMANITIES AND SOCIAL SCIENCES" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -796,12 +796,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -821,7 +821,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -893,7 +893,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="HUMANITIES AND SOCIAL SCIENCES" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <table class="personal-info" border=0>
@@ -922,17 +922,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -953,7 +953,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
@@ -1007,7 +1007,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="SCIENCE, TECHNOLOGY, ENGINEERING, AND MATHEMATICS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -1300,12 +1300,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -1325,7 +1325,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -1410,7 +1410,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="SCIENCE, TECHNOLOGY, ENGINEERING, AND MATHEMATICS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -1651,12 +1651,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -1676,7 +1676,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -1748,7 +1748,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="SCIENCE, TECHNOLOGY, ENGINEERING, AND MATHEMATICS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <table class="personal-info" border=0>
@@ -1777,17 +1777,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -1808,7 +1808,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
@@ -1862,7 +1862,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / HOME ECONOMICS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2103,12 +2103,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -2128,7 +2128,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2213,7 +2213,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / HOME ECONOMICS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2427,12 +2427,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -2452,7 +2452,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2524,7 +2524,7 @@ include "styles/style.php";
                         <input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / HOME ECONOMICS" />
                     </td>
                     <td style="width:50px; text-indent: 1em;">SECTION:</td>
-                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
                 </table>
                 <table class="personal-info" border=0>
@@ -2553,17 +2553,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -2584,7 +2584,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
@@ -2638,7 +2638,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INDUSTRIAL ARTS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2879,12 +2879,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -2904,7 +2904,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -2989,7 +2989,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INDUSTRIAL ARTS" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -3203,12 +3203,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -3228,7 +3228,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -3300,7 +3300,7 @@ include "styles/style.php";
                         <input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INDUSTRIAL ARTS" />
                     </td>
                     <td style="width:50px; text-indent: 1em;">SECTION:</td>
-                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
                 </table>
                 <table class="personal-info" border=0>
@@ -3329,17 +3329,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -3360,7 +3360,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
@@ -3414,7 +3414,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INFORMATION AND COMMUNICATIONS TECHNOLOGY" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -3655,12 +3655,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -3680,7 +3680,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -3765,7 +3765,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INFORMATION AND COMMUNICATIONS TECHNOLOGY" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -3979,12 +3979,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -4004,7 +4004,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -4076,7 +4076,7 @@ include "styles/style.php";
                         <input type="text" class="input-line b-bot up" value="TECHNICAL- VOCATIONAL-LIVELIHOOD / INFORMATION AND COMMUNICATIONS TECHNOLOGY" />
                     </td>
                     <td style="width:50px; text-indent: 1em;">SECTION:</td>
-                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
                 </table>
                 <table class="personal-info" border=0>
@@ -4105,17 +4105,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -4136,7 +4136,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
@@ -4190,7 +4190,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="ACCOUNTANCY, BUSINESS AND MANAGEMENT" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -4456,12 +4456,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -4481,7 +4481,7 @@ include "styles/style.php";
 						<td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
 						<td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
 						<td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+						<td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 					</tr>
 				</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -4566,7 +4566,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="ACCOUNTANCY, BUSINESS AND MANAGEMENT" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -4832,12 +4832,12 @@ include "styles/style.php";
                     <tr>
                         <td colspan="3">
                             <table style="width: 100%;">
-                                <tr>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                               <tr>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                     <td style="width:1%;"></td>
-                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                    <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:3%;text-align: center;font-size: 11px;"></td>
                                 </tr>
                             </table>
                         </td>
@@ -4857,7 +4857,7 @@ include "styles/style.php";
                     <td style="width:15px;text-align:left;font-size: 11px;text-indent:-2em;">SCHOOL:</td>
                     <td style="width:180px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="SAN JUAN NATIONAL HIGH SCHOOL" /></td>
                     <td style="width:70px;text-align:left;font-size: 11px;text-indent: 2em;">SCHOOL ID:</td>
-                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+                    <td style="width:60px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
                 </tr>
             </table>
                 <div class="col-sm-12" style="padding:0px;border:1px solid black;border-top:0px solid black;">
@@ -4929,7 +4929,7 @@ include "styles/style.php";
 				<input type="text" class="input-line b-bot up" value="ACCOUNTANCY, BUSINESS AND MANAGEMENT" />
 			</td>
 			<td style="width:50px; text-indent: 1em;">SECTION:</td>
-			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="12312312" /></td>
+			<td style="width: 300px;font-size: 11px;"><input type="text" class="input-line b-bot up" value="" /></td>
 		</tr>
 		</table>
                 <table class="personal-info" border=0>
@@ -4958,17 +4958,17 @@ include "styles/style.php";
                             <td colspan="3">
                                 <table style="width: 100%;">
                                     <tr>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;text-indent:1em;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:4%;text-align: center;font-size: 11px;text-indent:1em;">RINA LIGAYA D. MERQUITA-SCHOOL PRINCIPAL, PI</td>
                                         <td style="width:1%;"></td>
-                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:1%;text-align: center;font-size: 11px;">Ligaya D. Merquita</td>
+                                        <td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;width:2%;text-align: center;font-size: 11px;"></td>
                                         <td style="width:1%;"></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: -0em;font-weight:normal;">Signature of School Head over Printed Name</td>
-                            <td style="font-size: 9px;text-align: center;text-indent: -8em;font-weight:normal;">Date</td>
+                            <td style="width:200px;font-size: 9px;text-align: left;text-indent: 4em;font-weight:normal;">Signature of School Head over Printed Name</td>
+                            <td style="font-size: 9px;text-align: center;text-indent: 4em;font-weight:normal;">Date</td>
                         </tr>
                     </table>
                     <div class="col-sm-12" style="padding:1px; width: 450px; height: 200px;">
@@ -4989,7 +4989,7 @@ include "styles/style.php";
                         <table class="personal-info" border=0>
                             <tr>
                                 <td style="width:40px; font-weight: bold;font-size: 11px;">Date Issued (MM/DD/YYYY):</td>
-                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="303481" /></td>
+                                <td style="width:40px;font-size: 11px;text-indent: -13em;"><input type="text" class="input-line b-bot up" value="" /></td>
                             </tr>
                         </table>
                     </div>
