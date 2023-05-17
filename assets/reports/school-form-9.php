@@ -162,48 +162,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -312,7 +312,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -332,8 +332,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -345,7 +345,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -374,13 +374,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -402,13 +402,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -1182,48 +1182,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -1332,7 +1332,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -1352,8 +1352,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -1365,7 +1365,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -1394,13 +1394,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -1420,15 +1420,15 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="text-align:left;">Date:</td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;"/></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -2202,48 +2202,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -2352,7 +2352,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -2372,8 +2372,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -2385,7 +2385,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -2414,13 +2414,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -2442,13 +2442,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -3222,48 +3222,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -3372,7 +3372,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -3392,8 +3392,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -3405,7 +3405,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -3434,13 +3434,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -3462,13 +3462,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -4167,48 +4167,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -4317,7 +4317,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -4337,8 +4337,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -4350,7 +4350,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -4379,13 +4379,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -4407,13 +4407,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -5112,48 +5112,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -5262,7 +5262,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -5282,8 +5282,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -5295,7 +5295,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -5324,13 +5324,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -5352,13 +5352,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -6057,48 +6057,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -6207,7 +6207,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -6227,8 +6227,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -6240,7 +6240,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -6269,13 +6269,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -6297,13 +6297,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -7102,48 +7102,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -7252,7 +7252,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -7272,8 +7272,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -7285,7 +7285,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -7314,13 +7314,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -7342,13 +7342,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -8147,48 +8147,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -8297,7 +8297,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -8317,8 +8317,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -8330,7 +8330,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -8359,13 +8359,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -8387,13 +8387,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -9192,48 +9192,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -9342,7 +9342,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -9362,8 +9362,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -9375,7 +9375,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -9404,13 +9404,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -9432,13 +9432,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -10262,48 +10262,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -10412,7 +10412,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -10432,8 +10432,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -10445,7 +10445,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -10474,13 +10474,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -10502,13 +10502,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
@@ -11332,48 +11332,48 @@ include 'styles/style.php';
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of School Days</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Present </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 							<tr>
 								<td style="font-style:italic;font-weight:normal;">No. of Days Absent </td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
+								<td>12</td>
 							</tr>
 						</table>
 					</div>
@@ -11482,7 +11482,7 @@ include 'styles/style.php';
 								<td style="width:15%;font-size:12px;">LRN:</td>
 								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">'.$gradeqryfetch['lrn'].'</td>
 								<td style="width:20%;padding-left:10px;font-size:12px;">School Year:</td>
-								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;"></td>
+								<td style="width:30%;border-bottom:1px solid;font-weight:bold;font-size:12px;">year-year</td>
 							</tr>
 							<tr>
 								<td style="width:20%;font-size:12px;">Track/Strand:</td>
@@ -11502,8 +11502,8 @@ include 'styles/style.php';
 				<div class="row ">
 					<div class="col-sm-5 ctr col-sm-offset-6 ">
 						<table style="width:100%;">
-						<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;"></td>
+							<tr>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">Adviser</td>
@@ -11515,7 +11515,7 @@ include 'styles/style.php';
 					<div class="col-sm-5 ctr ">
 						<table style="width:100%;">
 							<tr>
-								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">RINA LIGAYA D. MERQUITA</td>
+								<td style="border-bottom:1px solid;font-weight:bold;text-transform:uppercase;font-size:11px;">Ligaya D. Merquita</td>
 							</tr>
 							<tr>
 								<td style="font-size:10px;">PRINCIPAL II</td>
@@ -11544,13 +11544,13 @@ include 'styles/style.php';
 							<tr>
 								<td colspan=4 style="font-size:10px;">Approved:</td>
 							</tr>
-						<tr>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;text-align: center;" value = "RINA LIGAYA D. MERQUITA"/></td>
-								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>	
+							<tr>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
+								<td colspan=2><input type="text" class="input-line" style="border-bottom:1px solid black;font-weight:bold;text-transform: uppercase;font-size:10px;" /></td>
 							</tr>
 							<tr>
-								<td colspan=2 class="ctr" style="font-size:10px;">PRINCIPAL II</td>
-								<td colspan=2 class="ctr" style="font-size:10px;">Adviser</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Principal</td>
+								<td colspan=2 class="ctr" style="font-size:10px;">Teacher</td>
 							</tr>
 						</table>
 					</div>
@@ -11572,13 +11572,13 @@ include 'styles/style.php';
 								<td style="text-align:left;">Date:</td>
 								<td><input type="text" class="input-line" style="border-bottom:1px solid black;" /></td>
 								<td style="width:100px;"></td>
-								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;text-align: center;" value = "RINA LIGAYA D. MERQUITA" /></td>
+								<td><input type="text" class="input-line" style="border-bottom:1px solid black;;width:200px;font-weight:bold;text-transform: uppercase;" /></td>
 							</tr>
 							<tr>
 							</tr>
 							<tr>
 								<td colspan=3></td>
-								<td class="ctr">PRINCIPAL II<br />
+								<td class="ctr">Principal<br />
 								</td>
 							</tr>
 						</table>
