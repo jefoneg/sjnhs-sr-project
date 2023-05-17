@@ -1,11 +1,11 @@
 <?php
+error_reporting(0);
  include 'conn.php';
  $strand = $_POST['strand'];
  $year = $_POST['year'];
  $section = $_POST['section'];
  $find= mysqli_query($conn, "select firstname,lastname,middlename from user where strand='$strand' and year = '$year' and section = '$section' and position = 'Teacher'");
- while($row=mysqli_fetch_array($find))
- {
+ $row=mysqli_fetch_array($find);
   echo '
            <div class="row">
                     <div class="col-sm-3">  
@@ -24,6 +24,5 @@
                       </div>
                     </div>
                     ';
-                  }
                   exit;
                  ?>

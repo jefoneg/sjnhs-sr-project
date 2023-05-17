@@ -6,7 +6,7 @@
                 </div>
                 <div class="modal-body">
 				<div class="container-fluid">
-				<form enctype="multipart/form-data" action="addstudent.php" method="POST">
+        <form enctype="multipart/form-data" action="addstudent.php" method="POST" id = "select_box">
         <div class="row">
             <div class="col-sm-3">
                       <div class="form-group">
@@ -61,7 +61,7 @@
                       <div style="max-width: 125px;">
                       <div class="form-group">
                         <label>Strand</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="strand" id="strand" onchange="fetchSelect(this.value, document.getElementById('year').value, document.getElementById('section').value)" >
                         <option></option>
                         <?php 
                             include('conn.php');
@@ -76,7 +76,7 @@
                     <div style="max-width: 110px;">
                       <div class="form-group">
                         <label>Year</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="year" id="year" onchange="fetchSelect(document.getElementById('strand').value, this.value, document.getElementById('section').value)">
                         <option></option>
                         <?php 
                             include('conn.php');
@@ -91,7 +91,7 @@
                     <div style="max-width: 125px;">
                       <div class="form-group">
                         <label>Section</label>
-                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section">
+                        <select style="text-transform: capitalize;" class="form-control form-select form-select-sm" aria-label=".form-select-sm example" name="section" id="section" onchange="fetchSelect(document.getElementById('strand').value, document.getElementById('year').value, this.value)">
                         <option></option>
                           <?php 
                             include('conn.php');
@@ -104,9 +104,7 @@
                       </div>
                     </div>
                     <h5>Adviser</h5>
-                    <div id = "new_select">
-
-                    </div>
+                    <div id="new_select"></div>
 					<div style="height:10px;"></div>
                 <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
@@ -122,4 +120,23 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+function fetchSelect(strandVal, yearVal, sectionVal) {
+  const data = {
+    strand: strandVal,
+    year: yearVal,
+    section: sectionVal
+  };
+  
+  $.ajax({
+    type: 'POST',
+    url: 'fetch_data.php',
+    data,
+    success(response) {
+      document.getElementById('new_select').innerHTML = response;
+    }
+  });
+}
+
+</script>
 

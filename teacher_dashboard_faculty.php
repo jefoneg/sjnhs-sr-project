@@ -153,7 +153,9 @@
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
 						        <h4 class="notification-title mb-1">Students</h4>
 								<div class="notification-type mb-2"><span class="badge bg-info">Lists</span></div>
-								<a type="button" class="btn btn-outline-success" href="add_student_page.php">Add student</a>
+								<button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addnewstudent"><i class="fas fa-user-plus"></i>
+                                  Add Student
+                                </button>
 					        </div><!--//col-->
 				        </div><!--//row-->
 				    </div><!--//app-card-header-->
@@ -207,6 +209,7 @@
 							</table>
 						</div>
 				    </div>
+					<?php include 'add_student_modal.php'; ?>
 				</div>
 		
 	    <footer class="app-footer">
@@ -248,6 +251,27 @@ Swal.fire(
 
 ?>  
     </script>
+	<script type="text/javascript">
+function fetchSelect(strandVal, yearVal, sectionVal) {
+  const data = {
+    strand: strandVal,
+    year: yearVal,
+    section: sectionVal
+  };
+  
+  $.ajax({
+    type: 'POST',
+    url: 'fetch_data.php',
+    data,
+    success(response) {
+      document.getElementById('new_select').innerHTML = response;
+    }
+  });
+}
+
+</script>
+
+
 	
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script> 
