@@ -17,16 +17,16 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" placeholder="First Name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="firstname" id="fname" placeholder="First Name">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <label>Last Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" placeholder="Last Name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="lastname" id="lname" placeholder="Last Name">
                       </div>
                       <div class="col-sm-3">
                       <label>Middle Name</label>
-                        <input type="text" class="form-control" style="text-transform: capitalize;" name="middlename" placeholder="Middle Name">
+                        <input type="text" class="form-control" style="text-transform: capitalize;" name="middlename" id="mname" placeholder="Middle Name">
                       </div>
                  </div>
           <div class="row">
@@ -95,8 +95,7 @@
                         </select>
                       </div>
                     </div>
-                    <h5>Adviser</h5>
-                    <div class="row">
+                    <div class="row" hidden>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label>First Name</label>
@@ -117,7 +116,7 @@
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><span class="icon text-white-100">
                                             <i class="fas fa-backspace"></i>
                                         </span>Cancel</button>
-                    <button type="submit" class="btn btn-success"><span class="icon text-white-100">
+                    <button type="submit" href="" class="btn btn-success"><span class="icon text-white-100">
                                             <i class="fas fa-check"></i>
                                         </span> Submit</a>
                 </div>

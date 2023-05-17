@@ -12,17 +12,21 @@ $section = $_POST['section'];
 $year = $_POST['year'];
 $strand = $_POST['strand'];
 $semester = $_POST['semester'];
-$teacher_fname = $_POST['teacher_fname'];
-$teacher_lname = $_POST['teacher_lname'];
-$teacher_mname = $_POST['teacher_mname'];
 $userfile = $_FILES['userfile']['name'];
+
+$get_user = mysqli_query($conn,"SELECT * FROM user WHERE section='$section' AND year='$year' AND strand='$strand' AND position='Teacher'");
+$get_user_info = mysqli_fetch_array($get_user);
+
+$teacher_fname = $get_user_info['firstname'];
+$teacher_lname = $get_user_info['lastname'];
+$teacher_mname = $get_user_info['middlename'];
 
 $sql = mysqli_query($conn, "SELECT * FROM student_tbl where lrn = $lrn");
 $row = mysqli_fetch_array($sql);
     if(mysqli_num_rows($sql) !== 0){
         
        echo $_SESSION['warning'] = "Error! Student with $lrn have already existed!";
-        header('location: teacher_dashboard_faculty.php');
+        header('location: add_student_page.php');
     }
     else{
         $uploaddir = 'assets/images/users/';
