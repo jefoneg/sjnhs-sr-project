@@ -124,7 +124,7 @@
 			    </div><!--//app-sidepanel-footer-->
 		       
 	        </div><!--//sidepanel-inner-->
-	    </div><!--//app-sidepanel-->
+	    </div><!--//app-sidepanel-->3
     </header><!--//app-header-->
     
     <div class="app-wrapper">
