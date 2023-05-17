@@ -3228,7 +3228,7 @@ var css2_mid_ave = (parseInt(css2_mid_1) + parseInt(css2_mid_2)) / 2;
 var roundedCss2MidAve = Math.round(css2_mid_ave);
 document.getElementById('css2_mid_ave').value = roundedCss2MidAve;
 
-final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2 + parseInt((css_mid_ave)) / 2;
+final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave))+ parseInt(Math.round(empowerment_tech_mid_ave)) + parseInt(Math.round(css_mid_ave));
 var roundedFinalAverage = Math.round(final_average / 8);
 document.getElementById('final_average').value = roundedFinalAverage;
 
@@ -3274,7 +3274,7 @@ var empowerment2_tech_mid_ave = (parseInt(empowerment2_tech_mid_1) + parseInt(em
 var roundedEmpowermentTechMidAve = Math.round(empowermentTechMidAve);
 document.getElementById('empowermentTechMidAve').value = roundedEmpowermentTechMidAve;
 
-final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2 + parseInt((empowerment_tech_mid_ave)) / 2;
+final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave)) + parseInt(Math.round(empowerment_tech_mid_ave));
 var roundedFinalAverage = Math.round(final_average / 7);
 document.getElementById('final_average').value = roundedFinalAverage;
 
@@ -3314,7 +3314,7 @@ var pehMidAve = (parseInt(pehMidOne) + parseInt(pehMidTwo)) / 2;
 var roundedPehMidAve = Math.round(pehMidAve);
 document.getElementById('pehMidAve').value = roundedPehMidAve;
 
-    final_average = parseInt((oral_communication_mid_ave)) / 2 + parseInt((kpwkp_mid_ave)) / 2 + parseInt((genmath_mid_ave)) / 2 + parseInt((personal_development_ave)) / 2 + parseInt((els_mid_ave)) / 2 + parseInt((peh_mid_ave)) / 2;
+    final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave));
 var roundedFinalAverage = Math.round(final_average / 6);
 document.getElementById('final_average').value = roundedFinalAverage;
 
