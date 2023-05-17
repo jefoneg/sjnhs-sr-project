@@ -136,6 +136,15 @@
 			    <!--//app-card-->
 			    <div class="app-card app-card-notification shadow-sm mb-4">
 				    <div class="app-card-header px-4 py-3">
+					<?php if(isset($_SESSION['warning'])) 
+					 echo '
+					 <div class="alert alert-danger text-center" role="alert">
+					 <span><i class="fas fa-exclamation-triangle"></i></span>
+					 '.$_SESSION['warning'].'
+				 	</div>
+					 ';
+					 unset($_SESSION['warning']);
+					?>
 				        <div class="row g-3 align-items-center">
 					        <!--//col-->
 					        <div class="col-12 col-lg-auto text-center text-lg-start">
@@ -158,7 +167,7 @@
 										<th style="text-align: center;">Last Name</th>
 										<th style="text-align: center;">Status</th>
 										<th style="text-align: center;">Year & Section</th>
-										<th style="text-align: center;">Action</th>
+										<th style="text-align: center;"></th>
 									</tr>
 								</thead>
 								<tbody>										
@@ -168,7 +177,7 @@
 										while($rowfetchdata = mysqli_fetch_array($fetchdata)){
 									?>
 									<tr>
-									<?php include('adminfunction.php');?>
+									<?php include('faculty_function.php');?>
 										<td style="text-align: center;"><?php echo '<img src="assets/images/users/'.$rowfetchdata['image'].'" class="img-profile rounded-circle" alt="image" width="70px" height="70px">' ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['firstname']); ?></td>
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['middlename']); ?></td>
@@ -176,8 +185,18 @@
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['position']); ?></td>
 										<td style="text-align: center;text-transform: uppercase;"><?php echo ucwords($rowfetchdata['strand'].'-'.$rowfetchdata['year'].'-'.$rowfetchdata['section']); ?></td>
 										<td style="text-align: center;">
-										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-edit"></i></button>
-										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-trash-alt"></i></button>
+
+										<div class="dropdown">
+											<button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											Action
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
+											<center>
+											<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-edit"></i>EDIT</button>
+										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletefaculty<?php echo $rowfetchdata['user_id']; ?>"><i class="fas fa-trash-alt"></i>DELETE</button>
+										</center>
+											</div>
+										</div>
 										</td>
 									</tr>
 										<?php } ?>

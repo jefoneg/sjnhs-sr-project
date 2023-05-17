@@ -698,6 +698,7 @@
                                             <div class="col-md-4">
                                             </div>
                                                 <div class="col-md-4">
+                                                <label><strong>General Ave. for the Semester:</strong></label>
                                                 <input type="number" class="form-control" id="final_average" placeholder="Average" name="1st_average" value="'.$gradeqryfetch['1st_average'].'" readonly>
                                                 </div>
                                             </div>
@@ -3230,9 +3231,9 @@ var css2_mid_ave = (parseInt(css2_mid_1) + parseInt(css2_mid_2)) / 2;
 var roundedCss2MidAve = Math.round(css2_mid_ave);
 document.getElementById('css2_mid_ave').value = roundedCss2MidAve;
 
-final1_average = parseInt(Math.round(oral1_communication_mid_ave)) + parseInt(Math.round(kpwkp1_mid_ave)) + parseInt(Math.round(genmath1_mid_ave)) + parseInt(Math.round(personal1_development_ave)) + parseInt(Math.round(els1_mid_ave)) + parseInt(Math.round(peh1_mid_ave))+ parseInt(Math.round(empowerment1_tech_mid_ave)) + parseInt(Math.round(css2_mid_ave));
-var roundedFinal1Average = Math.round(final1_average / 8);
-document.getElementById('final1_average').value = roundedFinal1Average;
+final1_average = parseInt(Math.round(oral1_communication_mid_ave)) + parseInt(Math.round(kpwkp1_mid_ave)) + parseInt(Math.round(genmath1_mid_ave)) + parseInt(Math.round(personal1_mid_development_ave)) + parseInt(Math.round(els1_mid_ave)) + parseInt(Math.round(peh1_mid_ave)) + parseInt(Math.round(empowerment1_tech_mid_ave)) + parseInt(Math.round(css2_mid_ave));
+var roundedFinalAverage = Math.round(final1_average / 8);
+document.getElementById('final1_average').value = roundedFinalAverage;
 }
     </script>
      <script>
@@ -3252,30 +3253,37 @@ document.getElementById('kpwkp2_mid_ave').value = roundedKpwkp2MidAve;
 var genmath2_mid_1 = document.getElementById('genmath2_mid_1').value;
 var genmath2_mid_2 = document.getElementById('genmath2_mid_2').value;
 var genmath2_mid_ave = (parseInt(genmath2_mid_1) + parseInt(genmath2_mid_2)) / 2;
-var roundedGenmathMidAve = Math.round(genmathMidAve);
-document.getElementById('genmathMidAve').value = roundedGenmathMidAve;
+var roundedGenmathMidAve = Math.round(genmath2_mid_ave);
+document.getElementById('genmath2_mid_ave').value = roundedGenmathMidAve;
 
-var personal_development_ave = (parseInt(personal_development_one) + parseInt(personal_development_two)) / 2;
-var roundedPersonalDevelopmentAve = Math.round(personalDevelopmentAve);
-document.getElementById('personalDevelopmentAve').value = roundedPersonalDevelopmentAve;
+var personal2_mid_development_1 = document.getElementById('personal2_mid_development_1').value;
+var personal2_mid_development_2 = document.getElementById('personal2_mid_development_2').value;
+var personal2_mid_development_ave = (parseInt(personal2_mid_development_1) + parseInt(personal2_mid_development_2)) / 2;
+var roundedPersonalMidDevelopmentAve = Math.round(personal2_mid_development_ave);
+document.getElementById('personal2_mid_development_ave').value = roundedPersonalMidDevelopmentAve;
 
-var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
-var roundedElsMidAve = Math.round(elsMidAve);
-document.getElementById('elsMidAve').value = roundedElsMidAve;
 
-var pehMidAve = (parseInt(pehMidOne) + parseInt(pehMidTwo)) / 2;
-var roundedPehMidAve = Math.round(pehMidAve);
-document.getElementById('pehMidAve').value = roundedPehMidAve;
+var els2_mid_1 = document.getElementById('els2_mid_1').value;
+var els2_mid_2 = document.getElementById('els2_mid_2').value;
+var els2_mid_ave = (parseInt(els2_mid_1) + parseInt(els2_mid_2)) / 2;
+var roundedels2MidAve = Math.round(els2_mid_ave);
+document.getElementById('els2_mid_ave').value = roundedels2MidAve;
 
-    var empowerment2_tech_mid_1 = document.getElementById('empowerment2_tech_mid_1').value;
+var peh2_mid_1 = document.getElementById('peh2_mid_1').value;
+var peh2_mid_2 = document.getElementById('peh2_mid_2').value;
+var peh2_mid_ave = (parseInt(peh2_mid_1) + parseInt(peh2_mid_2)) / 2;
+var roundedpeh2MidAve = Math.round(peh2_mid_ave);
+document.getElementById('peh2_mid_ave').value = roundedpeh2MidAve;
+
+var empowerment2_tech_mid_1 = document.getElementById('empowerment2_tech_mid_1').value;
 var empowerment2_tech_mid_2 = document.getElementById('empowerment2_tech_mid_2').value;
 var empowerment2_tech_mid_ave = (parseInt(empowerment2_tech_mid_1) + parseInt(empowerment2_tech_mid_2)) / 2;
-var roundedEmpowermentTechMidAve = Math.round(empowermentTechMidAve);
-document.getElementById('empowermentTechMidAve').value = roundedEmpowermentTechMidAve;
+var roundedEmpowermentTechMidAve = Math.round(empowerment2_tech_mid_ave);
+document.getElementById('empowerment2_tech_mid_ave').value = roundedEmpowermentTechMidAve;
 
-final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave)) + parseInt(Math.round(empowerment_tech_mid_ave));
-var roundedFinalAverage = Math.round(final_average / 7);
-document.getElementById('final_average').value = roundedFinalAverage;
+final2_average = parseInt(Math.round(oral2_communication_mid_ave)) + parseInt(Math.round(kpwkp2_mid_ave)) + parseInt(Math.round(genmath2_mid_ave)) + parseInt(Math.round(personal2_mid_development_ave)) + parseInt(Math.round(els2_mid_ave)) + parseInt(Math.round(peh2_mid_ave)) + parseInt(Math.round(empowerment2_tech_mid_ave));
+var roundedFinalAverage = Math.round(final2_average / 7);
+document.getElementById('final2_average').value = roundedFinalAverage;
 
    
 }
@@ -3298,25 +3306,30 @@ document.getElementById('kpwkp3_mid_ave').value = roundedKpwkp3MidAve;
 var genmath3_mid_1 = document.getElementById('genmath3_mid_1').value;
 var genmath3_mid_2 = document.getElementById('genmath3_mid_2').value;
 var genmath3_mid_ave = (parseInt(genmath3_mid_1) + parseInt(genmath3_mid_2)) / 2;
-var roundedGenmathMidAve = Math.round(genmathMidAve);
-document.getElementById('genmathMidAve').value = roundedGenmathMidAve;
+var roundedGenmathMidAve = Math.round(genmath3_mid_ave);
+document.getElementById('genmath3_mid_ave').value = roundedGenmathMidAve;
 
-var personal_development_ave = (parseInt(personal_development_one) + parseInt(personal_development_two)) / 2;
-var roundedPersonalDevelopmentAve = Math.round(personalDevelopmentAve);
-document.getElementById('personalDevelopmentAve').value = roundedPersonalDevelopmentAve;
+var personal3_mid_development_1 = document.getElementById('personal3_mid_development_1').value;
+var personal3_mid_development_2 = document.getElementById('personal3_mid_development_2').value;
+var personal3_mid_development_ave = (parseInt(personal3_mid_development_1) + parseInt(personal3_mid_development_2)) / 2;
+var roundedPersonalMidDevelopmentAve = Math.round(personal3_mid_development_ave);
+document.getElementById('personal3_mid_development_ave').value = roundedPersonalMidDevelopmentAve;
 
-var elsMidAve = (parseInt(elsMidOne) + parseInt(elsMidTwo)) / 2;
-var roundedElsMidAve = Math.round(elsMidAve);
-document.getElementById('elsMidAve').value = roundedElsMidAve;
+var els3_mid_1 = document.getElementById('els3_mid_1').value;
+var els3_mid_2 = document.getElementById('els3_mid_2').value;
+var els3_mid_ave = (parseInt(els3_mid_1) + parseInt(els3_mid_2)) / 2;
+var roundedels3MidAve = Math.round(els3_mid_ave);
+document.getElementById('els3_mid_ave').value = roundedels3MidAve;
 
-var pehMidAve = (parseInt(pehMidOne) + parseInt(pehMidTwo)) / 2;
-var roundedPehMidAve = Math.round(pehMidAve);
-document.getElementById('pehMidAve').value = roundedPehMidAve;
+var peh3_mid_1 = document.getElementById('peh3_mid_1').value;
+var peh3_mid_2 = document.getElementById('peh3_mid_2').value;
+var peh3_mid_ave = (parseInt(peh3_mid_1) + parseInt(peh3_mid_2)) / 2;
+var roundedpeh3MidAve = Math.round(peh3_mid_ave);
+document.getElementById('peh3_mid_ave').value = roundedpeh3MidAve;
 
-    final_average = parseInt(Math.round(oral_communication_mid_ave)) + parseInt(Math.round(kpwkp_mid_ave)) + parseInt(Math.round(genmath_mid_ave)) + parseInt(Math.round(personal_development_ave)) + parseInt(Math.round(els_mid_ave)) + parseInt(Math.round(peh_mid_ave));
-var roundedFinalAverage = Math.round(final_average / 6);
-document.getElementById('final_average').value = roundedFinalAverage;
-
+final3_average = parseInt(Math.round(oral3_communication_mid_ave)) + parseInt(Math.round(kpwkp3_mid_ave)) + parseInt(Math.round(genmath3_mid_ave)) + parseInt(Math.round(personal3_mid_development_ave)) + parseInt(Math.round(els3_mid_ave)) + parseInt(Math.round(peh3_mid_ave));
+var roundedFinalAverage = Math.round(final3_average / 6);
+document.getElementById('final3_average').value = roundedFinalAverage;
    
 }
    

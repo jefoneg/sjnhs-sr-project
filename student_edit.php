@@ -9,6 +9,9 @@ $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
 $section = mysqli_real_escape_string($conn, $_POST['section']);
 $year = mysqli_real_escape_string($conn, $_POST['year']);
 $strand = mysqli_real_escape_string($conn, $_POST['strand']);
+$birth = mysqli_real_escape_string($conn, $_POST['birth']);
+$sex = mysqli_real_escape_string($conn, $_POST['sex']);
+$date_admission = mysqli_real_escape_string($conn, $_POST['date_admission']);
 $semester = mysqli_real_escape_string($conn, $_POST['semester']);
 $teacher_mname = mysqli_real_escape_string($conn, $_POST['teacher_mname']);
 $teacher_fname = mysqli_real_escape_string($conn, $_POST['teacher_fname']);
@@ -66,19 +69,19 @@ if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
     header('location: teacher_dashboard_admin.php');
 }
 
-$qry = "UPDATE he_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE he_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE stem_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE stem_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE ict_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE ict_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE ia_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE ia_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE humms_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE humms_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE abm_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE abm_table SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
-$qry = "UPDATE student_tbl SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
+$qry = "UPDATE student_tbl SET lrn = '$lrn', firstname = '$firstname', middlename = '$middlename', lastname = '$lastname', section = '$section', year = '$year', strand = '$strand',birth = '$birth', sex = '$sex', date_admission = '$date_admission', semester = '$semester',teacher_mname = '$teacher_mname', teacher_fname = '$teacher_fname', teacher_lname = '$teacher_lname' WHERE lrn = '$lrn'";
 mysqli_query($conn,$qry);
 header('location: teacher_dashboard_faculty.php');
 ?>

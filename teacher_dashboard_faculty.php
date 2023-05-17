@@ -194,12 +194,21 @@
 										<td style="text-align: center;"><?php echo ucwords($rowfetchdata['semester']); ?></td>
                                         <td style="text-align: center;"><?php echo ucwords($rowfetchdata['teacher_fname'].' '.$rowfetchdata['teacher_mname'].' '.$rowfetchdata['teacher_lname']); ?></td>
 										<td style="text-align: center;">
-										<a type="button" class="btn btn-outline-success" href="student_add_grades.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a>
+										<div class="dropdown">
+                      <button class="btn btn-outline-danger btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
+								<center>
+						<a type="button" class="btn btn-outline-success" href="student_add_grades.php?lrn=<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-school"></i></a></br>
 										<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#updatestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-edit"></i>EDIT</button>
 										<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletestudent<?php echo $rowfetchdata['lrn']; ?>"><i class="fas fa-trash-alt"></i>DELETE</button><br>
 										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-FRONT</a>
 										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-10-back.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-10-BACK</a>
 										<a type="button" class="btn btn-outline-success" href="./assets/reports/school-form-9.php?lrn=<?php echo $rowfetchdata['lrn']; ?>">SF-9</a>
+										</center>
+									</div>
+									</div>
 										</td>	
 										<?php
 											}

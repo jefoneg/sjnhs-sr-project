@@ -35,7 +35,7 @@ $row = mysqli_fetch_array($sql);
                 $query = "INSERT INTO stem_table (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query);
         
-                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) SELECT lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname FROM stem_table";
+                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query1);
                 
                 $_SESSION['prompt'] = "Alert!";
@@ -46,7 +46,7 @@ $row = mysqli_fetch_array($sql);
                   $query = "INSERT INTO he_table (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query);
         
-                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) SELECT lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname FROM he_table";
+                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query1);
                 
                 $_SESSION['prompt'] = "Alert!";
@@ -57,7 +57,7 @@ $row = mysqli_fetch_array($sql);
                 $query = "INSERT INTO ia_table (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query);
         
-                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) SELECT lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname FROM ia_table";
+                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query1);
                 
                 $_SESSION['prompt'] = "Alert!";
@@ -68,9 +68,8 @@ $row = mysqli_fetch_array($sql);
                 $query = "INSERT INTO ict_table (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query);
         
-                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) SELECT lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname FROM ict_table";
+                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query1);
-                
                 $_SESSION['prompt'] = "Alert!";
                 $_SESSION['success'] ="Sucessfully added!";
                 header('location: teacher_dashboard_faculty.php');
@@ -78,8 +77,8 @@ $row = mysqli_fetch_array($sql);
             if($strand == 'HUMSS'){
                 $query = "INSERT INTO humms_table (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query);
-        
-                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) SELECT lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname FROM humms_table";
+               
+                $query1 = "INSERT INTO student_tbl (lrn,image,firstname,middlename,lastname,sex,birth,date_admission,section,year,strand,semester,teacher_fname,teacher_mname,teacher_lname) VALUES ('$lrn','$userfile','$firstname','$middlename','$lastname','$sex','$birth','$date_admission','$section','$year','$strand','First Semester','$teacher_fname','$teacher_mname','$teacher_lname')";
                 mysqli_query($conn,$query1);
                 
                 $_SESSION['prompt'] = "Alert!";
